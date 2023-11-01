@@ -1,12 +1,14 @@
 {
   "scripts": {
-    "build": "tstl"
+    "build": "tstl",
+    "dev": "tstl --watch"
   },
   "devDependencies": {
     "@types/jest": "^29.5.6",
     "@typescript-eslint/eslint-plugin": "^6.9.1",
     "@typescript-eslint/parser": "^6.9.1",
     "eslint": "^8.52.0",
+    "lua-types": "^2.13.1",
     "typescript": "^5.2.2",
     "typescript-to-lua": "^1.21.0"
   }
