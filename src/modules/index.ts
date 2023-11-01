@@ -1,1 +1,1 @@
-export * from './box/cfg/interfaces/ConfigOptionsBasic';
+export * from './box';

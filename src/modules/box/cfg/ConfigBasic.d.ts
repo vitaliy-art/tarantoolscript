@@ -1,4 +1,4 @@
-export interface ConfigOptionsBasic {
+export interface ConfigBasic {
   /**
    * Since version 1.6.2. Run the server as a background task. The log and pid_file parameters must be non-null for this to work.
    */
@@ -15,7 +15,7 @@ export interface ConfigOptionsBasic {
    * Connections made with listen = URI are called “binary port” or “binary protocol” connections.
    * A typical value is 3301.
    */
-  listen: string | number,
+  listen?: string | number,
 
   /**
    * Since version 1.7.4. A directory where memtx stores snapshot (.snap) files.
