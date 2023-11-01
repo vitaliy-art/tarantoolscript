@@ -24,7 +24,8 @@
 				"streetsidesoftware.code-spell-checker",
 				"EditorConfig.EditorConfig",
 				"dbaeumer.vscode-eslint",
-				"sumneko.lua"
+				"sumneko.lua",
+				"typescript-to-lua.vscode-typescript-to-lua"
 			]
 		}
 	},
