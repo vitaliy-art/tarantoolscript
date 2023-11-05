@@ -24,5 +24,5 @@ export interface Box {
   [key: string];
   cfg: Config;
   backup: Backup;
-  once: { (key: string, fn: { (...args: any[]): unknown }, ...args: unknown[]): void };
+  once: { (this: void, key: string, fn: { (...args: any[]): unknown }, ...args: unknown[]): void };
 }

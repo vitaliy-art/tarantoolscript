@@ -4,5 +4,5 @@ export interface Backup {
   start: { (this: void, n?: number): string[] }
 
   /** Inform server that normal operations may resume */
-  stop: {()}
+  stop: { (this: void) }
 }
