@@ -34,19 +34,19 @@ declare module 'luatest' {
   export function assert_equals(actual: object, expected: object, message?: string, deep_analysis?: boolean): void;
 
   /** Check that calling fn raises an error. */
-  export function assert_error<T extends CallableFunction>(fn: T, ...args: unknown[]): void;
+  export function assert_error(fn: { (...args: any[]): unknown }, ...args: unknown[]): void;
 
   /** Check that calling fn raises an error. */
-  export function assert_error_msg_contains<T extends CallableFunction>(expected_partial: string, fn: T, ...args: unknown[]): void;
+  export function assert_error_msg_contains(expected_partial: string, fn: { (...args: any[]): unknown }, ...args: unknown[]): void;
 
   /** Strips location info from message text. */
-  export function assert_error_msg_content_equals<T extends CallableFunction>(expected: string, fn: T, ...args: unknown[]): void;
+  export function assert_error_msg_content_equals(expected: string, fn: { (...args: any[]): unknown }, ...args: unknown[]): void;
 
   /** Checks full error: location and text. */
-  export function assert_error_msg_equals<T extends CallableFunction>(expected: string, fn: T, ...args: unknown[]): void;
+  export function assert_error_msg_equals(expected: string, fn: { (...args: any[]): unknown }, ...args: unknown[]): void;
 
   /** Checks full error: location and text. */
-  export function assert_error_msg_matches<T extends CallableFunction>(pattern: string, fn: T, ...args: unknown[]): void;
+  export function assert_error_msg_matches(pattern: string, fn: { (...args: any[]): unknown }, ...args: unknown[]): void;
 
   /** Alias for `assert_not`. */
   export function assert_eval_to_false(value: unknown, message?: string): void;
@@ -132,5 +132,5 @@ declare module 'luatest' {
   /** Add before suite hook. */
   export function before_suite(fn: CallableFunction)
 
-  export function group(name: string): {[key: string]: CallableFunction}
+  export function group(name: string): {[key: string]: { (): void }}
 }
