@@ -55,7 +55,7 @@ declare module 'luatest' {
   export function assert_eval_to_true(value: unknown, message?: string, ...params: unknown[]): LuaMultiReturn<unknown[]>;
 
   /** Checks that one table includes all items of another, irrespective of their keys. */
-  export function assert_items_include(actual: LuaTable, expected: LuaTable, message?: string);
+  export function assert_items_include(actual: AnyTable, expected: AnyTable, message?: string);
 
   /** Check that values are the same. */
   export function assert_is(actual: unknown, expected: unknown, message?: string);
@@ -64,7 +64,7 @@ declare module 'luatest' {
   export function assert_is_not(actual: unknown, expected: unknown, message?: string);
 
   /** Checks that two tables contain the same items, irrespective of their keys. */
-  export function assert_items_equals(actual: LuaTable, expected: LuaTable, message?: string);
+  export function assert_items_equals(actual: AnyTable, expected: AnyTable, message?: string);
 
   export function assert_nan(value: unknown, message?: string);
 
@@ -75,7 +75,7 @@ declare module 'luatest' {
   export function assert_not_almost_equals(actual: number, expected: number, margin: number, message?: string);
 
   /** Checks that map does not contain the other one. */
-  export function assert_not_covers(actual: LuaTable, expected: LuaTable, message?: string);
+  export function assert_not_covers(actual: AnyTable, expected: AnyTable, message?: string);
 
   /** Check that two values are not equal.
    * Tables are compared by value.
