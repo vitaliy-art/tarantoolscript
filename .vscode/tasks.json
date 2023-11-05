@@ -5,6 +5,12 @@
       "type": "npm",
       "label": "build",
       "script": "build",
+      "dependsOn": "remove build",
+    },
+    {
+      "type": "shell",
+      "label": "remove build",
+      "command": "rm -rf ./build/rocks build/test && rm -rf ./build/lualib_bundle.lua"
     }
   ]
 }
