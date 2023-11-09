@@ -1,5 +1,6 @@
 import { Backup } from './backup';
 import { Config } from './cfg';
+import { Schema } from './schema';
 
 /**
  * @todo ctl https://www.tarantool.io/en/doc/latest/reference/reference_lua/box_ctl/
@@ -7,7 +8,6 @@ import { Config } from './cfg';
  * @todo index https://www.tarantool.io/en/doc/latest/reference/reference_lua/box_index/
  * @todo info https://www.tarantool.io/en/doc/latest/reference/reference_lua/box_info/
  * @todo read_view https://www.tarantool.io/en/doc/latest/reference/reference_lua/box_read_view/
- * @todo schema https://www.tarantool.io/en/doc/latest/reference/reference_lua/box_schema/
  * @todo sequence https://www.tarantool.io/en/doc/latest/reference/reference_lua/box_schema_sequence/
  * @todo session https://www.tarantool.io/en/doc/latest/reference/reference_lua/box_session/
  * @todo slab https://www.tarantool.io/en/doc/latest/reference/reference_lua/box_slab/
@@ -25,4 +25,5 @@ export interface Box {
   cfg: Config;
   backup: Backup;
   once: { (this: void, key: string, fn: { (...args: any[]): unknown }, ...args: unknown[]): void };
+  schema: Schema;
 }
