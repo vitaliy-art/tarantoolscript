@@ -9,6 +9,7 @@
  * @todo replica_set https://www.tarantool.io/en/doc/latest/reference/reference_rock/luatest/classes/luatest.replica_set/
  */
 declare module 'luatest' {
+
   /** Check that value is truthy. */
   export function assert(value: unknown, message?: string): void;
 
@@ -118,19 +119,19 @@ declare module 'luatest' {
   export function skip(message: string);
 
   /** Skip a running test if condition is met. */
-  export function skip_if(condition: unknown, message: string)
+  export function skip_if(condition: unknown, message: string);
 
   /** Stops a test with a success. */
-  export function success()
+  export function success();
 
   /** Stops a test with a success if condition is met. */
   export function success_if(condition: unknown);
 
   /** Add after suite hook. */
-  export function after_suite(fn: CallableFunction)
+  export function after_suite(fn: CallableFunction);
 
   /** Add before suite hook. */
-  export function before_suite(fn: CallableFunction)
+  export function before_suite(fn: CallableFunction);
 
-  export function group(name: string): {[key: string]: { (): void }}
+  export function group(name: string): Group;
 }
