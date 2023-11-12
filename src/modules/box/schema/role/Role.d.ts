@@ -4,20 +4,20 @@ export interface Role {
    * @param name Name of role, which should conform to the rules for object names.
    * @param options Table – `if_not_exists = true|false` (default = `false`) - boolean; `true` means there should be no error if the role already exists.
    */
-  create: { (name: string, options?: { if_not_exists?: boolean}): void };
+  create(this: void, name: string, options?: { if_not_exists?: boolean}): void;
 
   /**
    * Drop a role.
    * @param name The name of the role.
    * @param options Table – `if_exists = true|false` (default = `false`) - boolean; `true` means there should be no error if the role does not exist.
    */
-  drop: { (name: string, options?: { if_exists?: boolean}): void };
+  drop(this: void, name: string, options?: { if_exists?: boolean}): void;
 
   /**
    * Return `true` if a role exists; return `false` if a role does not exist.
    * @param name The name of the role.
    */
-  exists: { (name: string): boolean };
+  exists(this: void, name: string): boolean;
 
   /**
    * Grant privileges to a role.
@@ -30,7 +30,7 @@ export interface Role {
    * @param object_name The name of a function or space or sequence or role.
    * @param options Table – `if_not_exists = true|false` (default = `false`) - boolean; `true` means there should be no error if the role already has the privilege.
    */
-  grant: { (name: string, privileges: string, object_type?: string, object_name?: string, options?: { if_not_exists?: boolean }): void };
+  grant(this: void, name: string, privileges: string, object_type?: string, object_name?: string, options?: { if_not_exists?: boolean }): void;
 
   /**
    * Revoke privileges from a role.
@@ -42,11 +42,11 @@ export interface Role {
    * @param object-type `space` or `function` or `sequence` or `role`.
    * @param object-name The name of a function or space or sequence or role.
    */
-  revoke: { (name: string, privileges: string, object_type?: string, object_name?: string): void };
+  revoke(this: void, name: string, privileges: string, object_type?: string, object_name?: string): void;
 
   /**
    * Return a description of a role’s privileges.
    * @param name The name of the role.
    */
-  info: { (name: string): string[][] };
+  info(this: void, name: string): string[][];
 }

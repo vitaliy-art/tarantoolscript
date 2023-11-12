@@ -19,18 +19,18 @@ export interface Schema {
    * make the request box.schema.upgrade().
    * This updates Tarantool system spaces to match the currently installed version of Tarantool.
    */
-  upgrade: { (): void };
+  upgrade(this: void): void;
 
   /**
    * Allows you to downgrade a database to the specified Tarantool version.
    * This might be useful if you need to run a database on older Tarantool versions. */
-  downgrade: { (version: string): void };
+  downgrade(this: void, version: string): void;
 
   /** Return a list of Tarantool versions available for downgrade. */
-  downgrade_versions: { (): string[] };
+  downgrade_versions(this: void): string[];
 
   /** Return a list of downgrade issues for the specified Tarantool version. */
-  downgrade_issues: { (version: string): string[] };
+  downgrade_issues(this: void, version: string): string[];
 
   user: User;
   role: Role;

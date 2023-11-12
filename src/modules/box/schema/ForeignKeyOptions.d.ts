@@ -5,5 +5,5 @@ export interface ForeignKeySingleOptions {
 
 export interface ForeignKeyMultipleOptions {
   space: string
-  field: {[key: string]: string};
+  field: AnyTable;
 }

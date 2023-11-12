@@ -11,7 +11,7 @@ export interface Func {
    * @param name A name of the function, which should conform to the rules for object names.
    * @param options
    */
-  create: { (name: string, options?: FunctionOptions): void };
+  create(this: void, name: string, options?: FunctionOptions): void;
 
   /**
    * Drop a function tuple.
@@ -19,14 +19,14 @@ export interface Func {
    * @param name The name of the function.
    * @param options Table - `if_exists = true|false` (default = `false`) - `boolean`; `true` means there should be no error if the _func tuple does not exist.
    */
-  drop: { (name: string, options?: { if_exists?: boolean }): void };
+  drop(this: void, name: string, options?: { if_exists?: boolean }): void;
 
   /**
    * Return true if a function tuple exists; return false if a function tuple does not exist.
    *
    * @param name The name of the function.
    */
-  exists: { (name: string): boolean };
+  exists(this: void, name: string): boolean;
 
   /**
    * Reload a C module with all its functions without restarting the server.
@@ -39,5 +39,5 @@ export interface Func {
    *
    * @param name The name of the module to reload.
    */
-  reload: { (name?: string): void };
+  reload(this: void, name?: string): void;
 }

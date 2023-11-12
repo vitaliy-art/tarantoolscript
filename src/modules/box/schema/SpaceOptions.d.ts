@@ -113,4 +113,6 @@ export interface SpaceOptions {
    * Default: blank
    */
   foreign_key?: ForeignKeyMultipleOptions | {[key: string]: ForeignKeySingleOptions};
+
+  name?: string;
 }
