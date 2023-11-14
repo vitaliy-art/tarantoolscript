@@ -21,6 +21,7 @@ import { Schema } from './schema';
  * @todo null https://www.tarantool.io/en/doc/latest/reference/reference_lua/box_null/
  */
 export interface Box {
+  NULL: void;
   [key: string];
   cfg: Config;
   backup: Backup;
