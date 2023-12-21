@@ -11,6 +11,19 @@ export interface Schema {
     create: SpaceCreateCallable;
   };
 
+  /**
+   * You can extend `space_object` with custom functions as follows:
+   *
+   * 1. Create a Lua function.
+   * 2. Add the function name to a predefined global variable `box.schema.space_mt`, which has the table type.
+   * Adding to `box.schema.space_mt` makes the function available for all spaces.
+   * 3. Call the function on the `space_object`: `space_object:function-name([parameters])`.
+   *
+   * Alternatively, you can make a user-defined function available for only one space by calling `getmetatable(space_object)`
+   * and then adding the function name to the meta table.
+   */
+  space_mt: AnyTable;
+
   /** Create a space. Same as `box.schema.space.create` */
   create_space: SpaceCreateCallable;
 
