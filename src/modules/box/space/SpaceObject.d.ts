@@ -14,7 +14,7 @@ export interface SpaceObject {
    *
    * @params options The space options such as field_count, user, format, name, and other. The full list of these options with descriptions parameters is provided in box.schema.space.create()
    */
-  alter(options: SpaceOptions): void ;
+  alter(options: SpaceOptions): void;
 
   /**
    * Insert a new tuple using an auto-increment primary key.

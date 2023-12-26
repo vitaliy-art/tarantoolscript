@@ -129,7 +129,7 @@ export interface TupleObject {
    * (`#tuple + negative field number + 1`).
    * - [3] - value (`lua_value`) – what value will be applied.
    */
-  update(params: {1: UpdateOperator, 2: number, 3: unknown}[]): TupleObject;
+  update(params: { 1: UpdateOperator, 2: number, 3: unknown }[]): TupleObject;
 
   /**
    * The same as `tuple_object:update()`, but ignores errors. In case of an error the tuple is left intact, but an error message is printed.
@@ -144,5 +144,5 @@ export interface TupleObject {
    * (`#tuple + negative field number + 1`).
    * - [3] - value (`lua_value`) – what value will be applied.
    */
-  upsert(params: {1: UpdateOperator, 2: number, 3: unknown}[]): TupleObject;
+  upsert(params: { 1: UpdateOperator, 2: number, 3: unknown }[]): TupleObject;
 }

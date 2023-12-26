@@ -4,14 +4,14 @@ export interface Role {
    * @param name Name of role, which should conform to the rules for object names.
    * @param options Table – `if_not_exists = true|false` (default = `false`) - boolean; `true` means there should be no error if the role already exists.
    */
-  create(this: void, name: string, options?: { if_not_exists?: boolean}): void;
+  create(this: void, name: string, options?: { if_not_exists?: boolean }): void;
 
   /**
    * Drop a role.
    * @param name The name of the role.
    * @param options Table – `if_exists = true|false` (default = `false`) - boolean; `true` means there should be no error if the role does not exist.
    */
-  drop(this: void, name: string, options?: { if_exists?: boolean}): void;
+  drop(this: void, name: string, options?: { if_exists?: boolean }): void;
 
   /**
    * Return `true` if a role exists; return `false` if a role does not exist.

@@ -103,7 +103,7 @@ export interface SpaceOptions {
    *
    * Default: blank
    */
-  constraint?: {[key: string]: string} | string;
+  constraint?: { [key: string]: string } | string;
 
   /**
    * The foreign keys for space fields.
@@ -112,7 +112,7 @@ export interface SpaceOptions {
    *
    * Default: blank
    */
-  foreign_key?: ForeignKeyMultipleOptions | {[key: string]: ForeignKeySingleOptions};
+  foreign_key?: ForeignKeyMultipleOptions | { [key: string]: ForeignKeySingleOptions };
 
   name?: string;
 }
