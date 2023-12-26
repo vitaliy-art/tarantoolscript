@@ -162,7 +162,7 @@ export interface SpaceObject {
    * @param after A tuple or the position of a tuple (`tuple_pos`) after which pairs starts the search. You can pass an empty string or `box.NULL` to this option to start the search from the first tuple.
    * @returns The `iterator`, which can be used in a for/end loop or with `totable()`.
    */
-  pairs(key?: unknown, options?: { iterator?: IteratorType, after?: number | AnyTable }): LuaIterator<number, TupleObject>;
+  pairs(key?: unknown, options?: { iterator?: IteratorType, after?: number | AnyTable }): LuaIterable<LuaMultiReturn<[number, TupleObject]>>;
 
   /**
    * Rename a space.
@@ -205,7 +205,7 @@ export interface SpaceObject {
    * If `options.fetch_pos` is set to `true`, returns a base64-encoded string representing the position of the last selected tuple as the second value.
    * If no tuples are fetched, returns `nil`.7
    */
-  select(key: unknown, options?: SelectOptions): LuaMultiReturn<TupleObject[], TuplePos>?;
+  select(key: unknown, options?: SelectOptions): LuaMultiReturn<[TupleObject[]?, TuplePos?]>;
 
   /**
    * Deletes all tuples. The method is performed in background and doesn’t block consequent requests.
