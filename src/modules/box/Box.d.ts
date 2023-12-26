@@ -1,6 +1,8 @@
 import { Backup } from './backup';
 import { Config } from './cfg';
 import { Schema } from './schema';
+import { Space } from './space';
+import { Tuple } from './tuple/Tuple';
 
 /**
  * @todo ctl https://www.tarantool.io/en/doc/latest/reference/reference_lua/box_ctl/
@@ -11,9 +13,7 @@ import { Schema } from './schema';
  * @todo sequence https://www.tarantool.io/en/doc/latest/reference/reference_lua/box_schema_sequence/
  * @todo session https://www.tarantool.io/en/doc/latest/reference/reference_lua/box_session/
  * @todo slab https://www.tarantool.io/en/doc/latest/reference/reference_lua/box_slab/
- * @todo space https://www.tarantool.io/en/doc/latest/reference/reference_lua/box_space/
  * @todo stat https://www.tarantool.io/en/doc/latest/reference/reference_lua/box_stat/
- * @todo tuple https://www.tarantool.io/en/doc/latest/reference/reference_lua/box_tuple/
  * @todo transactions https://www.tarantool.io/en/doc/latest/reference/reference_lua/box_txn_management/
  * @todo sql https://www.tarantool.io/en/doc/latest/reference/reference_lua/box_sql/
  * @todo event_watchers https://www.tarantool.io/en/doc/latest/reference/reference_lua/box_events/
@@ -21,10 +21,12 @@ import { Schema } from './schema';
  * @todo null https://www.tarantool.io/en/doc/latest/reference/reference_lua/box_null/
  */
 export interface Box {
+  [key: string]: unknown;
   NULL: void;
-  [key: string];
   cfg: Config;
   backup: Backup;
   once: { (this: void, key: string, fn: { (...args: any[]): unknown }, ...args: unknown[]): void };
   schema: Schema;
+  space: Space;
+  tuple: Tuple;
 }
