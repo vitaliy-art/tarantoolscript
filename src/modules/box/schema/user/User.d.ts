@@ -57,7 +57,10 @@ export interface User {
    * - A currently logged in user can change their password using `box.schema.user.passwd(new_password)`.
    * - An administrator can change the password of another user with `box.schema.user.passwd(name, new_password)`.
    */
-  passwd(this: void, name: string, new_password: string): void; (new_password: string): void;
+  passwd: {
+    (this: void, name: string, new_password: string): void;
+    (this: void, new_password: string): void;
+  }
 
   /**
    * Return a description of a user’s privileges.
