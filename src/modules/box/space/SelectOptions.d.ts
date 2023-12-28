@@ -16,7 +16,7 @@ export interface SelectOptions {
    *
    * Supported for the TREE index only.
    */
-  after?: AnyTable | TuplePos | unknown;
+  after?: AnyTable | TuplePos | void | number;
 
   /**
    * If `true`, the select method returns the position of the last selected tuple as the second value.
@@ -26,4 +26,8 @@ export interface SelectOptions {
   fetch_pos?: boolean;
 }
 
-type TuplePos = string;
+type TuplePos =
+  | AnyTable
+  | string
+  | void
+  | number

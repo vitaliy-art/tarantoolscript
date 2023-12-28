@@ -4,6 +4,8 @@ export interface IndexOptionsParts {
   /** Specify the field number or name. */
   field: number | string;
 
+  fieldno?: number;
+
   /** Specify the field type. If the field type is specified in `space_object:format()`, `key_part.type` inherits this value. */
   type?: FieldType;
 

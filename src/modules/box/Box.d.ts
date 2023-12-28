@@ -1,5 +1,6 @@
 import { Backup } from './backup';
 import { Config } from './cfg';
+import { Index } from './idx';
 import { Schema } from './schema';
 import { Space } from './space';
 import { Tuple } from './tuple/Tuple';
@@ -7,7 +8,6 @@ import { Tuple } from './tuple/Tuple';
 /**
  * @todo ctl https://www.tarantool.io/en/doc/latest/reference/reference_lua/box_ctl/
  * @todo error https://www.tarantool.io/en/doc/latest/reference/reference_lua/box_error/
- * @todo index https://www.tarantool.io/en/doc/latest/reference/reference_lua/box_index/
  * @todo info https://www.tarantool.io/en/doc/latest/reference/reference_lua/box_info/
  * @todo read_view https://www.tarantool.io/en/doc/latest/reference/reference_lua/box_read_view/
  * @todo sequence https://www.tarantool.io/en/doc/latest/reference/reference_lua/box_schema_sequence/
@@ -20,12 +20,12 @@ import { Tuple } from './tuple/Tuple';
  * @todo snapshot https://www.tarantool.io/en/doc/latest/reference/reference_lua/box_snapshot/
  * @todo null https://www.tarantool.io/en/doc/latest/reference/reference_lua/box_null/
  */
-export interface Box {
-  [key: string]: unknown;
+declare interface Box extends AnyTable {
   NULL: void;
-  cfg: Config;
-  backup: Backup;
   once: { (this: void, key: string, fn: { (...args: any[]): unknown }, ...args: unknown[]): void };
+  backup: Backup;
+  cfg: Config;
+  index: Index;
   schema: Schema;
   space: Space;
   tuple: Tuple;

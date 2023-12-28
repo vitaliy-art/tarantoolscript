@@ -2,7 +2,7 @@ import { SpaceFieldFormat, SpaceOptions } from '../schema';
 import { IndexObject } from '../idx/IndexObject';
 import { IndexOptions } from '../idx/IndexOptions';
 import { TriggerFunction } from './TriggerFunction';
-import { IteratorType } from '../idx';
+import { IteratorType } from '../idx/IteratorType';
 import { SelectOptions, TuplePos } from './SelectOptions';
 import { TupleObject } from '../tuple/TupleObject';
 import { UpdateOperation } from './UpdateOperation';
@@ -47,7 +47,7 @@ export interface SpaceObject {
    * @param key Primary-key field values, must be passed as a Lua table if key is multi-part.
    * @param iterator - Comparison method.
    */
-  count(key: unknown, iterator: { iterator: string }): number;
+  count(key?: unknown, iterator?: { iterator: IteratorType }): number;
 
   /**
    * Create an index.
@@ -226,6 +226,7 @@ export interface SpaceObject {
    * In other words, it is always safe to merge multiple `update` invocations into a single invocation, with no change in semantics.
    * @param key Primary-key field values, must be passed as a Lua table if key is multi-part.
    * @param updates Update operations.
+   * @returns The updated tuple or `nil` if the key is not found.
    */
   update(key: unknown, updates: UpdateOperation[]): TupleObject?;
 

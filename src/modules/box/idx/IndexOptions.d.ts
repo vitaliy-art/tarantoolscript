@@ -1,4 +1,5 @@
 import { IndexOptionsParts } from './IndexOptionsParts';
+import { IndexType } from './IndexType';
 
 /**
  * Index options that include the index name, type, identifiers of key fields, and so on.
@@ -10,7 +11,7 @@ export interface IndexOptions {
    *
    * Default: `TREE`.
    */
-  type?: 'TREE' | 'HASH' | 'RTREE' | 'BITSET';
+  type?: IndexType;
 
   /**
    * A unique numeric identifier of the index, which is generated automatically.

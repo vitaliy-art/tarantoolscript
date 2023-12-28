@@ -24,6 +24,15 @@ export interface Schema {
    */
   space_mt: AnyTable;
 
+  /** Adding to `box_schema.index_mt` makes the function available for all indexes. */
+  index_mt: AnyTable;
+
+  /** Adding to `box_schema.memtx_index_mt` makes the function available for all memtx indexes. */
+  memtx_index_mt: AnyTable;
+
+  /** Adding to box_schema.vinyl_index_mt makes the function available for all vinyl indexes. */
+  vinyl_index_mt: AnyTable;
+
   /** Create a space. Same as `box.schema.space.create` */
   create_space: SpaceCreateCallable;
 
