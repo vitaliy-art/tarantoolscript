@@ -1,9 +1,42 @@
-import { Box } from '../modules';
+import { Box, IndexObject, SpaceObject, TupleObject, User } from '../modules';
 import { ConfigOptions } from '../modules';
 import * as luatest from 'luatest';
+import { Error } from '../modules/box/error/Error';
 
 declare const box: Box;
 const g = luatest.group('test_cfg');
+
+declare const s: SpaceObject;
+const [t, pos] = s.select(2);
+
+const mt = getmetatable(box)! as AnyTable;
+
+mt.a = function(this: Box): void {
+  print('');
+};
+
+box.a();
+
+box.schema.index_mt.a = function(this: IndexObject): void {
+  print(this);
+};
+
+declare const idx: IndexObject;
+idx.a();
+
+
+declare const o: TupleObject;
+o.findall(1);
+o.findall(1, 3);
+o.find(1);
+o.find(1, 4);
+
+for (const [k, v] of o.pairs()) {
+  print(k);
+  print(v);
+}
+
+const [a, b] = o.unpack();
 
 g['test_cfg'] = () => {
   const options: ConfigOptions = {
