@@ -1,13 +1,13 @@
 import { Backup } from './backup';
 import { Config } from './cfg';
 import { Ctl } from './ctl';
+import { Error } from './error';
 import { Index } from './idx';
 import { Schema } from './schema';
 import { Space } from './space';
 import { Tuple } from './tuple';
 
 /**
- * @todo error https://www.tarantool.io/en/doc/latest/reference/reference_lua/box_error/
  * @todo info https://www.tarantool.io/en/doc/latest/reference/reference_lua/box_info/
  * @todo read_view https://www.tarantool.io/en/doc/latest/reference/reference_lua/box_read_view/
  * @todo sequence https://www.tarantool.io/en/doc/latest/reference/reference_lua/box_schema_sequence/
@@ -25,6 +25,7 @@ declare interface Box extends AnyTable {
   backup: Backup;
   cfg: Config;
   ctl: Ctl;
+  error: Error;
   index: Index;
   schema: Schema;
   space: Space;

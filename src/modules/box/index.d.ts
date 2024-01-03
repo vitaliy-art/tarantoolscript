@@ -1,6 +1,7 @@
 export * from './backup';
 export * from './cfg';
 export * from './ctl';
+export * from './error';
 export * from './idx';
 export * from './schema';
 export * from './space';
