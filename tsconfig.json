@@ -116,7 +116,9 @@
     "noImplicitGlobalVariables": true,
     "tstlVerbose": true,
     "noResolvePaths": [
-      "luatest"
+      "buffer",
+      "luatest",
+      "msgpack"
     ],
   }
 }
