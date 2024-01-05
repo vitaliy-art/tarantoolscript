@@ -1,4 +1,5 @@
 import { IndexOptionsParts } from './IndexOptionsParts';
+import { IndexSequenceOptions } from './IndexSequenceOptions';
 import { IndexType } from './IndexType';
 
 /**
@@ -105,4 +106,10 @@ export interface IndexOptions {
    * Specify the ratio between the sizes of different levels in the `LSM` tree.
    */
   run_size_ratio?: number;
+
+  /**
+   * The sequence becomes associated with the index, so that the next `insert()` will put the next generated number into the primary-key field,
+   * if the field would otherwise be nil.
+   */
+  sequence?: IndexSequenceOptions;
 }

@@ -3,6 +3,7 @@ import { SpaceOptions } from './SpaceOptions';
 import { User } from './user';
 import { Role } from './role';
 import { Func } from './func';
+import { Sequence } from './sequence';
 
 export interface Schema {
   /** @todo Add rest functions for box.schema.space. */
@@ -57,6 +58,7 @@ export interface Schema {
   user: User;
   role: Role;
   func: Func;
+  sequence: Sequence;
 }
 
 export interface SpaceCreateCallable {

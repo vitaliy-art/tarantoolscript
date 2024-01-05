@@ -11,7 +11,6 @@ import { Space } from './space';
 import { Tuple } from './tuple';
 
 /**
- * @todo sequence https://www.tarantool.io/en/doc/latest/reference/reference_lua/box_schema_sequence/
  * @todo session https://www.tarantool.io/en/doc/latest/reference/reference_lua/box_session/
  * @todo slab https://www.tarantool.io/en/doc/latest/reference/reference_lua/box_slab/
  * @todo stat https://www.tarantool.io/en/doc/latest/reference/reference_lua/box_stat/
