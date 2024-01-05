@@ -5,6 +5,7 @@ export * from './error';
 export * from './idx';
 export * from './info';
 export * from './iproto';
+export * from './read_view';
 export * from './schema';
 export * from './space';
 export * from './tuple';

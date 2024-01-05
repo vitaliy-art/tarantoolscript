@@ -5,12 +5,12 @@ import { Error } from './error';
 import { Index } from './idx';
 import { Info } from './info';
 import { IProto } from './iproto';
+import { ReadView } from './read_view';
 import { Schema } from './schema';
 import { Space } from './space';
 import { Tuple } from './tuple';
 
 /**
- * @todo read_view https://www.tarantool.io/en/doc/latest/reference/reference_lua/box_read_view/
  * @todo sequence https://www.tarantool.io/en/doc/latest/reference/reference_lua/box_schema_sequence/
  * @todo session https://www.tarantool.io/en/doc/latest/reference/reference_lua/box_session/
  * @todo slab https://www.tarantool.io/en/doc/latest/reference/reference_lua/box_slab/
@@ -30,6 +30,7 @@ declare interface Box extends AnyTable {
   index: Index;
   info: Info;
   iproto: IProto;
+  read_view: ReadView;
   schema: Schema;
   space: Space;
   tuple: Tuple;
