@@ -4,6 +4,7 @@ import { Ctl } from './ctl';
 import { Error } from './error';
 import { Index } from './idx';
 import { Info } from './info';
+import { IProto } from './iproto';
 import { Schema } from './schema';
 import { Space } from './space';
 import { Tuple } from './tuple';
@@ -28,6 +29,7 @@ declare interface Box extends AnyTable {
   error: Error;
   index: Index;
   info: Info;
+  iproto: IProto;
   schema: Schema;
   space: Space;
   tuple: Tuple;
