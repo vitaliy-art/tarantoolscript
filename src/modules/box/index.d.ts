@@ -7,6 +7,7 @@ export * from './info';
 export * from './iproto';
 export * from './read_view';
 export * from './schema';
+export * from './session';
 export * from './space';
 export * from './tuple';
 export * from './Box';

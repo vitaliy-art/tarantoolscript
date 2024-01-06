@@ -7,11 +7,11 @@ import { Info } from './info';
 import { IProto } from './iproto';
 import { ReadView } from './read_view';
 import { Schema } from './schema';
+import { Session } from './session';
 import { Space } from './space';
 import { Tuple } from './tuple';
 
 /**
- * @todo session https://www.tarantool.io/en/doc/latest/reference/reference_lua/box_session/
  * @todo slab https://www.tarantool.io/en/doc/latest/reference/reference_lua/box_slab/
  * @todo stat https://www.tarantool.io/en/doc/latest/reference/reference_lua/box_stat/
  * @todo transactions https://www.tarantool.io/en/doc/latest/reference/reference_lua/box_txn_management/
@@ -31,6 +31,7 @@ declare interface Box extends AnyTable {
   iproto: IProto;
   read_view: ReadView;
   schema: Schema;
+  session: Session;
   space: Space;
   tuple: Tuple;
 }
