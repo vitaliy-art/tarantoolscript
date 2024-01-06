@@ -38,4 +38,5 @@ declare interface Box extends AnyTable, TransactionsCommander, SqlCommander, Eve
   space: Space;
   stat: Stat;
   tuple: Tuple;
+  snapshot();
 }
