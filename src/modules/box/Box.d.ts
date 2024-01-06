@@ -12,6 +12,7 @@ import { Session } from './session';
 import { Space } from './space';
 import { Stat } from './stat';
 import { Tuple } from './tuple';
+import { TransactionsCommander } from './TransactionsCommander';
 
 /**
  * @todo transactions https://www.tarantool.io/en/doc/latest/reference/reference_lua/box_txn_management/
@@ -20,7 +21,7 @@ import { Tuple } from './tuple';
  * @todo snapshot https://www.tarantool.io/en/doc/latest/reference/reference_lua/box_snapshot/
  * @noSelf
  */
-declare interface Box extends AnyTable {
+declare interface Box extends AnyTable, TransactionsCommander {
   NULL: void;
   once(key: string, fn: (...args: any[]) => unknown, ...args: unknown[]): void;
   backup: Backup;
