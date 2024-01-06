@@ -6,6 +6,7 @@ import { Index } from './idx';
 import { Info } from './info';
 import { IProto } from './iproto';
 import { ReadView } from './read_view';
+import { Runtime, Slab } from './slab';
 import { Schema } from './schema';
 import { Session } from './session';
 import { Space } from './space';
@@ -18,10 +19,11 @@ import { Tuple } from './tuple';
  * @todo sql https://www.tarantool.io/en/doc/latest/reference/reference_lua/box_sql/
  * @todo event_watchers https://www.tarantool.io/en/doc/latest/reference/reference_lua/box_events/
  * @todo snapshot https://www.tarantool.io/en/doc/latest/reference/reference_lua/box_snapshot/
+ * @noSelf
  */
 declare interface Box extends AnyTable {
   NULL: void;
-  once: { (this: void, key: string, fn: { (...args: any[]): unknown }, ...args: unknown[]): void };
+  once(key: string, fn: (...args: any[]) => unknown, ...args: unknown[]): void;
   backup: Backup;
   cfg: Config;
   ctl: Ctl;
@@ -30,6 +32,8 @@ declare interface Box extends AnyTable {
   info: Info;
   iproto: IProto;
   read_view: ReadView;
+  runtime: Runtime;
+  slab: Slab;
   schema: Schema;
   session: Session;
   space: Space;
