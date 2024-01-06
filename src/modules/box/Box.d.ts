@@ -10,11 +10,10 @@ import { Runtime, Slab } from './slab';
 import { Schema } from './schema';
 import { Session } from './session';
 import { Space } from './space';
+import { Stat } from './stat';
 import { Tuple } from './tuple';
 
 /**
- * @todo slab https://www.tarantool.io/en/doc/latest/reference/reference_lua/box_slab/
- * @todo stat https://www.tarantool.io/en/doc/latest/reference/reference_lua/box_stat/
  * @todo transactions https://www.tarantool.io/en/doc/latest/reference/reference_lua/box_txn_management/
  * @todo sql https://www.tarantool.io/en/doc/latest/reference/reference_lua/box_sql/
  * @todo event_watchers https://www.tarantool.io/en/doc/latest/reference/reference_lua/box_events/
@@ -37,5 +36,6 @@ declare interface Box extends AnyTable {
   schema: Schema;
   session: Session;
   space: Space;
+  stat: Stat;
   tuple: Tuple;
 }

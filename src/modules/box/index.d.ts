@@ -10,6 +10,7 @@ export * from './schema';
 export * from './session';
 export * from './slab';
 export * from './space';
+export * from './stat';
 export * from './tuple';
 export * from './Box';
 export * from './CData';
