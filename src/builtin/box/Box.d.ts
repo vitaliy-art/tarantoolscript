@@ -13,15 +13,14 @@ import { Space } from './space';
 import { Stat } from './stat';
 import { Tuple } from './tuple';
 import { TransactionsCommander } from './TransactionsCommander';
+import { SqlCommander } from './SqlCommander';
 
 /**
- * @todo transactions https://www.tarantool.io/en/doc/latest/reference/reference_lua/box_txn_management/
- * @todo sql https://www.tarantool.io/en/doc/latest/reference/reference_lua/box_sql/
  * @todo event_watchers https://www.tarantool.io/en/doc/latest/reference/reference_lua/box_events/
  * @todo snapshot https://www.tarantool.io/en/doc/latest/reference/reference_lua/box_snapshot/
  * @noSelf
  */
-declare interface Box extends AnyTable, TransactionsCommander {
+declare interface Box extends AnyTable, TransactionsCommander, SqlCommander {
   NULL: void;
   once(key: string, fn: (...args: any[]) => unknown, ...args: unknown[]): void;
   backup: Backup;

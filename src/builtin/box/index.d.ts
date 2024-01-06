@@ -14,4 +14,5 @@ export * from './stat';
 export * from './tuple';
 export * from './Box';
 export * from './CData';
+export * from './SqlCommander';
 export * from './TransactionsCommander';
