@@ -1,5 +1,3 @@
-/** @noSelfInFile */
-
 /**
  * @todo helpers https://www.tarantool.io/en/doc/latest/reference/reference_rock/luatest/modules/luatest.helpers/
  * @todo group https://www.tarantool.io/en/doc/latest/reference/reference_rock/luatest/classes/luatest.group/
@@ -7,6 +5,7 @@
  * @todo runner https://www.tarantool.io/en/doc/latest/reference/reference_rock/luatest/classes/luatest.http_response/
  * @todo server https://www.tarantool.io/en/doc/latest/reference/reference_rock/luatest/classes/luatest.http_response/
  * @todo replica_set https://www.tarantool.io/en/doc/latest/reference/reference_rock/luatest/classes/luatest.replica_set/
+ * @noSelf
  */
 declare module 'luatest' {
   import { Group } from './Group';
