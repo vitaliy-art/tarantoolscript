@@ -1,5 +1,3 @@
-/** @noSelfInFile */
-
 import { MsgPackObject } from '../../msgpack';
 import { Feature } from './Feature';
 import { IProtoBallotKey } from './IProtoBallotKey';
@@ -20,6 +18,8 @@ import { ProtocolFeatures } from './ProtocolFeatures';
  * - override the behavior of the existing and unknown request types in the binary protocol.
  *
  * The submodule exports all IPROTO constants and features to Lua.
+ *
+ * @noSelf
  */
 export interface IProto {
   /** Contains all available request keys, except `raft`, `metadata`, and `ballot` keys. */

@@ -1,5 +1,4 @@
-/** @noSelfInFile */
-
+/** @noSelf */
 export interface MsgPackCfg {
   /**
    * The maximum recursion depth for encoding.

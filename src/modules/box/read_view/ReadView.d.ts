@@ -1,7 +1,6 @@
-/** @noSelfInFile */
-
 import { ReadViewObject } from './ReadViewObject';
 
+/** @noSelf */
 export interface ReadView {
   /**
    * Return an array of all active database read views. This array might include the following read view types:

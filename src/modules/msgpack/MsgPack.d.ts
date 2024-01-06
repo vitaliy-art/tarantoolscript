@@ -1,5 +1,4 @@
-/** @noSelfInFile */
-
+/** @noSelf */
 declare module 'msgpack' {
   import { CData } from '../box';
   import { MsgPackCallable } from './MsgPackCallable';

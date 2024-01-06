@@ -1,5 +1,3 @@
-/** @noSelfInFile */
-
 import { ErrorObject } from './ErrorObject';
 
 /**
@@ -8,10 +6,12 @@ import { ErrorObject } from './ErrorObject';
  *
  * The difference between raising an error using `box.error` and a Lua’s built-in error function is that when the error reaches the client,
  * its error code is preserved. In contrast, a Lua error would always be presented to the client as `ER_PROC_LUA`.
+ *
+ * @noSelf
  */
 export interface Error {
   /** Raise the last error. */
-  (): void;
+  (this: void): void;
 
   /**
    * Raise the error defined by `error_object`.

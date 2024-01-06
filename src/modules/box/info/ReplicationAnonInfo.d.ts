@@ -2,7 +2,7 @@ export interface ReplicationAnonInfo {
   /** Number of anonymous replicas following the current instance. */
   count: number;
 
-  (): LuaTable<string, {
+  (this: void): LuaTable<string, {
     id: number;
     uuid: string;
     lsn: number;

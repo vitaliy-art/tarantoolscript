@@ -1,5 +1,4 @@
-/** @noSelfInFile */
-
+/** @noSelf */
 export interface Ctl {
   /**
    * Wait until `box.info.ro` is true.

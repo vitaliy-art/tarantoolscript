@@ -1,5 +1,4 @@
-/** @noSelfInFile */
-
+/** @noSelf */
 declare module 'buffer' {
   import { BufferObject } from './BufferObject';
 

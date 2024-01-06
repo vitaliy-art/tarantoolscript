@@ -1,5 +1,3 @@
-/** @noSelfInFile */
-
 import { ElectionInfo } from './ElectionInfo';
 import { GarbageCollectorInfo } from './GarbageCollectorInfo';
 import { MemoryInfo } from './MemoryInfo';
@@ -9,6 +7,7 @@ import { SqlInfo } from './SqlInfo';
 import { SynchroInfo } from './SynchroInfo';
 import { VinylInfo } from './VinylInfo';
 
+/** @noSelf */
 export interface InfoData {
   /** Replication id. */
   id: number;
@@ -134,5 +133,5 @@ export interface Info extends InfoData {
    * Since `box.info` contents are dynamic, it’s not possible to iterate over keys with the Lua `pairs()` function.
    * For this purpose, `box.info()` builds and returns a Lua table with all keys and values provided in the submodule.
    */
-  (): InfoData;
+  (this: void): InfoData;
 }
