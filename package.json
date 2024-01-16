@@ -1,8 +1,33 @@
 {
+  "name": "tarantoolscript",
+  "version": "0.1.0",
+  "author": "Vitaliy Artemov olivera507224@yandex.ru",
+  "description": "TypeScript definitions for Tarantool Lua API.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vitaliy-art/tarantoolscript.git"
+  },
+  "keywords": [
+    "tarantool",
+    "types",
+    "typescript-to-lua",
+    "tstl",
+    "lua",
+    "declarations"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/vitaliy-art/tarantoolscript",
+  "bugs": {
+    "url": "https://github.com/vitaliy-art/tarantoolscript/issues"
+  },
   "scripts": {
     "build": "tstl",
     "dev": "tstl --watch"
   },
+  "files": [
+    "src/builtin/**/*.d.ts",
+    "src/rocks/**/*.d.ts"
+  ],
   "devDependencies": {
     "@types/jest": "^29.5.6",
     "@typescript-eslint/eslint-plugin": "^6.9.1",
@@ -11,5 +36,6 @@
     "lua-types": "^2.13.1",
     "typescript": "^5.2.2",
     "typescript-to-lua": "^1.21.0"
-  }
+  },
+  "types": "./src/index.d.ts"
 }
