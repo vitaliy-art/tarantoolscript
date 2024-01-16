@@ -1,6 +1,6 @@
 {
   "name": "tarantoolscript",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "author": "Vitaliy Artemov olivera507224@yandex.ru",
   "description": "TypeScript definitions for Tarantool Lua API.",
   "repository": {
@@ -26,7 +26,8 @@
   },
   "files": [
     "src/builtin/**/*.d.ts",
-    "src/rocks/**/*.d.ts"
+    "src/rocks/**/*.d.ts",
+    "src/*.d.ts"
   ],
   "devDependencies": {
     "@types/jest": "^29.5.6",

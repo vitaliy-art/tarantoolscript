@@ -1,2 +1,2 @@
 export * from './builtin';
-export * from './rocks';
+export * as rocks from './rocks';
