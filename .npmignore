@@ -1,6 +1,6 @@
 *
 !src
-!src/index.d.test
+!src/index.d.ts
 src/test
 !LICENSE
 !README.md
