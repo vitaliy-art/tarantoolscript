@@ -4,6 +4,7 @@ export type FieldType =
   | 'any'
   | 'unsigned'
   | 'string'
+  | 'str'
   | 'integer'
   | 'number'
   | 'varbinary'
