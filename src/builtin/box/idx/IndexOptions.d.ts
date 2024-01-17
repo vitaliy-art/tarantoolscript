@@ -39,7 +39,7 @@ export interface IndexOptions {
   /**
    *
    */
-  parts?: IndexOptionsParts;
+  parts?: Parts;
 
   /**
    * The `RTREE` index dimension.
@@ -115,7 +115,7 @@ export interface IndexOptions {
   sequence?: IndexSequenceOptions;
 }
 
-export type IndexOptionsParts =
+export type Parts =
   | string[]
   | string[][]
   | number[]
