@@ -2,6 +2,12 @@ import { FieldType } from '../schema';
 
 export interface IndexOptionsParts {
   /** Specify the field number or name. */
+  1?: number;
+
+  /** Specify the field type. If the field type is specified in `space_object:format()`, `key_part.type` inherits this value. */
+  2?: FieldType;
+
+  /** Specify the field number or name. */
   field: number | string;
 
   fieldno?: number;

@@ -1,3 +1,4 @@
+import { FieldType } from '../schema';
 import { IndexOptionsParts } from './IndexOptionsParts';
 import { IndexSequenceOptions } from './IndexSequenceOptions';
 import { IndexType } from './IndexType';
@@ -38,7 +39,7 @@ export interface IndexOptions {
   /**
    *
    */
-  parts?: string[] | IndexOptionsParts | IndexOptionsParts[];
+  parts?: IndexOptionsParts;
 
   /**
    * The `RTREE` index dimension.
@@ -113,3 +114,12 @@ export interface IndexOptions {
    */
   sequence?: IndexSequenceOptions;
 }
+
+export type IndexOptionsParts =
+  | string[]
+  | string[][]
+  | number[]
+  | number[][]
+  | [number, FieldType]
+  | IndexOptionsParts
+  | IndexOptionsParts[]
