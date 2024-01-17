@@ -1,1 +1,1 @@
-export * from './luatest';
+export * as luatest from './luatest';

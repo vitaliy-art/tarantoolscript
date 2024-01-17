@@ -1,5 +1,4 @@
-export interface Group {
-  [key: string]: () => void;
+export interface Group extends LuaTable<string, () => void> {
   before_each(this: void, func: { (cg: ConfigGroup): void }): void;
   before_each(this: void, params: AnyTable, func: { (cg: ConfigGroup): void }): void;
   before_test(name: string, params: AnyTable, func: { (cg: ConfigGroup): void }): void;

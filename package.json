@@ -26,7 +26,6 @@
   },
   "files": [
     "src/builtin/**/*.d.ts",
-    "src/rocks/**/*.d.ts",
     "src/*.d.ts"
   ],
   "devDependencies": {
