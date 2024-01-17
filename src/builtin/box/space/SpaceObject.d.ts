@@ -1,10 +1,10 @@
-import { SpaceFieldFormat, SpaceOptions } from '../schema';
-import { IndexObject } from '../idx/IndexObject';
-import { IndexOptions } from '../idx/IndexOptions';
+import { FieldType, SpaceFieldFormat, SpaceOptions } from '../schema';
+import { IndexObject } from '../idx';
+import { IndexOptions } from '../idx';
 import { TriggerFunction } from './TriggerFunction';
-import { IteratorType } from '../idx/IteratorType';
+import { IteratorType } from '../idx';
 import { SelectOptions, TuplePos } from './SelectOptions';
-import { TupleObject } from '../tuple/TupleObject';
+import { TupleObject } from '../tuple';
 import { UpdateOperation } from './UpdateOperation';
 import { CheckConstraint } from './CheckConstraint';
 
@@ -59,7 +59,7 @@ export interface SpaceObject {
    * @param options Index options.
    * @returns Created index object.
    */
-  create_index(name: string, options: IndexOptions): IndexObject;
+  create_index(name: string, options?: IndexOptions): IndexObject;
 
   /**
    * Delete a tuple identified by the primary key.
@@ -77,7 +77,7 @@ export interface SpaceObject {
    * Declare field names and types.
    * @param format A list of field names and types.
    */
-  format(format: SpaceFieldFormat[]): void;
+  format(format: SpaceFieldFormat[] | [string, FieldType][]): void;
 
   /**
    * Convert a map to a tuple instance or to a table.
@@ -101,7 +101,7 @@ export interface SpaceObject {
    * @param tuple Tuple to be inserted.
    * @returns The inserted tuple.
    */
-  insert(tuple: TupleObject): TupleObject;
+  insert(tuple: TupleObject | unknown[]): TupleObject;
 
   /**
    * Return the number of tuples in the space.
