@@ -28,7 +28,7 @@ export interface Error {
    * - `code` (`integer`) – (optional) a numeric code for this error.
    * - `type` (`string`) – (optional) an error type.
    */
-  (parameters: { reason: string, code?: number, type?: string }): void;
+  (this: void, parameters: { reason: string, code?: number, type?: string }): void;
 
   /**
    * Raise the error defined by the specified type and description.
@@ -37,7 +37,7 @@ export interface Error {
    * @param reason An error description.
    * @param args Description arguments.
    */
-  (type: string, reason: string, ...args: unknown[]): void;
+  (this: void, type: string, reason: string, ...args: unknown[]): void;
 
   /**
    * Raise a predefined Tarantool error specified by its identifier. You can see all Tarantool errors in the errcode.h file.
@@ -46,7 +46,7 @@ export interface Error {
    * for example, `box.error.NO_SUCH_USER == 45`.
    * @param args Description arguments.
    */
-  (code: number, ...args: unknown[]): void;
+  (this: void, code: number, ...args: unknown[]): void;
 
   ['new']: ErrorCreator;
 
