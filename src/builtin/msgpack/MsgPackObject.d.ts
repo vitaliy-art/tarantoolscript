@@ -9,7 +9,7 @@ import { MsgPackObjectIterator } from './MsgPackObjectIterator';
  * - `box.space.bands:insert(msgpack.object({1, 'The Beatles', 1960}))`
  */
 export interface MsgPackObject {
-  [key: number | string]
+  [key: number | string]: unknown;
 
   /**
    * Since: `2.10.0`.

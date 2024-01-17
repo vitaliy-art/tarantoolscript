@@ -101,7 +101,7 @@ export interface TupleObject {
    * @param fieldsToRemove Number of fields for remove.
    * @param fieldValues New values that will replace what was removed.
    */
-  transform(startFieldNumber: number, fieldsToRemove: number, ...fieldValues?: unknown[]): TupleObject;
+  transform(startFieldNumber: number, fieldsToRemove: number, ...fieldValues: unknown[]): TupleObject;
 
   /**
    * If `t` is a tuple instance, `t:unpack()` will return all fields, `t:unpack(1)` will return all fields starting with field number 1,
