@@ -1,3 +1,4 @@
+import { ErrorCreator } from './ErrorCreator';
 import { ErrorObject } from './ErrorObject';
 
 /**
@@ -17,7 +18,7 @@ export interface Error {
    * Raise the error defined by `error_object`.
    * @param error An error object.
    */
-  (error: ErrorObject | number): void;
+  (this: void, error: ErrorObject | number): void;
 
   /**
    * Raise the error defined by the specified parameters.
@@ -30,18 +31,6 @@ export interface Error {
   (parameters: { reason: string, code?: number, type?: string }): void;
 
   /**
-   * Create an error object with the specified parameters.
-   *
-   * Parameters:
-   * `reason` (`string`) – an error description.
-   * `code` (`integer`) – (optional) a numeric code for this error.
-   * `type` (`string`) – (optional) an error type.
-   *
-   * @customName new
-   */
-  _new(parameters: { reason: string, code?: number, type?: string }): ErrorObject;
-
-  /**
    * Raise the error defined by the specified type and description.
    *
    * @param type An error type.
@@ -49,16 +38,6 @@ export interface Error {
    * @param args Description arguments.
    */
   (type: string, reason: string, ...args: unknown[]): void;
-
-  /**
-   * Create an error object with the specified type and description.
-   * @param type An error type.
-   * @param reason An error description.
-   * @param args Description arguments.
-   *
-   * @customName new
-   */
-  _new(type: string, reason: string, ...args: unknown[]): ErrorObject;
 
   /**
    * Raise a predefined Tarantool error specified by its identifier. You can see all Tarantool errors in the errcode.h file.
@@ -69,15 +48,7 @@ export interface Error {
    */
   (code: number, ...args: unknown[]): void;
 
-  /**
-   * Create a predefined Tarantool error specified by its identifier. You can see all Tarantool errors in the errcode.h file.
-   * @param code A pre-defined error identifier; Lua constants that correspond to those Tarantool errors are defined as members of `box.error`,
-   * for example, `box.error.NO_SUCH_USER == 45`.
-   * @param args Description arguments.
-   *
-   * @customName new
-   */
-  _new(code: number, ...args: unknown[]): void;
+  ['new']: ErrorCreator;
 
   /** Get the last raised error. */
   last(): ErrorObject?;

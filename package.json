@@ -1,6 +1,6 @@
 {
   "name": "tarantoolscript",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "author": "Vitaliy Artemov olivera507224@yandex.ru",
   "description": "TypeScript definitions for Tarantool Lua API.",
   "repository": {
@@ -35,7 +35,7 @@
     "eslint": "^8.52.0",
     "lua-types": "^2.13.1",
     "typescript": "^5.2.2",
-    "typescript-to-lua": "^1.21.0"
+    "typescript-to-lua": "^1.23.0"
   },
   "types": "./src/index.d.ts"
 }
