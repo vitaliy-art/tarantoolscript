@@ -34,7 +34,7 @@ export interface IndexObject extends AnyTable {
    * If `options.fetch_pos` is set to `true`, returns a base64-encoded string representing the position of the last selected tuple as the second value.
    * If no tuples are fetched, returns `nil`.7
    */
-  select(key: unknown, options?: SelectOptions): LuaMultiReturn<[TupleObject[]?, TuplePos?]>;
+  select(key?: unknown, options?: SelectOptions): LuaMultiReturn<[TupleObject[]?, TuplePos?]>;
 
   /**
    * Search for a tuple via the given index, as described in the select topic.
