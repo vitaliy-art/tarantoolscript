@@ -6,4 +6,4 @@ TarantoolScript is a tool to help you create [Tarantool](https://www.tarantool.i
 Work in progress...
 
 # Usage
-You can find usage examples in [this project](https://github.com/vitaliy-art/tarantoolscript-samples).
+For now you can find usage examples in [this project](https://github.com/vitaliy-art/tarantoolscript-samples).
