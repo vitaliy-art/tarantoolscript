@@ -153,4 +153,6 @@ export interface IndexObject extends AnyTable {
    * @returns A tuple’s position in a space (base64-encoded string).
    */
   tuple_pos(tuple: TupleObject | unknown[]): TuplePos;
+
+  space_id: number;
 }
