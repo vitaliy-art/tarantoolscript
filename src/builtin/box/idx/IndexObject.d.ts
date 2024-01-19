@@ -152,5 +152,5 @@ export interface IndexObject extends AnyTable {
    * @param tuple A tuple whose position should be found.
    * @returns A tuple’s position in a space (base64-encoded string).
    */
-  tuple_pos(tuple: TupleObject): TuplePos;
+  tuple_pos(tuple: TupleObject | undefined[]): TuplePos;
 }
