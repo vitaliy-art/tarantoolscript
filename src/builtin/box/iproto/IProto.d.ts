@@ -83,5 +83,5 @@ export interface IProto {
    * @param body A request body encoded as MsgPack.
    * @returns 0 on success, otherwise an error is raised.
    */
-  send(sid: number, header: AnyTable | string, body: AnyTable | string): 0;
+  send(sid: number, header: AnyTable | string, body?: AnyTable | string): 0;
 }
