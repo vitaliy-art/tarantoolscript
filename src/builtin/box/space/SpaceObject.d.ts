@@ -176,7 +176,7 @@ export interface SpaceObject {
    * @param tuple Tuple to be inserted.
    * @returns The inserted tuple.
    */
-  replace(tuple: TupleObject): TupleObject;
+  replace(tuple: TupleObject | unknown[]): TupleObject;
 
   /**
    * Insert a tuple into a space.
@@ -186,7 +186,7 @@ export interface SpaceObject {
    * @param tuple Tuple to be inserted.
    * @returns The inserted tuple.
    */
-  put(tuple: TupleObject): TupleObject;
+  put(tuple: TupleObject | unknown[]): TupleObject;
 
   /**
    * At the time that a trigger is defined, it is automatically enabled - that is, it will be executed.
@@ -242,7 +242,7 @@ export interface SpaceObject {
    * @param tuple Default tuple to be inserted, if analogue isn’t found.
    * @param updates Update operations to update existing tuple.
    */
-  upsert(tuple: TupleObject, updates: UpdateOperation[]): void;
+  upsert(tuple: TupleObject | unknown[], updates: UpdateOperation[]): void;
 
   /**
    * Create a check constraint. A check constraint is a requirement that must be met when a tuple is inserted or updated in a space.
