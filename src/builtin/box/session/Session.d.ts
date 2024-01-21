@@ -86,6 +86,12 @@ export interface Session {
    * A Lua table that can hold arbitrary unordered session-specific names and values, which will last until the session ends.
    * For example, this table could be useful to store current tasks when working with a Tarantool queue manager.
    */
+  storage: LuaTable<string | number, unknown>
+
+  /**
+   * A Lua table that can hold arbitrary unordered session-specific names and values, which will last until the session ends.
+   * For example, this table could be useful to store current tasks when working with a Tarantool queue manager.
+   */
   storage_memorandum: LuaTable<string, unknown>;
 
   /**
