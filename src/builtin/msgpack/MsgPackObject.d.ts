@@ -8,7 +8,7 @@ import { MsgPackObjectIterator } from './MsgPackObjectIterator';
  * If a MsgPack object stores an array, it can be inserted into a database space:
  * - `box.space.bands:insert(msgpack.object({1, 'The Beatles', 1960}))`
  */
-export interface MsgPackObject {
+export interface MsgPackObject extends LuaTable<string, unknown> {
   [key: number | string]: unknown;
 
   /**
