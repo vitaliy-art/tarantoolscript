@@ -155,5 +155,5 @@ declare interface Box extends AnyTable, TransactionsCommander, SqlCommander, Eve
 
   snapshot();
 
-  func: LuaTable<string, { call(this, arsg: [string, ...unknown[]][]): unknown }>;
+  func: LuaTable<string, { call(this, args: unknown[]): unknown }>;
 }
