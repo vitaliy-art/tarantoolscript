@@ -112,4 +112,4 @@ export declare function object_from_raw(pointer: CData, size: number): MsgPackOb
  * @param value Any value.
  * @returns `true` if the argument is a MsgPack object; otherwise, `false`.
  */
-export declare function is_object(value: unknown): boolean;
+export declare function is_object(value: unknown): value is MsgPackObject;
