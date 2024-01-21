@@ -77,7 +77,7 @@ export interface SpaceObject {
    * Declare field names and types.
    * @param format A list of field names and types.
    */
-  format(format: SpaceFieldFormat[] | [string, FieldType][]): void;
+  format(format: SpaceFieldFormat[] | [string, FieldType?][]): void;
 
   /**
    * Convert a map to a tuple instance or to a table.

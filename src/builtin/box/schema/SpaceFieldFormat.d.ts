@@ -18,7 +18,7 @@ export type FieldType =
 
 export interface SpaceFieldFormat {
   name: string;
-  type: FieldType;
+  type?: FieldType;
   is_nullable?: boolean;
   collation?: string;
   constraint?: string;
