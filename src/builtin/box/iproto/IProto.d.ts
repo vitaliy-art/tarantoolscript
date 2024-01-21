@@ -72,4 +72,16 @@ export interface IProto {
    * Otherwise, it could lead to peer breakdown or undefined behavior.
    */
   override(requestType: number, handler?: (header: MsgPackObject, body: MsgPackObject) => boolean): void;
+
+  /**
+   * Since version `2.11.0`. Send an IPROTO packet over the session’s socket with the given MsgPack header and body.
+   * The header and body contain exported IPROTO constants from the `box.iproto()` submodule. Possible IPROTO constant formats:
+   * - a lowercase constant without the `IPROTO_` prefix (`schema_version`, `request_type`)
+   * - a constant from the corresponding `box.iproto` subnamespace (`box.iproto.SCHEMA_VERSION`, `box.iproto.REQUEST_TYPE`)
+   * @param sid The IPROTO session identifier (see `box.session.id()`).
+   * @param header A request header encoded as MsgPack.
+   * @param body A request body encoded as MsgPack.
+   * @returns 0 on success, otherwise an error is raised.
+   */
+  send(sid: number, header: AnyTable | string, body: AnyTable | string): 0;
 }
