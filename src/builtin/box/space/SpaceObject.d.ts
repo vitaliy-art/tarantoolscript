@@ -87,7 +87,7 @@ export interface SpaceObject {
    * @param options The only legal option is `{table = true|false}`; if the option is omitted or if `{table = false}`, then return type will be ‘cdata’ (i.e. tuple); if `{table = true}`, then return type will be ‘table’.
    * @returns A tuple instance or table.
    */
-  frommap(map: Map<string, any>, options?: { table?: boolean }): TupleObject;
+  frommap(map: { [key: string]: unknown }, options?: { table?: boolean }): TupleObject;
 
   /**
    * Search for a tuple in the given space.
