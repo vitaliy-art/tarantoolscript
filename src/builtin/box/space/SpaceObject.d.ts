@@ -7,6 +7,7 @@ import { SelectOptions, TuplePos } from './SelectOptions';
 import { TupleObject } from '../tuple';
 import { UpdateOperation } from './UpdateOperation';
 import { CheckConstraint } from './CheckConstraint';
+import { UpdateOperator } from './UpdateOperator';
 
 export interface SpaceObject {
   /**
@@ -228,7 +229,7 @@ export interface SpaceObject {
    * @param updates Update operations.
    * @returns The updated tuple or `nil` if the key is not found.
    */
-  update(key: unknown, updates: UpdateOperation[]): TupleObject?;
+  update(key: unknown, updates: UpdateOperation[] | [UpdateOperator, number | string, unknown][]): TupleObject?;
 
   /**
    * Update or insert a tuple.
