@@ -243,7 +243,7 @@ export interface SpaceObject {
    * @param tuple Default tuple to be inserted, if analogue isn’t found.
    * @param updates Update operations to update existing tuple.
    */
-  upsert(tuple: TupleObject | unknown[], updates: UpdateOperation[]): void;
+  upsert(tuple: TupleObject | unknown[], updates: UpdateOperation[] | [UpdateOperator, number | string, unknown][]): void;
 
   /**
    * Create a check constraint. A check constraint is a requirement that must be met when a tuple is inserted or updated in a space.
