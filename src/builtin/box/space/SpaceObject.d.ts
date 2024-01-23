@@ -10,6 +10,8 @@ import { CheckConstraint } from './CheckConstraint';
 import { UpdateOperator } from './UpdateOperator';
 
 export interface SpaceObject {
+  [ key: string | number ]: unknown;
+
   /**
    * Since version 2.5.2. Alter an existing space. This method changes certain space parameters.
    *
