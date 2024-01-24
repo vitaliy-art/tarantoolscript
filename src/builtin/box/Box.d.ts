@@ -27,7 +27,7 @@ declare interface Box extends AnyTable, TransactionsCommander, SqlCommander, Eve
    * To avoid this problem, use Tarantool’s `box.NULL` constant instead of `nil`.
    * `box.NULL` is a placeholder for a `nil` value in tables to preserve a key without a value.
    */
-  NULL: void;
+  NULL: undefined;
 
   /**
    * Execute a function, provided it has not been executed before.
