@@ -1,5 +1,5 @@
 import { ForeignKeyMultipleOptions, ForeignKeySingleOptions } from './ForeignKeyOptions';
-import { SpaceFieldFormat } from './SpaceFieldFormat';
+import { FieldType, SpaceFieldFormat } from './SpaceFieldFormat';
 
 /**
  * Space options that include the space id, format, field count, constraints and foreign keys, and so on.
@@ -64,7 +64,7 @@ export interface SpaceOptions {
    *
    * Default: blank
    */
-  format?: SpaceFieldFormat[];
+  format?: SpaceFieldFormat[] | [string, FieldType][];
 
   /**
    * Space contents are replication-local: changes are stored in the write-ahead log of the local node but there is no replication.
