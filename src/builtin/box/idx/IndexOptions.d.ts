@@ -120,6 +120,7 @@ export type Parts =
   | string[][]
   | number[]
   | number[][]
+  | (string | number)[]
   | [number, FieldType]
   | IndexOptionsParts
   | IndexOptionsParts[]
