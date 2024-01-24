@@ -13,10 +13,8 @@ export interface Tuple {
    *
    * @param value The value that will become the tuple contents.
    * @returns A new tuple
-   *
-   * @customName new
    */
-  _new(this: void, ...value: unknown[]): TupleObject;
+  ['new'](this: void, ...value: unknown[]): TupleObject;
 
   /**
    * Since versions `2.2.3`, `2.3.2`, and `2.4.1`. A function to check whether a given object is a tuple cdata object.
