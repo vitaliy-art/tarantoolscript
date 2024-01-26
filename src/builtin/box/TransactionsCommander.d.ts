@@ -29,7 +29,7 @@ export interface TransactionsCommander {
    * In effect the fiber which executes `box.begin()` is starting an “active multi-request transaction”, blocking all other fibers.
    * @param opts Transaction options.
    */
-  begin(opts: TransactionOptions): void;
+  begin(opts?: TransactionOptions): void;
 
   /** End the transaction, and make all its data-change operations permanent. */
   commit(): void;
@@ -62,6 +62,15 @@ export interface TransactionsCommander {
    * @returns The result of the function passed to atomic() as an argument.
    */
   atomic<TResult = unknown>(opts: TransactionOptions, txFunction: (...args: any[]) => TResult, ...functionArgs: unknown[]): TResult;
+
+  /**
+   * Execute a function, acting as if the function starts with an implicit `box.begin()` and ends with an implicit` box.commit()` if successful,
+   * or ends with an implicit `box.rollback()` if there is an error.
+   * @param txFunction Function to execute.
+   * @param functionArgs Arguments passed to the function.
+   * @returns The result of the function passed to atomic() as an argument.
+   */
+  atomic<TResult = unknown>(txFunction: (...args: any[]) => TResult, ...functionArgs: unknown[]): TResult;
 
   /**
    * Define a trigger for execution when a transaction ends due to an event such as `box.commit()`.
