@@ -1,7 +1,4 @@
-/** @noSelf */
-declare module 'buffer' {
-  import { BufferObject } from './BufferObject';
+import { BufferObject } from './BufferObject';
 
-  /** Create a new buffer. */
-  export function ibuf(): BufferObject;
-}
+/** Create a new buffer. */
+export function ibuf(): BufferObject;
