@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 import { CData } from '../box';
 import { BufferObject } from '../buffer';
 import { MsgPackCfgCallable } from './MsgPackCfgCallable';
