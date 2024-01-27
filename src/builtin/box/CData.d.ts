@@ -1,1 +1,1 @@
-export type CData = void;
+export type CData = number;
