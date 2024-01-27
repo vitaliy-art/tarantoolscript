@@ -1,4 +1,5 @@
 import { CData } from '../box';
+import { BufferObject } from '../buffer';
 import { MsgPackCfgCallable } from './MsgPackCfgCallable';
 import { MsgPackObject } from './MsgPackObject';
 
@@ -8,6 +9,14 @@ import { MsgPackObject } from './MsgPackObject';
  * @returns The original contents formatted as a raw MsgPack string.
  */
 export declare function encode(value: unknown): string;
+/**
+ * Convert a Lua object to a raw MsgPack string in an ibuf, which is a buffer such as `buffer.ibuf()` creates.
+ * As with `encode(lua_value)`, the result is a raw MsgPack string, but it goes to the `ibuf` output instead of being returned.
+ * @param value Either a scalar value or a Lua table value.
+ * @param ibuf (output parameter) where the result raw MsgPack string goes.
+ * @returns Number of bytes in the output.
+ */
+export declare function encode(value: unknown, ibuf: BufferObject): number;
 
 /**
  * Convert a raw MsgPack string to a Lua object.
