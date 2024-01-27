@@ -8,6 +8,7 @@ import { TupleObject } from '../tuple';
 import { UpdateOperation } from './UpdateOperation';
 import { CheckConstraint } from './CheckConstraint';
 import { UpdateOperator } from './UpdateOperator';
+import { MsgPackObject } from '../../msgpack';
 
 export interface SpaceObject {
   [ key: string | number ]: unknown;
@@ -104,7 +105,7 @@ export interface SpaceObject {
    * @param tuple Tuple to be inserted.
    * @returns The inserted tuple.
    */
-  insert(tuple: TupleObject | unknown[]): TupleObject;
+  insert(tuple: TupleObject | MsgPackObject | unknown[]): TupleObject;
 
   /**
    * Return the number of tuples in the space.
