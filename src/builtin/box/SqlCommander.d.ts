@@ -7,7 +7,7 @@ export interface SqlCommander {
    * @param sqlStatement Statement, which should conform to the rules for SQL grammar.
    * @param extraParameters Optional table for placeholders in the statement.
    */
-  execute(sqlStatement: string, extraParameters?: LuaTable): ExecutionResult;
+  execute(sqlStatement: string, extraParameters?: unknown[]): ExecutionResult;
 
   /** The same as `prepared_table:execute()`. */
   execute(preparedStatementId: number): ExecutionResult;
