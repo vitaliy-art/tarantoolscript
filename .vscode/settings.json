@@ -1,0 +1,30 @@
+{
+    "cSpell.words": [
+        "autoincrement",
+        "bsize",
+        "euid",
+        "frommap",
+        "icontains",
+        "iproto",
+        "linearizable",
+        "luatest",
+        "maxalloc",
+        "metatable",
+        "metatables",
+        "msgpack",
+        "rowcount",
+        "RTREE",
+        "savepoint",
+        "tarantool",
+        "tarantoolscript",
+        "unprepare",
+        "upserts",
+        "userdata",
+        "varbinary",
+        "vclock",
+        "xfail"
+    ],
+    "Lua.diagnostics.globals": [
+        "box"
+    ]
+}
