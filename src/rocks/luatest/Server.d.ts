@@ -1,6 +1,7 @@
 import { ConfigBasic } from '../../builtin';
 import { HTTPResponse } from './HTTPResponse';
 import { ServerObjectOptions } from './ServerObjectOptions';
+import { Server } from './ServerType';
 
 /**
  * Build a listen URI based on the given server alias and extra path. The resulting URI: `<Server.vardir>/[<extra_path>/]<server_alias>.sock`.
@@ -22,7 +23,7 @@ export function assert_follows_upstream(server_id: number): void;
  *
  * This is a shortcut for `server.net_box:call()`.
  */
-export function call(fn_name: string, args?: LuaTable<string, undefined>, options?: LuaTable<string, undefined>): void;
+export function call(fn_name: string, args?: unknown[], options?: AnyTable): void;
 
 /**
  * Establish `net.box` connection. It’s available in `net_box` field.
@@ -47,7 +48,7 @@ export function drop(): void;
  *
  * This is a shortcut for `server.net_box:eval()`.
  */
-export function eval(code: string, args?: LuaTable<string, unknown>, options?: LuaTable<string, unknown>): unknown;
+export function eval(code: string, args?: unknown[], options?: AnyTable): unknown;
 
 /**
  * Run given function on the server.
@@ -55,7 +56,7 @@ export function eval(code: string, args?: LuaTable<string, unknown>, options?: L
  * Much like `Server:eval`, but takes a function instead of a string. The executed function must have no up values (closures).
  * Though it may use global functions and modules (like `box` , `os` , etc.)
  */
-export function exec<TResult = unknown>(fn: (...args: any[]) => TResult, args: LuaTable<string, unknown>, options?: LuaTable<string, unknown>): TResult;
+export function exec<TResult = unknown>(fn: (this: void, ...args: any[]) => TResult, args?: unknown[], options?: AnyTable): TResult;
 
 /**
  * A simple wrapper around the `Server:exec()` method to get the `box.cfg` value from the server.
@@ -116,8 +117,8 @@ export function grep_log(pattern: string, bytes_num?: number, opts?: { reset?: b
  */
 export function http_request(method: string, path: string, options?: {
   body?: string,
-  json?: LuaTable<string, unknown> | unknown[],
-  http?: LuaTable<string, unknown>,
+  json?: AnyTable | unknown[],
+  http?: AnyTable,
   raise?: boolean,
 }): HTTPResponse;
 
@@ -135,7 +136,7 @@ export function make_workdir();
  * Build a server object.
  * @customName new
  */
-export function new_(object?: ServerObjectOptions, extra?: LuaTable<string, unknown>): Server;
+export function new_(object?: ServerObjectOptions, extra?: AnyTable): typeof Server;
 
 /**
  * Play WAL until the synchro queue becomes busy. WAL records go one by one.

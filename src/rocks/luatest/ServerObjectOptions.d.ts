@@ -8,12 +8,12 @@ export interface ServerObjectOptions {
   /**
    * Arbitrary args to run `object.command` with.
    */
-  args?: LuaTable<string, unknown>;
+  args?: AnyTable | string[];
 
   /**
    * Pass the given env variables into the server process.
    */
-  env?: LuaTable<string, unknown>;
+  env?: AnyTable;
 
   /**
    * Change to the given directory before running the server process.
@@ -55,12 +55,12 @@ export interface ServerObjectOptions {
   net_box_uri?: string;
 
   /**
-   * Override the default credentials for the.. code-block:: lua `net.box` connection to the new server.
+   * Override the default credentials for the `net.box` connection to the new server.
    */
-  net_box_credentials?: LuaTable<string, unknown>;
+  net_box_credentials?: { user: string, password: string };
 
   /**
-   * Extra options for `box.cfg()` and the value of the.. code-block:: lua `TARANTOOL_BOX_CFG` env variable which is passed into the server process.
+   * Extra options for `box.cfg()` and the value of the `TARANTOOL_BOX_CFG` env variable which is passed into the server process.
    */
   box_cfg?: ConfigBasic;
 }

@@ -7,6 +7,8 @@ import { Server } from './Server';
 import * as replica_set from './ReplicaSet';
 import * as server from './Server';
 
+export function configure(cfg: { shuffle: 'group' | 'all' | 'none' });
+
 /** Check that value is truthy. */
 export function assert(value: unknown, message?: string): void;
 
@@ -14,7 +16,7 @@ export function assert(value: unknown, message?: string): void;
 export function assert_almost_equals(actual: number, expected: number, margin: number, message?: string): void;
 
 /** Checks that actual map includes expected one. */
-export function assert_covers(actual: object, expected: object, message?: string): void;
+export function assert_covers(actual: AnyTable, expected: AnyTable, message?: string): void;
 
 /** Compare numbers. */
 export function assert_lt(left: number, right: number, message?: string): void;
@@ -29,22 +31,22 @@ export function assert_gt(left: number, right: number, message?: string): void;
 export function assert_ge(left: number, right: number, message?: string): void;
 
 /** Check that two values are equal. */
-export function assert_equals(actual: object, expected: object, message?: string, deep_analysis?: boolean): void;
+export function assert_equals(actual: unknown, expected: unknown, message?: string, deep_analysis?: boolean): void;
 
 /** Check that calling fn raises an error. */
-export function assert_error(fn: { (...args: any[]): unknown }, ...args: unknown[]): void;
+export function assert_error(fn: (this: void, ...args: any[]) => unknown, ...args: unknown[]): void;
 
 /** Check that calling fn raises an error. */
-export function assert_error_msg_contains(expected_partial: string, fn: { (...args: any[]): unknown }, ...args: unknown[]): void;
+export function assert_error_msg_contains(expected_partial: string, fn: (this: void, ...args: any[]) => unknown, ...args: unknown[]): void;
 
 /** Strips location info from message text. */
-export function assert_error_msg_content_equals(expected: string, fn: { (...args: any[]): unknown }, ...args: unknown[]): void;
+export function assert_error_msg_content_equals(expected: string, fn: (this: void, ...args: any[]) => unknown, ...args: unknown[]): void;
 
 /** Checks full error: location and text. */
-export function assert_error_msg_equals(expected: string, fn: { (...args: any[]): unknown }, ...args: unknown[]): void;
+export function assert_error_msg_equals(expected: string, fn: (this: void, ...args: any[]) => unknown, ...args: unknown[]): void;
 
 /** Checks full error: location and text. */
-export function assert_error_msg_matches(pattern: string, fn: { (...args: any[]): unknown }, ...args: unknown[]): void;
+export function assert_error_msg_matches(pattern: string, fn: (this: void, ...args: any[]) => unknown, ...args: unknown[]): void;
 
 /** Alias for `assert_not`. */
 export function assert_eval_to_false(value: unknown, message?: string): void;
@@ -125,12 +127,12 @@ export function success();
 export function success_if(condition: unknown);
 
 /** Add after suite hook. */
-export function after_suite(fn: CallableFunction);
+export function after_suite(fn: (this: void, ...args: any[]) => unknown);
 
 /** Add before suite hook. */
-export function before_suite(fn: CallableFunction);
+export function before_suite(fn: (this: void, ...args: any[]) => unknown);
 
-export function group(name: string): Group;
+export function group(name?: string, params?: AnyTable[]): Group;
 
 /** Collection of test helpers. */
 export const helpers: typeof Helpers;
