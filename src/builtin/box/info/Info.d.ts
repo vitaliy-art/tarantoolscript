@@ -9,6 +9,8 @@ import { VinylInfo } from './VinylInfo';
 
 /** @noSelf */
 export interface InfoData {
+  version: string;
+
   /** Replication id. */
   id: number;
 
