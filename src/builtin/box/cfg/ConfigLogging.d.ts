@@ -1,4 +1,4 @@
-import { LogLevel } from 'builtin/log/LogConfig';
+import { LogLevel } from '../../log/LogConfig';
 
 export interface ConfigLogging {
   /**
