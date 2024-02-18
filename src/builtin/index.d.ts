@@ -17,7 +17,6 @@
 /** @todo jit https://www.tarantool.io/en/doc/latest/reference/reference_lua/jit/ */
 /** @todo json https://www.tarantool.io/en/doc/latest/reference/reference_lua/json/ */
 /** @todo key_def https://www.tarantool.io/en/doc/latest/reference/reference_lua/key_def/ */
-/** @todo log https://www.tarantool.io/en/doc/latest/reference/reference_lua/log/ */
 /** @todo merger https://www.tarantool.io/en/doc/latest/reference/reference_lua/merger/ */
 /** @todo net.box https://www.tarantool.io/en/doc/latest/reference/reference_lua/net_box/ */
 /** @todo os https://www.tarantool.io/en/doc/latest/reference/reference_lua/osmodule/ */
@@ -40,6 +39,7 @@
 
 export * from './box';
 export * from './buffer';
+export * from './log';
 export * from './msgpack';
 export * from './package';
 export * from './extra';
