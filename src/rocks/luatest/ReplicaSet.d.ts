@@ -1,4 +1,6 @@
-import { Server, ServerObjectOptions } from './Server';
+import { Server } from './Server';
+import { ServerObjectOptions } from './ServerObjectOptions';
+import { ReplicaSet } from './ReplicaSetType';
 
 /**
  * Add the server object to the replica set. The added server object should be built via the `ReplicaSet:build_server` function.
@@ -49,7 +51,7 @@ export function get_server(alias: string): Server;
  * - servers: List of server configurations to build server objects from and add them to the new replica set.
  * @customName new
  */
-export declare const new_: (object?: { servers?: ServerObjectOptions[] }) => ReplicaSet;
+export function new_(object?: { servers?: ServerObjectOptions[] }): typeof ReplicaSet;
 
 /**
  * Start all servers in the replica set. Optionally waits until all servers are ready.
