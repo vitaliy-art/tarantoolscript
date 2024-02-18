@@ -1,3 +1,5 @@
+import { LogLevel } from 'builtin/log/LogConfig';
+
 export interface ConfigLogging {
   /**
    * Since version 1.6.2. Specifies the level of detail the log has. There are seven levels:
@@ -13,7 +15,12 @@ export interface ConfigLogging {
    * By setting `log_level`, you can enable logging of all events with severities above or equal to the given level.
    * Tarantool prints logs to the standard error stream by default. This can be changed with the log configuration parameter.
    */
-  log_level?: 1 | 2 | 3 | 4 | 5 | 6 | 7,
+  log_level?: LogLevel;
+
+  /**
+   * Configure the specified log levels (`log_level`) for different modules.
+   */
+  log_modules?: { [key: string]: LogLevel };
 
   /**
    * Since version 1.7.4. By default, Tarantool sends the log to the standard error stream (stderr).
