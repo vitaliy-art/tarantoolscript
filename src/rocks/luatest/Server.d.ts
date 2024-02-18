@@ -9,7 +9,7 @@ import { Server } from './ServerType';
  * @param server_alias Server alias.
  * @param extra_path Extra path relative to the `Server.vardir` directory.
  */
-export function build_listen_uri(this: void, server_alias: string, extra_path: string): string;
+export function build_listen_uri(this: void, server_alias: string, extra_path?: string): string;
 
 /**
  * Assert that the server follows the source node with the given ID.
