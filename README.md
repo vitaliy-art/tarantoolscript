@@ -142,4 +142,4 @@ Of course, to use `luatest` package or other packages which not includes to Tara
 
 Tarantoolscript is under development and not declares many useful Tarantool modules, which will be added in the near future.
 
-Feel free to add [Issue](https://github.com/vitaliy-art/tarantoolscript-samples/issues/new) or create [Pull request](https://github.com/vitaliy-art/tarantoolscript-samples/compare).
+Feel free to add [Issue](https://github.com/vitaliy-art/tarantoolscript/issues/new) or create [Pull request](https://github.com/vitaliy-art/tarantoolscript/compare).
