@@ -113,7 +113,7 @@ Or for module `luatest.helpers`:
 }
 ```
 
-Now you allow to import and use that modules:
+Now you can import and use these modules:
 
 ```ts
 import * as log from 'log';
@@ -132,7 +132,7 @@ log.info(luatest_helpers.uuid(1, 2, 3))
 return ____exports
 ```
 
-Of course, to use `luatest` package or other packages which not includes to Tarantool default build, you need to install them with [tt rocks](https://www.tarantool.io/en/doc/latest/reference/tooling/tt_cli/rocks/) command.
+Of course, to use `luatest` package or other packages which not includes into Tarantool default build, you need to install them with [tt rocks](https://www.tarantool.io/en/doc/latest/reference/tooling/tt_cli/rocks/) command.
 
 ## More usage examples
 
