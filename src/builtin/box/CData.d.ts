@@ -1,1 +1,1 @@
-export type CData = number;
+export type CData = unknown;
