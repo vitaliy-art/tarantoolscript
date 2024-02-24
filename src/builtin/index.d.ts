@@ -28,7 +28,6 @@
 /** @todo table https://www.tarantool.io/en/doc/latest/reference/reference_lua/table/ */
 /** @todo tap https://www.tarantool.io/en/doc/latest/reference/reference_lua/tap/ */
 /** @todo tarantool https://www.tarantool.io/en/doc/latest/reference/reference_lua/tarantool/ */
-/** @todo uuid https://www.tarantool.io/en/doc/latest/reference/reference_lua/uuid/ */
 /** @todo utf8 https://www.tarantool.io/en/doc/latest/reference/reference_lua/utf8/ */
 /** @todo uri https://www.tarantool.io/en/doc/latest/reference/reference_lua/uri/ */
 /** @todo xlog https://www.tarantool.io/en/doc/latest/reference/reference_lua/xlog/ */
@@ -42,4 +41,5 @@ export * from './csv';
 export * from './log';
 export * from './msgpack';
 export * from './package';
+export * from './uuid';
 export * from './extra';
