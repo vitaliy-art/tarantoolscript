@@ -4,7 +4,6 @@
 /** @todo config https://www.tarantool.io/en/doc/latest/reference/reference_lua/config/ */
 /** @todo console https://www.tarantool.io/en/doc/latest/reference/reference_lua/console/ */
 /** @todo crypto https://www.tarantool.io/en/doc/latest/reference/reference_lua/crypto/ */
-/** @todo csv https://www.tarantool.io/en/doc/latest/reference/reference_lua/csv/ */
 /** @todo datetime https://www.tarantool.io/en/doc/latest/reference/reference_lua/datetime/ */
 /** @todo decimal https://www.tarantool.io/en/doc/latest/reference/reference_lua/decimal/ */
 /** @todo digest https://www.tarantool.io/en/doc/latest/reference/reference_lua/digest/ */
@@ -39,6 +38,7 @@
 
 export * from './box';
 export * from './buffer';
+export * from './csv';
 export * from './log';
 export * from './msgpack';
 export * from './package';
