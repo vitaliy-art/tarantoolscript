@@ -35,4 +35,4 @@ export declare function dump(csvTable: unknown[], options?: CsvOptions, writable
  * @param options An options table.
  * @returns Lua iterator.
  */
-export declare function iterate(input: CsvReadable, options?: CsvOptions): LuaIterable<LuaMultiReturn<number, unknown[]>>
+export declare function iterate(input: CsvReadable, options?: CsvOptions): LuaIterable<LuaMultiReturn<[number, unknown[]]>>

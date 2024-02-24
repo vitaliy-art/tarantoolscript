@@ -1,6 +1,6 @@
 {
   "name": "tarantoolscript",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "author": "Vitaliy Artemov olivera507224@yandex.ru",
   "description": "TypeScript definitions for Tarantool Lua API.",
   "repository": {
