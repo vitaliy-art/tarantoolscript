@@ -1,6 +1,6 @@
 /** @noSelfInFile */
 
-import { CData } from 'builtin/box';
+import { CData } from '../box';
 
 /**
  * Get the wall clock time in seconds.
