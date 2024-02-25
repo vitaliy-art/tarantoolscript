@@ -153,3 +153,8 @@ export declare function channel(capacity?: number): ChannelObject;
  * @returns New condition variable.
  */
 export declare function cond(): ConditionObject;
+
+/**
+ * The same as `fiber.self():id()`.
+ */
+export declare function id(): number;
