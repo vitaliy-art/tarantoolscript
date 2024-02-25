@@ -1,5 +1,4 @@
 /** @todo checks https://www.tarantool.io/en/doc/latest/reference/reference_lua/checks/ */
-/** @todo clock https://www.tarantool.io/en/doc/latest/reference/reference_lua/clock/ */
 /** @todo compat https://www.tarantool.io/en/doc/latest/reference/reference_lua/compat/ */
 /** @todo config https://www.tarantool.io/en/doc/latest/reference/reference_lua/config/ */
 /** @todo console https://www.tarantool.io/en/doc/latest/reference/reference_lua/console/ */
