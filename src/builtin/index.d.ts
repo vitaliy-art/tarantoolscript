@@ -7,7 +7,6 @@
 /** @todo decimal https://www.tarantool.io/en/doc/latest/reference/reference_lua/decimal/ */
 /** @todo digest https://www.tarantool.io/en/doc/latest/reference/reference_lua/digest/ */
 /** @todo errno https://www.tarantool.io/en/doc/latest/reference/reference_lua/errno/ */
-/** @todo fiber https://www.tarantool.io/en/doc/latest/reference/reference_lua/errno/ */
 /** @todo fio https://www.tarantool.io/en/doc/latest/reference/reference_lua/fio/ */
 /** @todo fun https://www.tarantool.io/en/doc/latest/reference/reference_lua/fun/ */
 /** @todo http https://www.tarantool.io/en/doc/latest/reference/reference_lua/http/ */
@@ -37,6 +36,7 @@
 export * from './box';
 export * from './buffer';
 export * from './csv';
+export * from './fiber';
 export * from './log';
 export * from './msgpack';
 export * from './package';
