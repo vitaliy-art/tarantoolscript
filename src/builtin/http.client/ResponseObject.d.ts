@@ -37,4 +37,6 @@ export interface ResponseObject {
    * @returns A decoded body.
    */
   decode(): AnyTable?;
+
+  url: string;
 }
