@@ -9,7 +9,6 @@
 /** @todo errno https://www.tarantool.io/en/doc/latest/reference/reference_lua/errno/ */
 /** @todo fio https://www.tarantool.io/en/doc/latest/reference/reference_lua/fio/ */
 /** @todo fun https://www.tarantool.io/en/doc/latest/reference/reference_lua/fun/ */
-/** @todo http https://www.tarantool.io/en/doc/latest/reference/reference_lua/http/ */
 /** @todo iconv https://www.tarantool.io/en/doc/latest/reference/reference_lua/iconv/ */
 /** @todo jit https://www.tarantool.io/en/doc/latest/reference/reference_lua/jit/ */
 /** @todo json https://www.tarantool.io/en/doc/latest/reference/reference_lua/json/ */
@@ -37,6 +36,7 @@ export * from './box';
 export * from './buffer';
 export * from './csv';
 export * from './fiber';
+export * from './http.client';
 export * from './log';
 export * from './msgpack';
 export * from './package';
