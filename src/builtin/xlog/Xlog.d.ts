@@ -8,4 +8,4 @@
  * @param fileName Name of file.
  * @returns Iterator which can be used in a for/end loop.
  */
-export declare function pairs(fileName?: string): LuaPairsIterable<number, unknown>;
+export declare function pairs(fileName?: string): LuaIterable<LuaMultiReturn<[number, unknown]>>;
