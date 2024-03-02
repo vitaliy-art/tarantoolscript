@@ -7,7 +7,7 @@ import { YamlConfig } from './YamlConfig';
  * @param luaValue Either a scalar value or a Lua table value.
  * @returns The original value reformatted as a YAML string.
  */
-export declare function encode(luaValue: unknown): string;
+export declare function encode(luaValue: unknown, configuration?: YamlConfig): string;
 
 /**
  * Convert a YAML string to a Lua object.
