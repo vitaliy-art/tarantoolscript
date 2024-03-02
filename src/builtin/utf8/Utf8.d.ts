@@ -1,5 +1,4 @@
-/** @noSelfInFile */
-
+/** @noSelf */
 export interface Utf8 {
   /**
    * Compare two strings with the Default Unicode Collation Element Table (DUCET) for the Unicode Collation Algorithm.
@@ -80,7 +79,7 @@ export interface Utf8 {
    * @param startByte Byte position where to start within the string, default is `1`.
    * @returns Byte position of the next character and the code point value of the next character.
    */
-  next(str: string, startByte: number): LuaMultiReturn<[number, number]>;
+  next(str: string, startByte?: number): LuaMultiReturn<[number, number]>;
 
   /**
    * Character positions for start and end can be negative,
