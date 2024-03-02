@@ -27,7 +27,6 @@
 /** @todo utf8 https://www.tarantool.io/en/doc/latest/reference/reference_lua/utf8/ */
 /** @todo uri https://www.tarantool.io/en/doc/latest/reference/reference_lua/uri/ */
 /** @todo xlog https://www.tarantool.io/en/doc/latest/reference/reference_lua/xlog/ */
-/** @todo yaml https://www.tarantool.io/en/doc/latest/reference/reference_lua/yaml/ */
 /** @todo debug https://www.tarantool.io/en/doc/latest/reference/reference_lua/debug_facilities/ */
 
 
@@ -41,4 +40,5 @@ export * from './log';
 export * from './msgpack';
 export * from './package';
 export * from './uuid';
+export * from './yaml';
 export * from './extra';
