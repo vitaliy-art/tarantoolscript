@@ -26,13 +26,15 @@ export interface Utf8 {
    * @param str1 A string encoded with UTF-8.
    * @param str2 A string encoded with UTF-8.
    * @returns -1 meaning “less”, 0 meaning “equal”, +1 meaning “greater”.
-   declare function cmp(str1: string, str2: string): -1 | 0 | 1;
+   */
+  cmp(str1: string, str2: string): -1 | 0 | 1;
 
   /**
    * Return `true` if the input character is an “alphabetic-like” character, otherwise return `false`.
    * @param char A single UTF8 character, expressed as a one-byte string or a code point value.
    * @returns `true` if the input character is an “alphabetic-like” character, otherwise return `false`.
-   declare function isalpha(char: string): boolean;
+   */
+  isalpha(char: string): boolean;
 
   /**
    * Return `true` if the input character is a digit, otherwise return `false`.
