@@ -11,7 +11,6 @@
 /** @todo fun https://www.tarantool.io/en/doc/latest/reference/reference_lua/fun/ */
 /** @todo iconv https://www.tarantool.io/en/doc/latest/reference/reference_lua/iconv/ */
 /** @todo jit https://www.tarantool.io/en/doc/latest/reference/reference_lua/jit/ */
-/** @todo json https://www.tarantool.io/en/doc/latest/reference/reference_lua/json/ */
 /** @todo key_def https://www.tarantool.io/en/doc/latest/reference/reference_lua/key_def/ */
 /** @todo merger https://www.tarantool.io/en/doc/latest/reference/reference_lua/merger/ */
 /** @todo net.box https://www.tarantool.io/en/doc/latest/reference/reference_lua/net_box/ */
@@ -37,6 +36,7 @@ export * from './buffer';
 export * from './csv';
 export * from './fiber';
 export * from './http.client';
+export * from './json';
 export * from './log';
 export * from './msgpack';
 export * from './package';
