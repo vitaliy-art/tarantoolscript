@@ -26,7 +26,6 @@
 /** @todo tarantool https://www.tarantool.io/en/doc/latest/reference/reference_lua/tarantool/ */
 /** @todo utf8 https://www.tarantool.io/en/doc/latest/reference/reference_lua/utf8/ */
 /** @todo uri https://www.tarantool.io/en/doc/latest/reference/reference_lua/uri/ */
-/** @todo xlog https://www.tarantool.io/en/doc/latest/reference/reference_lua/xlog/ */
 /** @todo debug https://www.tarantool.io/en/doc/latest/reference/reference_lua/debug_facilities/ */
 
 
