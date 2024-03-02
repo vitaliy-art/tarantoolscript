@@ -22,7 +22,8 @@
         "userdata",
         "varbinary",
         "vclock",
-        "xfail"
+        "xfail",
+        "xlog"
     ],
     "Lua.diagnostics.globals": [
         "box"

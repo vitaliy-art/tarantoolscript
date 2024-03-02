@@ -24,7 +24,6 @@
 /** @todo table https://www.tarantool.io/en/doc/latest/reference/reference_lua/table/ */
 /** @todo tap https://www.tarantool.io/en/doc/latest/reference/reference_lua/tap/ */
 /** @todo tarantool https://www.tarantool.io/en/doc/latest/reference/reference_lua/tarantool/ */
-/** @todo utf8 https://www.tarantool.io/en/doc/latest/reference/reference_lua/utf8/ */
 /** @todo uri https://www.tarantool.io/en/doc/latest/reference/reference_lua/uri/ */
 /** @todo debug https://www.tarantool.io/en/doc/latest/reference/reference_lua/debug_facilities/ */
 
@@ -38,6 +37,7 @@ export * from './json';
 export * from './log';
 export * from './msgpack';
 export * from './package';
+export * from './utf8';
 export * from './uuid';
 export * from './yaml';
 export * from './extra';
