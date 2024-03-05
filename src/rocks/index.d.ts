@@ -6,7 +6,6 @@
 /** @todo icu-date https://github.com/tarantool/icu-date#readme */
 /** @todo tracing https://github.com/tarantool/tracing/ */
 /** @todo avro-schema https://github.com/tarantool/avro-schema/blob/master/README.md */
-/** @todo http https://github.com/tarantool/http/blob/master/README.md */
 /** @todo icu-date https://github.com/tarantool/http/blob/master/README.md */
 /** @todo kafka https://github.com/tarantool/kafka/blob/master/README.md */
 /** @todo luacheck https://github.com/tarantool/luacheck?tab=readme-ov-file */
@@ -14,4 +13,5 @@
 /** @todo membership https://www.tarantool.io/en/doc/latest/reference/reference_rock/membership/#membership */
 
 
-export * as luatest from './luatest';
+export * from './http.server';
+export * from './luatest';
