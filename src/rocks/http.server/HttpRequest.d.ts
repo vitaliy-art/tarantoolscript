@@ -114,5 +114,5 @@ export interface HttpRequest {
   /**
    * Create a Response object with an HTTP redirect.
    */
-  redirect_to(url: string): ResponseObject;
+  redirect_to(url: string): HttpResponse;
 }

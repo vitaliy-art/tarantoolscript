@@ -19,5 +19,5 @@ export interface HttpResponse {
    * If raw option was set then cookie will not be escaped, otherwise cookie's value and path will be escaped
    * @param param1
    */
-  setcookie?(cookie: { name: string, value: string, path: string, expires: string, domain: string}, options?: { raw?: boolean }): void;
+  setcookie?(cookie: { name: string, value: string, path?: string, expires?: string, domain?: string}, options?: { raw?: boolean }): void;
 }
