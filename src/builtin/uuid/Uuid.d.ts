@@ -51,4 +51,11 @@ export declare function frombin(uuidBin: string, byteOrder?: UuidByteOrder): Uui
  * @param value A value to check.
  * @returns `true` if the specified value is a UUID, and `false` otherwise.
  */
-export declare function isuuid(value: unknown): boolean;
+export declare function is_uuid(value: unknown): boolean;
+
+/**
+ * The all-zero UUID value can be expressed as `uuid.NULL`, or as `uuid.fromstr('00000000-0000-0000-0000-000000000000')`.
+ * The comparison with an all-zero value can also be expressed as `uuid_with_type_cdata == uuid.NULL`.
+ * @returns `true` if the value is all zero, otherwise `false`.
+ */
+export declare function isnil(): boolean;
