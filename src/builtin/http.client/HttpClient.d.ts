@@ -5,6 +5,7 @@ import { ClientOptions } from './ClientOptions';
 import { ClientStat } from './ClientStat';
 import { HttpMethod } from './HttpMethod';
 import { IoObject } from './IoObject';
+import { RequestOptions } from './RequestOptions';
 import { ResponseObject } from './ResponseObject';
 
 /**
@@ -237,4 +238,4 @@ export declare function stat(): ClientStat;
  *
  * Decoders used to deserialize response data based on the `Content-Type` header value.
  */
-export declare let decoders: { [ key: string ]: (this: void) => (body: string, _content_type: unknown) => unknown };
+export declare let decoders: { [key: string]: (this: void) => (body: string, _content_type: unknown) => unknown };
