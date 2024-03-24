@@ -138,6 +138,8 @@ Of course, to use `luatest` package or other packages which not included into Ta
 
 [This repository](https://github.com/vitaliy-art/tarantoolscript-samples) contains many useful samples, which are examples of using modules taken from the official Tarantool documentation. Every source file contains in its header link to the corresponding documentation page.
 
+[This repository](https://github.com/vitaliy-art/tarantoolscript-server-example) can help you understanding how to write Tarantool scripts with TarantoolScript.
+
 # Status
 
 Tarantoolscript is under development and not declares many useful Tarantool modules, which will be added in the near future.
