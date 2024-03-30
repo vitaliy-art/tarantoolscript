@@ -15,3 +15,4 @@
 
 export * from './http.server';
 export * from './luatest';
+export * from './queue';
