@@ -8,6 +8,7 @@ import { SummaryObject } from './SummaryObject';
 import { DefaultMetric, MetricsConfig } from './MetricsConfig';
 import { ObservationObject } from './ObservationObject';
 import { RegistryObject } from './RegistryObject';
+import { HttpMiddleware } from './HttpMiddleware';
 
 /**
  * Register a new counter.
@@ -140,3 +141,5 @@ export declare function collectors(): Record<string, {
   name: string;
   label_pairs: Record<string, unknown>;
 }>;
+
+export declare const http_middleware: HttpMiddleware;

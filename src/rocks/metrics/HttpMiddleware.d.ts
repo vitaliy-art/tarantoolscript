@@ -35,5 +35,5 @@ export interface HttpMiddleware {
    */
   get_default_collector(): HistogramObject | SummaryObject;
 
-  v1(handler: (this: void, request: HttpRequest) => HttpResponse, collector: HistogramObject | SummaryObject): (this: void, request: HttpRequest) => HttpResponse;
+  v1(handler: (this: void, request: HttpRequest) => HttpResponse, collector?: HistogramObject | SummaryObject): (this: void, request: HttpRequest) => HttpResponse;
 }

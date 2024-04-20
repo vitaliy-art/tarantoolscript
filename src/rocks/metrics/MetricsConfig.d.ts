@@ -4,17 +4,17 @@ export interface MetricsConfig {
    * table with names of the default metrics to enable a specific set of metrics.
    * @default 'all'
    */
-  include: DefaultMetric | DefaultMetric[] | 'all' | 'none';
+  include?: DefaultMetric | DefaultMetric[] | 'all' | 'none';
 
   /**
    * Table containing the names of the default metrics that you want to disable. Has higher priority than `include`.
    */
-  exclude: DefaultMetric[];
+  exclude?: DefaultMetric[];
 
   /**
    * Table containing label names as string keys, label values as values.
    */
-  labels: Record<string, string | number>;
+  labels?: Record<string, string | number>;
 }
 
 export type DefaultMetric =

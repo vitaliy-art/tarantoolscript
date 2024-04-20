@@ -10,7 +10,7 @@ export interface SummaryObject {
    * If `max_age_time` and `age_buckets_count` are set, the observed value is added to each bucket.
    * Note that both label names and values in `label_pairs` are treated as strings.
    */
-  observe(num: number, labelPairs: Record<string, string | number>): void;
+  observe(num: number, labelPairs?: Record<string, string | number>): void;
 
   /**
    * Return a concatenation of `counter_obj:collect()` across all internal counters of `summary_obj`.

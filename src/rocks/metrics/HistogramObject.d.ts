@@ -8,7 +8,7 @@ export interface HistogramObject {
    * All internal counters that have these labels specified observe new counter values.
    * Note that both label names and values in `label_pairs` are treated as strings.
    */
-  observe(num: number, labelPairs: Record<string, string | number>): void;
+  observe(num: number, labelPairs?: Record<string, string | number>): void;
 
   /**
    * Return a concatenation of `counter_obj:collect()` across all internal counters of `histogram_obj`.
