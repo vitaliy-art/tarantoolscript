@@ -1,4 +1,3 @@
-/** @todo metrics https://www.tarantool.io/en/doc/latest/book/monitoring/ */
 /** @todo vshard https://www.tarantool.io/en/doc/latest/reference/reference_rock/vshard/ */
 /** @todo sql_dbms https://www.tarantool.io/en/doc/latest/reference/reference_rock/dbms/ */
 /** @todo crud https://github.com/tarantool/crud#readme */
@@ -15,4 +14,5 @@
 
 export * from './http.server';
 export * from './luatest';
+export * as metrics from './metrics';
 export * from './queue';
