@@ -127,3 +127,16 @@ export declare function set_export(_export: { path: string, format: string }[]):
  * @param labelPairs Table containing label names as string keys, label values as values.
  */
 export declare function set_default_labels(labelPairs: Record<string, string | number>): void;
+
+/**
+ * List all collectors in the registry. Designed to be used in exporters.
+ * @returns A list of created collectors.
+ */
+export declare function collectors(): Record<string, {
+  registry: RegistryObject;
+  metainfo: LuaTable<string, unknown>;
+  help: string;
+  observations: Record<string, number>;
+  name: string;
+  label_pairs: Record<string, unknown>;
+}>;
