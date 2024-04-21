@@ -4,7 +4,6 @@
 /** @todo console https://www.tarantool.io/en/doc/latest/reference/reference_lua/console/ */
 /** @todo crypto https://www.tarantool.io/en/doc/latest/reference/reference_lua/crypto/ */
 /** @todo datetime https://www.tarantool.io/en/doc/latest/reference/reference_lua/datetime/ */
-/** @todo decimal https://www.tarantool.io/en/doc/latest/reference/reference_lua/decimal/ */
 /** @todo digest https://www.tarantool.io/en/doc/latest/reference/reference_lua/digest/ */
 /** @todo errno https://www.tarantool.io/en/doc/latest/reference/reference_lua/errno/ */
 /** @todo fio https://www.tarantool.io/en/doc/latest/reference/reference_lua/fio/ */
