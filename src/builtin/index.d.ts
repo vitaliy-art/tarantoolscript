@@ -3,7 +3,6 @@
 /** @todo config https://www.tarantool.io/en/doc/latest/reference/reference_lua/config/ */
 /** @todo console https://www.tarantool.io/en/doc/latest/reference/reference_lua/console/ */
 /** @todo crypto https://www.tarantool.io/en/doc/latest/reference/reference_lua/crypto/ */
-/** @todo datetime https://www.tarantool.io/en/doc/latest/reference/reference_lua/datetime/ */
 /** @todo digest https://www.tarantool.io/en/doc/latest/reference/reference_lua/digest/ */
 /** @todo errno https://www.tarantool.io/en/doc/latest/reference/reference_lua/errno/ */
 /** @todo fio https://www.tarantool.io/en/doc/latest/reference/reference_lua/fio/ */
@@ -30,6 +29,7 @@
 export * from './box';
 export * from './buffer';
 export * from './csv';
+export * from './datetime';
 export * from './fiber';
 export * from './http.client';
 export * from './json';
