@@ -5,7 +5,6 @@
 /** @todo crypto https://www.tarantool.io/en/doc/latest/reference/reference_lua/crypto/ */
 /** @todo digest https://www.tarantool.io/en/doc/latest/reference/reference_lua/digest/ */
 /** @todo errno https://www.tarantool.io/en/doc/latest/reference/reference_lua/errno/ */
-/** @todo fio https://www.tarantool.io/en/doc/latest/reference/reference_lua/fio/ */
 /** @todo fun https://www.tarantool.io/en/doc/latest/reference/reference_lua/fun/ */
 /** @todo iconv https://www.tarantool.io/en/doc/latest/reference/reference_lua/iconv/ */
 /** @todo jit https://www.tarantool.io/en/doc/latest/reference/reference_lua/jit/ */
@@ -31,6 +30,7 @@ export * from './buffer';
 export * from './csv';
 export * from './datetime';
 export * from './fiber';
+export * from './fio';
 export * from './http.client';
 export * from './json';
 export * from './log';
