@@ -11,7 +11,6 @@
 /** @todo key_def https://www.tarantool.io/en/doc/latest/reference/reference_lua/key_def/ */
 /** @todo merger https://www.tarantool.io/en/doc/latest/reference/reference_lua/merger/ */
 /** @todo net.box https://www.tarantool.io/en/doc/latest/reference/reference_lua/net_box/ */
-/** @todo os https://www.tarantool.io/en/doc/latest/reference/reference_lua/osmodule/ */
 /** @todo pickle https://www.tarantool.io/en/doc/latest/reference/reference_lua/pickle/ */
 /** @todo popen https://www.tarantool.io/en/doc/latest/reference/reference_lua/pickle/ */
 /** @todo socket https://www.tarantool.io/en/doc/latest/reference/reference_lua/socket/ */
