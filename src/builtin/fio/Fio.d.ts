@@ -157,7 +157,7 @@ export declare function cwd(): string;
  * - (If no error) true.
  * - (If error) two return values: false, error message.
  */
-export declare function copitree(fromPath: string, toPath: string): LuaMultiReturn<[true, undefined] | [false, string]>;
+export declare function copytree(fromPath: string, toPath: string): LuaMultiReturn<[true, undefined] | [false, string]>;
 
 /**
  * Create the path, including parent directories, but without file contents. The result is similar to the `mkdir -p` shell command.

@@ -10,11 +10,11 @@ export interface FileHandleObject {
 
   /**
    * Perform random-access read operation on a file, without affecting the current seek position of the file. For details type `man 2 pread`.
-   * @param coun Number of bytes to read.
+   * @param count Number of bytes to read.
    * @param offset Offset within file where reading begins.
    * @returns A string containing the data that was read from the file, or empty string if failure.
    */
-  pread(coun: number, offset: number): string;
+  pread(count: number, offset: number): string;
 
   /**
    * Perform random-access read operation on a file, without affecting the current seek position of the file. For details type `man 2 pread`.
@@ -22,7 +22,7 @@ export interface FileHandleObject {
    * @param count Offset within file where reading begins.
    * @param offset Offset within file where reading begins.
    */
-  pread(buffer: BufferObject, count: number, offset: number): void;
+  pread(buffer: BufferObject | CData, count: number, offset: number): void;
 
   /**
    * Perform random-access write operation on a file, without affecting the current seek position of the file. For details type `man 2 pwrite`.
@@ -52,7 +52,7 @@ export interface FileHandleObject {
    * @param buffer Where to read into.
    * @param count Number of bytes to read.
    */
-  read(buffer: BufferObject, count: number): LuaMultiReturn<[number, undefined] | [undefined, string]>;
+  read(buffer: BufferObject | CData, count: number): LuaMultiReturn<[number, undefined] | [undefined, string]>;
 
   /**
    * Perform non-random-access write on a file. For details type `man 2 write`.
