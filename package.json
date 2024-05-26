@@ -22,7 +22,9 @@
   },
   "scripts": {
     "build": "tstl",
-    "dev": "tstl --watch"
+    "dev": "tstl --watch",
+    "lint": "eslint -f unix \"src/**/*.{ts,tsx}\"",
+    "lint-and-fix": "eslint --fix -f unix \"src/**/*.{ts,tsx}\""
   },
   "files": [
     "src/**/*.d.ts"
@@ -31,6 +33,7 @@
     "@typescript-eslint/eslint-plugin": "^6.9.1",
     "@typescript-eslint/parser": "^6.9.1",
     "eslint": "^8.52.0",
+    "eslint-plugin-tsdoc": "^0.2.17",
     "typescript": "^5.2.2",
     "typescript-to-lua": "^1.24.1"
   },
