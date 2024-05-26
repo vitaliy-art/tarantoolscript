@@ -36,4 +36,4 @@ export declare function setenv(name: string, value?: string): void;
 
 export declare const setlocale: typeof os.setlocale;
 
-export declare const difftime: typeof os.difftime;
+export declare const difftime: typeof os.difftime & { (t1: number): number };
