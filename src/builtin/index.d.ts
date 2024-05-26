@@ -16,7 +16,6 @@
 /** @todo popen https://www.tarantool.io/en/doc/latest/reference/reference_lua/pickle/ */
 /** @todo socket https://www.tarantool.io/en/doc/latest/reference/reference_lua/socket/ */
 /** @todo strict https://www.tarantool.io/en/doc/latest/reference/reference_lua/strict/ */
-/** @todo string https://www.tarantool.io/en/doc/latest/reference/reference_lua/string/ */
 /** @todo swim https://www.tarantool.io/en/doc/latest/reference/reference_lua/swim/ */
 /** @todo table https://www.tarantool.io/en/doc/latest/reference/reference_lua/table/ */
 /** @todo tap https://www.tarantool.io/en/doc/latest/reference/reference_lua/tap/ */
