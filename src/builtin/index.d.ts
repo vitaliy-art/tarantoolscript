@@ -8,17 +8,14 @@
 /** @todo fun https://www.tarantool.io/en/doc/latest/reference/reference_lua/fun/ */
 /** @todo iconv https://www.tarantool.io/en/doc/latest/reference/reference_lua/iconv/ */
 /** @todo jit https://www.tarantool.io/en/doc/latest/reference/reference_lua/jit/ */
-/** @todo key_def https://www.tarantool.io/en/doc/latest/reference/reference_lua/key_def/ */
 /** @todo merger https://www.tarantool.io/en/doc/latest/reference/reference_lua/merger/ */
 /** @todo net.box https://www.tarantool.io/en/doc/latest/reference/reference_lua/net_box/ */
 /** @todo pickle https://www.tarantool.io/en/doc/latest/reference/reference_lua/pickle/ */
 /** @todo popen https://www.tarantool.io/en/doc/latest/reference/reference_lua/pickle/ */
 /** @todo socket https://www.tarantool.io/en/doc/latest/reference/reference_lua/socket/ */
-/** @todo strict https://www.tarantool.io/en/doc/latest/reference/reference_lua/strict/ */
 /** @todo swim https://www.tarantool.io/en/doc/latest/reference/reference_lua/swim/ */
 /** @todo table https://www.tarantool.io/en/doc/latest/reference/reference_lua/table/ */
 /** @todo tap https://www.tarantool.io/en/doc/latest/reference/reference_lua/tap/ */
-/** @todo tarantool https://www.tarantool.io/en/doc/latest/reference/reference_lua/tarantool/ */
 /** @todo uri https://www.tarantool.io/en/doc/latest/reference/reference_lua/uri/ */
 /** @todo debug https://www.tarantool.io/en/doc/latest/reference/reference_lua/debug_facilities/ */
 
@@ -31,6 +28,7 @@ export * from './fiber';
 export * from './fio';
 export * from './http.client';
 export * from './json';
+export * from './key_def';
 export * from './log';
 export * from './msgpack';
 export * from './package';
