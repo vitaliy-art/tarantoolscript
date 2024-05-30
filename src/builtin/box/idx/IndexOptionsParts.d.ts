@@ -8,7 +8,7 @@ export interface IndexOptionsParts {
   2?: FieldType;
 
   /** Specify the field number or name. */
-  field: number | string;
+  field?: number | string;
 
   fieldno?: number;
 
