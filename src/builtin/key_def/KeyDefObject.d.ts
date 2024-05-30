@@ -7,7 +7,7 @@ export interface KeyDefObject {
    * @returns The fields defined for the `key_def` object.
    * @customName extract_key
    */
-  extractKey(tuple: TupleObject | AnyTable): TupleObject;
+  extractKey(tuple: TupleObject | unknown[]): TupleObject;
 
   /**
    * Compare the key fields of `tuple_1` with the key fields of `tuple_2`.
@@ -20,7 +20,7 @@ export interface KeyDefObject {
    * - `= 0` if `tuple_1` key fields `= tuple_2` key fields,
    * - `< 0` if `tuple_1` key fields `< tuple_2` key fields.
    */
-  compare(tuple1: TupleObject | AnyTable, tuple2: TupleObject | AnyTable): number;
+  compare(tuple1: TupleObject | unknown[], tuple2: TupleObject | unknown[]): number;
 
   /**
    * Compare the key fields of `tuple_1` with all the fields of `tuple_2`.
@@ -34,7 +34,7 @@ export interface KeyDefObject {
    * - `< 0` if `tuple_1` key fields `< tuple_2` key fields.
    * @customName compare_with_key
    */
-  compareWithKey(tuple1: TupleObject | AnyTable, tuple2: TupleObject | AnyTable): number;
+  compareWithKey(tuple1: TupleObject | unknown[], tuple2: TupleObject | unknown[]): number;
 
   /**
    * Combine the main `key_def_object` with `other_key_def_object`.
