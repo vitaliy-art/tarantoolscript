@@ -6,7 +6,6 @@
 /** @todo digest https://www.tarantool.io/en/doc/latest/reference/reference_lua/digest/ */
 /** @todo errno https://www.tarantool.io/en/doc/latest/reference/reference_lua/errno/ */
 /** @todo fun https://www.tarantool.io/en/doc/latest/reference/reference_lua/fun/ */
-/** @todo iconv https://www.tarantool.io/en/doc/latest/reference/reference_lua/iconv/ */
 /** @todo jit https://www.tarantool.io/en/doc/latest/reference/reference_lua/jit/ */
 /** @todo merger https://www.tarantool.io/en/doc/latest/reference/reference_lua/merger/ */
 /** @todo net.box https://www.tarantool.io/en/doc/latest/reference/reference_lua/net_box/ */
