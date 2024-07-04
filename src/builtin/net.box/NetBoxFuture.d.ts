@@ -1,9 +1,8 @@
 export interface NetBoxFuture<T = unknown> {
   /**
    * @returns `true` when the result of the request is available, otherwise `false`.
-   * @customName is_ready
    */
-  isReady(): boolean;
+  is_ready(): boolean;
 
   /**
    * Get the result of the request.
@@ -15,9 +14,8 @@ export interface NetBoxFuture<T = unknown> {
    * Wait until the result of the request is available and then get it,
    * or throw an error if there is no result after the timeout exceeded
    * @returns The response.
-   * @customName wait_result
    */
-  waitResult(timeout?: number): T;
+  wait_result(timeout?: number): T;
 
   /**
    * Abandon the object.

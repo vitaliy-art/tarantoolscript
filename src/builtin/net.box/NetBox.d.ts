@@ -18,7 +18,7 @@ export declare function connect(uri: string, options?: NetBoxConnectOptions): Ne
  * For more information, see the description of `net_box.connect()`.
  * @customName new
  */
-export const new_: typeof connect;
+export declare const new_: typeof connect;
 
 /**
  * For a local Tarantool server, there is a pre-created always-established connection object named `net_box.self`.

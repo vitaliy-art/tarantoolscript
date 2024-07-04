@@ -17,16 +17,14 @@ export interface NetBoxConnectionObject {
    * Wait for connection to be active or closed.
    * @param timeout In seconds.
    * @returns `true` when connected, `false` on failure.
-   * @customName wait_connected
    */
-  waitConnected(timeout?: number): boolean;
+  wait_connected(timeout?: number): boolean;
 
   /**
    * Show whether connection is active or closed.
    * @returns `true` if connected, `false` on failure.
-   * @customName is_connected
    */
-  isConnected(): boolean;
+  is_connected(): boolean;
 
   /**
    * Since 1.7.2.
@@ -34,9 +32,8 @@ export interface NetBoxConnectionObject {
    * @param state Target state (or states).
    * @param timeout In seconds.
    * @returns `true` when a target state(s) is reached, `false` on timeout or connection closure.
-   * @customName wait_state
    */
-  waitState(state: string | { [key: string]: boolean }, timeout?: number): boolean;
+  wait_state(state: string | { [key: string]: boolean }, timeout?: number): boolean;
 
   /**
    * Close a connection.
@@ -131,9 +128,8 @@ export interface NetBoxConnectionObject {
   /**
    *
    * @param requestOptions
-   * @customName new_stream
    */
-  newStream(requestOptions?: NetBoxRequestOptions): NetBoxStreamObject;
+  new_stream(requestOptions?: NetBoxRequestOptions): NetBoxStreamObject;
 
   /**
    * Define a trigger for execution when a new connection is established,
@@ -144,9 +140,8 @@ export interface NetBoxConnectionObject {
    * @param triggerFunction The trigger function. Takes the `conn` object as the first argument.
    * @param oldTriggerFunction An existing trigger function to replace with `triggerFunction`.
    * @returns `nil` or function pointer.
-   * @customName on_connect
    */
-  onConnect<TTrig extends (this: void, conn: NetBoxConnectionObject) => unknown>(
+  on_connect<TTrig extends (this: void, conn: NetBoxConnectionObject) => unknown>(
     triggerFunction?: TTrig,
     oldTriggerFunction?: TTrig,
   ): (TTrig | TTrig[])?;
@@ -161,9 +156,8 @@ export interface NetBoxConnectionObject {
    * @param triggerFunction The trigger function. Takes the `conn` object as the first argument.
    * @param oldTriggerFunction An existing trigger function to replace with `triggerFunction`.
    * @returns `nil` or function pointer.
-   * @customName on_disconnect
    */
-  onDisconnect<TTrig extends (this: void, conn: NetBoxConnectionObject) => unknown>(
+  on_disconnect<TTrig extends (this: void, conn: NetBoxConnectionObject) => unknown>(
     triggerFunction?: TTrig,
     oldTriggerFunction?: TTrig,
   ): (TTrig | TTrig[])?;
@@ -176,9 +170,8 @@ export interface NetBoxConnectionObject {
    * @param triggerFunction The trigger function. Takes the `conn` object as the first argument.
    * @param oldTriggerFunction An existing trigger function to replace with `triggerFunction`.
    * @returns `nil` or function pointer.
-   * @customName on_shutdown
    */
-  onShutdown<TTrig extends (this: void, conn: NetBoxConnectionObject) => unknown>(
+  on_shutdown<TTrig extends (this: void, conn: NetBoxConnectionObject) => unknown>(
     triggerFunction?: TTrig,
     oldTriggerFunction?: TTrig,
   ): (TTrig | TTrig[])?;
@@ -192,9 +185,8 @@ export interface NetBoxConnectionObject {
    * @param triggerFunction The trigger function. Takes the `conn` object as the first argument.
    * @param oldTriggerFunction An existing trigger function to replace with `triggerFunction`.
    * @returns `nil` or function pointer.
-   * @customName on_schema_reload
    */
-  onSchemaReload<TTrig extends (this: void, conn: NetBoxConnectionObject) => unknown>(
+  on_schema_reload<TTrig extends (this: void, conn: NetBoxConnectionObject) => unknown>(
     triggerFunction?: TTrig,
     oldTriggerFunction?: TTrig,
   ): (TTrig | TTrig[])?;
