@@ -15,7 +15,7 @@ export interface NetBoxFuture<T = unknown> {
    * or throw an error if there is no result after the timeout exceeded
    * @returns The response.
    */
-  wait_result(timeout?: number): T;
+  wait_result(timeout?: number): T extends LuaMultiReturn<infer TReturn> ? TReturn : [T];
 
   /**
    * Abandon the object.
