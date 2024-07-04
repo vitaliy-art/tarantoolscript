@@ -19,8 +19,9 @@ export interface NetBoxConnectOptions {
    *
    * Note: If `reconnect_after` is greater than zero, then `wait_connected` ignores transient failures.
    * The wait completes once the connection is established or is closed explicitly.
+   * @customName wait_connected
    */
-  wait_connected?: number | false;
+  waitConnected?: number | false;
 
   /**
    * A number of seconds to wait before reconnecting. The default value, as with the other `connect` options, is `nil`.
@@ -32,8 +33,9 @@ export interface NetBoxConnectOptions {
    * The number of retries is unlimited, connection retries are made after any specified interval
    * (for example, `reconnect_after=5` means that reconnect attempts are made every 5 seconds).
    * When a connection is explicitly closed or when the Lua garbage collector removes it, then reconnect attempts stop.
+   * @customName reconnect_after
    */
-  reconnect_after?: number;
+  reconnectAfter?: number;
 
   /**
    * Since 1.7.2.
@@ -44,13 +46,15 @@ export interface NetBoxConnectOptions {
    * It will not be present in the next major release.
    * All programming language drivers will gradually be switched to the new CALL.
    * To connect to a Tarantool instance that uses the old CALL, specify `call_16=true`.
+   * @customName call_16
    */
-  call_16?: boolean;
+  call16?: boolean;
 
   /**
    * A number of seconds to wait before returning “error: Connection timed out”.
+   * @customName connect_timeout
    */
-  connect_timeout?: number;
+  connectTimeout?: number;
 
   /**
    * A boolean option that controls fetching schema changes from the server. Default: `true`.
@@ -58,21 +62,24 @@ export interface NetBoxConnectOptions {
    * set `fetch_schema` to `false` to avoid fetching schema changes which is not needed in this case.
    *
    * Important: In connections with `fetch_schema == false`, remote spaces are unavailable and the `on_schema_reload` triggers don’t work.
+   * @customName fetch_schema
    */
-  fetch_schema?: boolean;
+  fetchSchema?: boolean;
 
   /**
    * A minimum version of the IPROTO protocol supported by the server.
    * If the version of the IPROTO protocol supported by the server is lower than specified,
    * the connection will fail with an error message. With `required_protocol_version = 1`,
    * all connections fail where the IPROTO protocol version is lower than `1`.
+   * @customName required_protocol_version
    */
-  required_protocol_version?: number;
+  requiredProtocolVersion?: number;
 
   /**
    * Specified IPROTO protocol features supported by the server.
    * If the server does not support the specified features, the connection will fail with an error message.
    * With `required_protocol_features = {'transactions'}`, all connections fail where the server has `transactions: false`.
+   * @customName required_protocol_features
    */
-  required_protocol_features?: (keyof ProtocolFeatures)[]
+  requiredProtocolFeatures?: (keyof ProtocolFeatures)[]
 }

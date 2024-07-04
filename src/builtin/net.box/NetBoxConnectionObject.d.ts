@@ -1,5 +1,9 @@
 import { SpaceObject } from 'builtin/box/space/SpaceObject';
 import { NetBoxRequestOptions } from './NetBoxRequestOptions';
+import { MsgPackObject } from 'builtin/msgpack/MsgPackObject';
+import { NetBoxFuture } from './NetBoxFuture';
+import { BufferObject } from 'builtin/buffer/BufferObject';
+import { NetBoxStreamObject } from './NetBoxStreamObject';
 
 export interface NetBoxConnectionObject {
   /**
@@ -13,14 +17,16 @@ export interface NetBoxConnectionObject {
    * Wait for connection to be active or closed.
    * @param timeout In seconds.
    * @returns `true` when connected, `false` on failure.
+   * @customName wait_connected
    */
-  wait_connected(timeout?: number): boolean;
+  waitConnected(timeout?: number): boolean;
 
   /**
    * Show whether connection is active or closed.
    * @returns `true` if connected, `false` on failure.
+   * @customName is_connected
    */
-  is_connected(): boolean;
+  isConnected(): boolean;
 
   /**
    * Since 1.7.2.
@@ -28,8 +34,9 @@ export interface NetBoxConnectionObject {
    * @param state Target state (or states).
    * @param timeout In seconds.
    * @returns `true` when a target state(s) is reached, `false` on timeout or connection closure.
+   * @customName wait_state
    */
-  wait_state(state: string | { [key: string]: boolean }, timeout?: number): boolean;
+  waitState(state: string | { [key: string]: boolean }, timeout?: number): boolean;
 
   /**
    * Close a connection.
@@ -76,6 +83,9 @@ export interface NetBoxConnectionObject {
      */
     upsert: InferSpaceFunctionType<'upsert'>;
 
+    /**
+     * The remote-call equivalent of the local call `box.space.space-name:delete(...)`.
+     */
     delete: InferSpaceFunctionType<'delete'>;
   }>;
 
@@ -117,7 +127,85 @@ export interface NetBoxConnectionObject {
    * @returns A watcher handle. The handle consists of one method – `unregister()`, which unregisters the watcher.
    */
   watch(key: string, handler: (this: void, key: string, value: unknown) => unknown): { unregister(): void; };
+
+  /**
+   *
+   * @param requestOptions
+   * @customName new_stream
+   */
+  newStream(requestOptions?: NetBoxRequestOptions): NetBoxStreamObject;
+
+  /**
+   * Define a trigger for execution when a new connection is established,
+   * and authentication and schema fetch are completed due to an event such as `net_box.connect`.
+   *
+   * Note: If the parameters are `(nil, old-trigger-function)`, then the old trigger is deleted.
+   * If both parameters are omitted, then the response is a list of existing trigger functions.
+   * @param triggerFunction The trigger function. Takes the `conn` object as the first argument.
+   * @param oldTriggerFunction An existing trigger function to replace with `triggerFunction`.
+   * @returns `nil` or function pointer.
+   * @customName on_connect
+   */
+  onConnect<TTrig extends (this: void, conn: NetBoxConnectionObject) => unknown>(
+    triggerFunction?: TTrig,
+    oldTriggerFunction?: TTrig,
+  ): (TTrig | TTrig[])?;
+
+  /**
+   * Define a trigger for execution after a connection is closed.
+   * If the trigger function causes an error, the error is logged but otherwise is ignored.
+   * Execution stops after a connection is explicitly closed, or once the Lua garbage collector removes it.
+   *
+   * Note: If the parameters are `(nil, old-trigger-function)`, then the old trigger is deleted.
+   * If both parameters are omitted, then the response is a list of existing trigger functions.
+   * @param triggerFunction The trigger function. Takes the `conn` object as the first argument.
+   * @param oldTriggerFunction An existing trigger function to replace with `triggerFunction`.
+   * @returns `nil` or function pointer.
+   * @customName on_disconnect
+   */
+  onDisconnect<TTrig extends (this: void, conn: NetBoxConnectionObject) => unknown>(
+    triggerFunction?: TTrig,
+    oldTriggerFunction?: TTrig,
+  ): (TTrig | TTrig[])?;
+
+  /**
+   * Define a trigger for shutdown when a `box.shutdown` event is received.
+   *
+   * Note: If the parameters are `(nil, old-trigger-function)`, then the old trigger is deleted.
+   * If both parameters are omitted, then the response is a list of existing trigger functions.
+   * @param triggerFunction The trigger function. Takes the `conn` object as the first argument.
+   * @param oldTriggerFunction An existing trigger function to replace with `triggerFunction`.
+   * @returns `nil` or function pointer.
+   * @customName on_shutdown
+   */
+  onShutdown<TTrig extends (this: void, conn: NetBoxConnectionObject) => unknown>(
+    triggerFunction?: TTrig,
+    oldTriggerFunction?: TTrig,
+  ): (TTrig | TTrig[])?;
+
+  /**
+   * Define a trigger executed when some operation has been performed on the remote server after schema has been updated.
+   * So, if a server request fails due to a schema version mismatch error, schema reload is triggered.
+   *
+   * Note: If the parameters are `(nil, old-trigger-function)`, then the old trigger is deleted.
+   * If both parameters are omitted, then the response is a list of existing trigger functions.
+   * @param triggerFunction The trigger function. Takes the `conn` object as the first argument.
+   * @param oldTriggerFunction An existing trigger function to replace with `triggerFunction`.
+   * @returns `nil` or function pointer.
+   * @customName on_schema_reload
+   */
+  onSchemaReload<TTrig extends (this: void, conn: NetBoxConnectionObject) => unknown>(
+    triggerFunction?: TTrig,
+    oldTriggerFunction?: TTrig,
+  ): (TTrig | TTrig[])?;
 }
 
 type InferSpaceFunctionType<TProp extends keyof SpaceObject> =
-  (...params: [...Parameters<SpaceObject[TProp]>, requestOptions?: NetBoxRequestOptions]) => ReturnType<SpaceObject[TProp]>?
+  <TOpts extends NetBoxRequestOptions>(...params: [...Parameters<SpaceObject[TProp]>, requestOptions?: TOpts]) =>
+    TOpts extends { buffer: BufferObject } ? void :
+    TOpts extends { isAsync: true } ? (
+      TOpts extends { returnRaw: true } ? NetBoxFuture<MsgPackObject> :
+      NetBoxFuture<ReturnType<SpaceObject[TProp]>>
+    ) :
+    TOpts extends { returnRaw: true } ? MsgPackObject :
+    ReturnType<SpaceObject[TProp]>
