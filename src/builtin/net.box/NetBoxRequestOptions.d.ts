@@ -1,4 +1,4 @@
-import { BufferObject } from 'builtin/buffer/BufferObject';
+import { BufferObject } from '../../builtin/buffer/BufferObject';
 
 export interface NetBoxRequestOptions {
   timeout?: number;

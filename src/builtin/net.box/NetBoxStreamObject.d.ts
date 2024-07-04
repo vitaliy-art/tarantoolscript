@@ -1,4 +1,4 @@
-import { TransactionIsolationLevel } from 'builtin/box/TransactionsCommander';
+import { TransactionIsolationLevel } from '../../builtin/box/TransactionsCommander';
 import { NetBoxConnectionObject } from './NetBoxConnectionObject';
 
 export interface NetBoxStreamObject extends NetBoxConnectionObject {

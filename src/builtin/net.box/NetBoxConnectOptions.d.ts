@@ -1,4 +1,4 @@
-import { ProtocolFeatures } from 'builtin/box/iproto/ProtocolFeatures';
+import { ProtocolFeatures } from '../../builtin/box/iproto/ProtocolFeatures';
 
 export interface NetBoxConnectOptions {
   /**

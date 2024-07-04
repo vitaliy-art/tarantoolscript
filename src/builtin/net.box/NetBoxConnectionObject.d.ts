@@ -1,8 +1,8 @@
-import { SpaceObject } from 'builtin/box/space/SpaceObject';
+import { SpaceObject } from '../../builtin/box/space/SpaceObject';
 import { NetBoxRequestOptions } from './NetBoxRequestOptions';
-import { MsgPackObject } from 'builtin/msgpack/MsgPackObject';
+import { MsgPackObject } from '../../builtin/msgpack/MsgPackObject';
 import { NetBoxFuture } from './NetBoxFuture';
-import { BufferObject } from 'builtin/buffer/BufferObject';
+import { BufferObject } from '../../builtin/buffer/BufferObject';
 import { NetBoxStreamObject } from './NetBoxStreamObject';
 
 export interface NetBoxConnectionObject {
@@ -195,9 +195,9 @@ export interface NetBoxConnectionObject {
 type InferSpaceFunctionType<TProp extends keyof SpaceObject> =
   <TOpts extends NetBoxRequestOptions>(...params: [...Parameters<SpaceObject[TProp]>, requestOptions?: TOpts]) =>
     TOpts extends { buffer: BufferObject } ? void :
-    TOpts extends { isAsync: true } ? (
-      TOpts extends { returnRaw: true } ? NetBoxFuture<MsgPackObject> :
+    TOpts extends { is_async: true } ? (
+      TOpts extends { return_raw: true } ? NetBoxFuture<MsgPackObject> :
       NetBoxFuture<ReturnType<SpaceObject[TProp]>>
     ) :
-    TOpts extends { returnRaw: true } ? MsgPackObject :
+    TOpts extends { return_raw: true } ? MsgPackObject :
     ReturnType<SpaceObject[TProp]>
