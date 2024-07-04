@@ -8,7 +8,6 @@
 /** @todo fun https://www.tarantool.io/en/doc/latest/reference/reference_lua/fun/ */
 /** @todo jit https://www.tarantool.io/en/doc/latest/reference/reference_lua/jit/ */
 /** @todo merger https://www.tarantool.io/en/doc/latest/reference/reference_lua/merger/ */
-/** @todo net.box https://www.tarantool.io/en/doc/latest/reference/reference_lua/net_box/ */
 /** @todo pickle https://www.tarantool.io/en/doc/latest/reference/reference_lua/pickle/ */
 /** @todo popen https://www.tarantool.io/en/doc/latest/reference/reference_lua/pickle/ */
 /** @todo socket https://www.tarantool.io/en/doc/latest/reference/reference_lua/socket/ */
@@ -29,6 +28,7 @@ export * from './json';
 export * from './key_def';
 export * from './log';
 export * from './msgpack';
+export * from './net.box';
 export * from './package';
 export * from './utf8';
 export * from './uuid';
