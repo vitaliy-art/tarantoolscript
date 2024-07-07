@@ -1,4 +1,7 @@
-/** The `box.backup` submodule contains two functions that are helpful for backup in certain situations. */
+/**
+ * The `box.backup` submodule contains two functions that are helpful for backup in certain situations.
+ * @noSelf
+ */
 export interface Backup {
   /**
    * Ask server to suspend activities before the removal of outdated backups
@@ -8,8 +11,8 @@ export interface Backup {
    * The default value for n is zero.
    * @returns A table with the names of snapshot and vinyl files that should be copied
    */
-  start(this: void, n?: number): string[];
+  start(n?: number): string[];
 
   /** Inform server that normal operations may resume */
-  stop(this: void): void;
+  stop(): void;
 }
