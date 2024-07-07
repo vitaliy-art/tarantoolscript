@@ -1,6 +1,6 @@
 {
   "name": "tarantoolscript",
-  "version": "0.24.4",
+  "version": "0.24.5",
   "author": "Vitaliy Artemov olivera507224@yandex.ru",
   "description": "TypeScript definitions for Tarantool Lua API.",
   "repository": {
@@ -22,9 +22,9 @@
   },
   "scripts": {
     "build": "tstl",
-    "dev": "tstl --watch",
     "lint": "eslint -f unix \"src/**/*.{ts,tsx}\"",
-    "lint-and-fix": "eslint --fix -f unix \"src/**/*.{ts,tsx}\""
+    "lint-and-fix": "eslint --fix -f unix \"src/**/*.{ts,tsx}\"",
+    "test": "npm run build && cd ./build && .rocks/bin/luatest"
   },
   "files": [
     "src/**/*.d.ts"
