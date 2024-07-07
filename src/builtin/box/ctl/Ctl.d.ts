@@ -22,7 +22,10 @@ export interface Ctl {
    * @param oldTriggerFunction Existing trigger function which will be replaced by trigger-function.
    * @returns Nil or function pointer.
    */
-  on_schema_init(triggerFunction: (...args: any[]) => unknown, oldTriggerFunction?: (...args: any[]) => unknown): ((...args: any[]) => unknown) | void;
+  on_schema_init(
+    triggerFunction: (this: void, ...args: any[]) => unknown,
+    oldTriggerFunction?: (this: void, ...args: any[]) => unknown,
+  ): ((...args: any[]) => unknown) | void;
 
   /**
    * Create a “shutdown trigger”. The `trigger-function` will be executed whenever `os.exit()` happens,
@@ -32,7 +35,10 @@ export interface Ctl {
    * @param oldTriggerFunction Existing trigger function which will be replaced by trigger-function.
    * @returns Nil or function pointer.
    */
-  on_shutdown(triggerFunction: (...args: any[]) => unknown, oldTriggerFunction?: (...args: any[]) => unknown): ((...args: any[]) => unknown) | void;
+  on_shutdown(
+    triggerFunction: (this: void, ...args: any[]) => unknown,
+    oldTriggerFunction?: (this: void, ...args: any[]) => unknown,
+  ): ((...args: any[]) => unknown) | void;
 
   /**
    * Create a trigger executed on different stages of a node recovery or initial configuration.
@@ -47,7 +53,7 @@ export interface Ctl {
    * @param triggerFunction A trigger function.
    * @returns Nil or function pointer.
    */
-  on_recovery_state(triggerFunction: (...args: any[]) => unknown): ((...args: any[]) => unknown) | void;
+  on_recovery_state(triggerFunction: (this: void, ...args: any[]) => unknown): ((...args: any[]) => unknown) | void;
 
   /**
    *  Since: `2.10.0`
@@ -59,7 +65,7 @@ export interface Ctl {
    * @param triggerFunction A trigger function.
    * @returns Nil or function pointer.
    */
-  on_election(triggerFunction: () => unknown): (() => unknown) | void;
+  on_election(triggerFunction: (this: void) => unknown): (() => unknown) | void;
 
   /**
    * Set a timeout for the `on_shutdown` trigger.
