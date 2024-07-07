@@ -11,7 +11,21 @@ export interface EventWatcher {
    * @param func Callback to invoke when the key value is updated.
    * @returns A watcher handle. The handle consists of one method – `unregister()`, which unregister the watcher.
    */
-  watch(key: string, func: (key: string, value: any) => void): EventWatcherHandler;
+  watch(key: string, func: (this: void, key: string, value: any) => void): EventWatcherHandler;
+
+  /**
+   * @todo Fix documentation.
+   *
+   * Not documented yet (see {@link https://github.com/tarantool/doc/issues/3510})
+   *
+   * Takes a notification key and returns the value currently associated with it.
+   *
+   * Can be used instead of `box.watch()` in case the caller only needs to retrieve
+   * the current value without subscribing to future changes.
+   * @param key Key name of the event.
+   * @returns The value associated with `key`.
+   */
+  watch_once(key: string)
 
   /**
    * Update the value of a particular key and notify all key watchers of the update.
@@ -19,6 +33,24 @@ export interface EventWatcher {
    * @param value Any data that can be encoded in MsgPack.
    */
   broadcast(key: string, value: unknown): void;
+
+  /**
+   * @todo Fix documentation.
+   *
+   * Not documented yet.
+   */
+  txn_isolation_level: {
+    READ_CONFIRMED: number;
+    BEST_EFFORT: number;
+    READ_COMMITTED: number;
+    DEFAULT: number;
+    ['read-confirmed']: number;
+    ['read-committed']: number;
+    linearizable: number;
+    ['best-effort']: number;
+    LINEARIZABLE: number;
+    default: number;
+  }
 }
 
 export interface EventWatcherHandler {

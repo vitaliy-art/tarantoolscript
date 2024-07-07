@@ -61,7 +61,7 @@ export interface TransactionsCommander {
    * @param functionArgs Arguments passed to the function.
    * @returns The result of the function passed to atomic() as an argument.
    */
-  atomic<TResult = unknown>(opts: TransactionOptions, txFunction: (...args: any[]) => TResult, ...functionArgs: unknown[]): TResult;
+  atomic<TResult = unknown>(opts: TransactionOptions, txFunction: (this: void, ...args: any[]) => TResult, ...functionArgs: unknown[]): TResult;
 
   /**
    * Execute a function, acting as if the function starts with an implicit `box.begin()` and ends with an implicit` box.commit()` if successful,
@@ -70,7 +70,7 @@ export interface TransactionsCommander {
    * @param functionArgs Arguments passed to the function.
    * @returns The result of the function passed to atomic() as an argument.
    */
-  atomic<TResult = unknown>(txFunction: (...args: any[]) => TResult, ...functionArgs: unknown[]): TResult;
+  atomic<TResult = unknown>(txFunction: (this: void, ...args: any[]) => TResult, ...functionArgs: unknown[]): TResult;
 
   /**
    * Define a trigger for execution when a transaction ends due to an event such as `box.commit()`.
@@ -108,6 +108,11 @@ export interface TransactionsCommander {
    * return `true`. Otherwise return `false`.
    */
   is_in_txn(): boolean;
+
+  /**
+   * @returns The ID of the current transaction if called within a transaction, nil otherwise.
+   */
+  txn_id(): number | void;
 }
 
 export interface TransactionOptions {
@@ -126,7 +131,7 @@ export type TransactionIsolationLevel =
 export type SavePoint = LuaTable
 
 export type TransactionTriggerFunction =
-  | (() => void)
-  | ((iterator: TransactionIterator) => void)
+  | ((this: void) => void)
+  | ((this: void, iterator: TransactionIterator) => void)
 
 export type TransactionIterator = (this: void) => LuaIterable<LuaMultiReturn<[number, TupleObject?, TupleObject?, number]>>;

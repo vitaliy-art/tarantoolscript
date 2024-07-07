@@ -46,7 +46,7 @@ declare interface Box extends AnyTable, TransactionsCommander, SqlCommander, Eve
    * @param fn A function.
    * @param args Arguments that must be passed to function.
    */
-  once(key: string, fn: (...args: any[]) => unknown, ...args: unknown[]): void;
+  once(key: string, fn: (this: void, ...args: any[]) => unknown, ...args: unknown[]): void;
 
   /**
    * The `box.backup` submodule contains two functions that are helpful for backup in certain situations.
@@ -156,4 +156,16 @@ declare interface Box extends AnyTable, TransactionsCommander, SqlCommander, Eve
   snapshot();
 
   func: LuaTable<string, { call(this, args: unknown[]): unknown }>;
+
+  /**
+   * @todo Fix documentation.
+   *
+   * Not documented yet (see {@link https://github.com/tarantool/doc/issues/2063})
+   */
+  lib: unknown;
+
+  /**
+   * @todo Fix documentation.
+   */
+  feedback: unknown;
 }
