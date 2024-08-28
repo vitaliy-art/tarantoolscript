@@ -1,1 +1,1 @@
-export * from './builtin/digest';
+export * from './builtin/digest/Digest';
