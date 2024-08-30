@@ -27,3 +27,9 @@ export declare const interval: {
  * @returns A `datetime` object.
  */
 export declare function parse(input?: string, opts?: { format?: string, tzoffset?: number }): DateTimeObject;
+
+/**
+ * Create an object of the `datetime` type with the current date and time.
+ * @returns Current time.
+ */
+export declare function now(): DateTimeObject;
