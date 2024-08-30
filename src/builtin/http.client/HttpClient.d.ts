@@ -26,7 +26,7 @@ export declare function new_(options?: ClientOptions): Client
    * - `response_object`;
    * - `io_object` if `request_options.chunked` is set to `true`.
    */
-export declare function request(method: HttpMethod, url: string, body?: string, opts: RequestOptions & { chunked: true }): IoObject;
+export declare function request(method: HttpMethod, url: string, body?: unknown, opts: RequestOptions & { chunked: true }): IoObject;
 
 /**
  * Make an HTTP request and receive a response.
@@ -38,7 +38,7 @@ export declare function request(method: HttpMethod, url: string, body?: string, 
  * - `response_object`;
  * - `io_object` if `request_options.chunked` is set to `true`.
  */
-export declare function request(method: HttpMethod, url: string, body?: string, opts?: RequestOptions): ResponseObject;
+export declare function request(method: HttpMethod, url: string, body?: unknown, opts?: RequestOptions): ResponseObject;
 
 /**
  * Make a `GET` request and receive a response.
@@ -69,7 +69,7 @@ export declare function get(url: string, opts?: RequestOptions): ResponseObject;
  * - `response_object`;
  * - `io_object` if `request_options.chunked` is set to `true`.
  */
-export declare function post(url: string, body?: AnyTable, opts: RequestOptions & { chunked: true }): IoObject;
+export declare function post(url: string, body?: unknown, opts: RequestOptions & { chunked: true }): IoObject;
 
 /**
  * Make a `POST` request and receive a response.
@@ -80,7 +80,7 @@ export declare function post(url: string, body?: AnyTable, opts: RequestOptions 
  * - `response_object`;
  * - `io_object` if `request_options.chunked` is set to `true`.
  */
-export declare function post(url: string, body?: AnyTable, opts?: RequestOptions): ResponseObject;
+export declare function post(url: string, body?: unknown, opts?: RequestOptions): ResponseObject;
 
 /**
  * Make a `PUT` request and receive a response.
@@ -91,7 +91,7 @@ export declare function post(url: string, body?: AnyTable, opts?: RequestOptions
  * - `response_object`;
  * - `io_object` if `request_options.chunked` is set to `true`.
  */
-export declare function put(url: string, body?: AnyTable, opts: RequestOptions & { chunked: true }): IoObject;
+export declare function put(url: string, body?: unknown, opts: RequestOptions & { chunked: true }): IoObject;
 
 /**
  * Make a `PUT` request and receive a response.
@@ -102,7 +102,7 @@ export declare function put(url: string, body?: AnyTable, opts: RequestOptions &
  * - `response_object`;
  * - `io_object` if `request_options.chunked` is set to `true`.
  */
-export declare function put(url: string, body?: AnyTable, opts?: RequestOptions): ResponseObject;
+export declare function put(url: string, body?: unknown, opts?: RequestOptions): ResponseObject;
 
 /**
  * Make a `PATCH` request and receive a response.
@@ -113,7 +113,7 @@ export declare function put(url: string, body?: AnyTable, opts?: RequestOptions)
  * - `response_object`;
  * - `io_object` if `request_options.chunked` is set to `true`.
  */
-export declare function patch(url: string, body?: AnyTable, opts: RequestOptions & { chunked: true }): IoObject;
+export declare function patch(url: string, body?: unknown, opts: RequestOptions & { chunked: true }): IoObject;
 
 /**
  * Make a `PATCH` request and receive a response.
@@ -124,7 +124,7 @@ export declare function patch(url: string, body?: AnyTable, opts: RequestOptions
  * - `response_object`;
  * - `io_object` if `request_options.chunked` is set to `true`.
  */
-export declare function patch(url: string, body?: AnyTable, opts?: RequestOptions): ResponseObject;
+export declare function patch(url: string, body?: unknown, opts?: RequestOptions): ResponseObject;
 
 /**
  * Make a `DELETE` request and receive a response.
