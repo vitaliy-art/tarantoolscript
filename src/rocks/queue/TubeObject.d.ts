@@ -1,4 +1,4 @@
-import { TupleObject } from 'builtin';
+import { TupleObject } from '../../builtin/box/tuple/TupleObject';
 import { TaskOptions } from './TaskOptions';
 
 export interface TubeObject<O = TaskOptions<T>> {

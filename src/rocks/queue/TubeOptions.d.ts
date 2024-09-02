@@ -1,4 +1,4 @@
-import { TupleObject } from 'builtin';
+import { TupleObject } from '../../builtin/box/tuple/TupleObject';
 import { TubeType } from './TubeType';
 
 interface BaseOptions {
