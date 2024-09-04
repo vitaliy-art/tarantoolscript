@@ -3,7 +3,6 @@
 /** @todo config https://www.tarantool.io/en/doc/latest/reference/reference_lua/config/ */
 /** @todo console https://www.tarantool.io/en/doc/latest/reference/reference_lua/console/ */
 /** @todo crypto https://www.tarantool.io/en/doc/latest/reference/reference_lua/crypto/ */
-/** @todo digest https://www.tarantool.io/en/doc/latest/reference/reference_lua/digest/ */
 /** @todo errno https://www.tarantool.io/en/doc/latest/reference/reference_lua/errno/ */
 /** @todo fun https://www.tarantool.io/en/doc/latest/reference/reference_lua/fun/ */
 /** @todo jit https://www.tarantool.io/en/doc/latest/reference/reference_lua/jit/ */
@@ -13,7 +12,6 @@
 /** @todo socket https://www.tarantool.io/en/doc/latest/reference/reference_lua/socket/ */
 /** @todo swim https://www.tarantool.io/en/doc/latest/reference/reference_lua/swim/ */
 /** @todo tap https://www.tarantool.io/en/doc/latest/reference/reference_lua/tap/ */
-/** @todo uri https://www.tarantool.io/en/doc/latest/reference/reference_lua/uri/ */
 /** @todo debug https://www.tarantool.io/en/doc/latest/reference/reference_lua/debug_facilities/ */
 
 
@@ -30,6 +28,7 @@ export * from './log';
 export * from './msgpack';
 export * from './net.box';
 export * from './package';
+export * from './uri';
 export * from './utf8';
 export * from './uuid';
 export * from './yaml';
