@@ -42,4 +42,7 @@ export default [
             "@typescript-eslint/no-var-requires": "off",
         },
     },
+    {
+        ignores: ["eslint.config.mjs"],
+    }
 ];
