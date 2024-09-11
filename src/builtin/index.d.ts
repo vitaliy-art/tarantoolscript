@@ -1,4 +1,3 @@
-/** @todo checks https://www.tarantool.io/en/doc/latest/reference/reference_lua/checks/ */
 /** @todo compat https://www.tarantool.io/en/doc/latest/reference/reference_lua/compat/ */
 /** @todo config https://www.tarantool.io/en/doc/latest/reference/reference_lua/config/ */
 /** @todo console https://www.tarantool.io/en/doc/latest/reference/reference_lua/console/ */
@@ -17,6 +16,7 @@
 
 export * from './box';
 export * from './buffer';
+export * from './checks';
 export * from './csv';
 export * from './datetime';
 export * from './fiber';
