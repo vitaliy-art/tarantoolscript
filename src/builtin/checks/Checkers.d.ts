@@ -1,5 +1,4 @@
-/** @noSelfInFile */
-
+/** @noSelf */
 export interface Checkers extends LuaTable<string, (this: void, value: unknown) => boolean> {
   /**
    * Check whether the specified value is `datetime_object`.
