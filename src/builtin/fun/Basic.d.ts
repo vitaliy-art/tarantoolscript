@@ -42,18 +42,18 @@ export declare function iter<TParam, TState, TReturn = any[]>(
 ): IterReturn<TState, TReturn>;
 
 export type IterParams<TParam, TState, TReturn = any[]> = [
-  gen: (this: void, param: TParam, state: TState) => LuaMultiReturn<[TState, ...TReturn] | [undefined]>,
+  gen: (this: void, param: TParam, state: TState) => LuaMultiReturn<[TState, ...TReturn] | [undefined, undefined]>,
   param: TParam,
   state: TState,
 ]
 
-export type IterReturn<TState, TReturn = any[]> = FunIterator<TState | undefined, [...TReturn]>
+export type IterReturn<TState, TReturn = any[]> = FunIterator<TState, [...TReturn]> | FunIterator<undefined, []>
 
 /**
  * Execute the `fun` for each iteration value.
  * @param fun Function to execute on each value.
  * @param value An array to iterate for.
- * @see {@link https://luafun.github.io/basic.html#fun.iter}
+ * @see {@link https://luafun.github.io/basic.html#fun.each}
  */
 export declare function each<T>(
   fun: (this: void, param: T) => unknown,
@@ -64,7 +64,7 @@ export declare function each<T>(
  * Execute the `fun` for each iteration value.
  * @param fun Function to execute on each value.
  * @param value A map to iterate for.
- * @see {@link https://luafun.github.io/basic.html#fun.iter}
+ * @see {@link https://luafun.github.io/basic.html#fun.each}
  */
 export declare function each(
   fun: (this: void, ...params: [string, unknown]) => unknown,
@@ -75,7 +75,7 @@ export declare function each(
  * Execute the `fun` for each iteration value.
  * @param fun Function to execute on each value.
  * @param value A string to iterate for.
- * @see {@link https://luafun.github.io/basic.html#fun.iter}
+ * @see {@link https://luafun.github.io/basic.html#fun.each}
  */
 export declare function each(
   fun: (this: void, param: string) => unknown,
@@ -91,7 +91,7 @@ export declare function each(
  * It is used to create a specific instance of the generating function. For example, the table itself in the `ipairs` case.
  * @param state A some transient state of an iterator that is changed after each iteration.
  * For example, the array index in the `ipairs` case.
- * @see {@link https://luafun.github.io/basic.html#fun.iter}
+ * @see {@link https://luafun.github.io/basic.html#fun.each}
  */
 export declare function each<TParam, TState, TReturn = any[]>(
   fun: (this: void, ...args: [...TReturn]) => unknown,
