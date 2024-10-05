@@ -1,12 +1,14 @@
 /** @noSelfInFile */
 
+import { FunIterator } from './FunIterator';
+
 /**
  * Make `gen`, `param`, `state` iterator from the iterable object. The function is a generalized version of pairs() and ipairs().
  * @param value An array to iterate for.
  * @returns `gen`, `param`, `state` – iterator triplet.
  * @see {@link https://luafun.github.io/basic.html#fun.iter}
  */
-export declare function iter<T>(value: Array<T>): LuaIterable<LuaMultiReturn<[number, T]>>;
+export declare function iter<T>(value: Array<T>): FunIterator<number, [T]>;
 
 /**
  * Make `gen`, `param`, `state` iterator from the iterable object. The function is a generalized version of pairs() and ipairs().
@@ -14,7 +16,7 @@ export declare function iter<T>(value: Array<T>): LuaIterable<LuaMultiReturn<[nu
  * @returns `gen`, `param`, `state` – iterator triplet.
  * @see {@link https://luafun.github.io/basic.html#fun.iter}
  */
-export declare function iter(value: AnyTable): LuaIterable<LuaMultiReturn<[string, string, unknown]>>;
+export declare function iter(value: AnyTable): FunIterator<string, [string, any]>;
 
 /**
  * Make `gen`, `param`, `state` iterator from the iterable object. The function is a generalized version of pairs() and ipairs().
@@ -22,7 +24,7 @@ export declare function iter(value: AnyTable): LuaIterable<LuaMultiReturn<[strin
  * @returns `gen`, `param`, `state` – iterator triplet.
  * @see {@link https://luafun.github.io/basic.html#fun.iter}
  */
-export declare function iter(value: string): LuaIterable<LuaMultiReturn<[number, string]>>;
+export declare function iter(value: string): FunIterator<number, [string]>;
 
 /**
  * Make `gen`, `param`, `state` iterator from the iterable object. The function is a generalized version of pairs() and ipairs().
@@ -45,7 +47,7 @@ export type IterParams<TParam, TState, TReturn = any[]> = [
   state: TState,
 ]
 
-export type IterReturn<TState, TReturn = any[]> = LuaIterable<LuaMultiReturn<[TState, ...TReturn] | [undefined]>>
+export type IterReturn<TState, TReturn = any[]> = FunIterator<TState | undefined, [...TReturn]>
 
 /**
  * Execute the `fun` for each iteration value.
@@ -95,3 +97,7 @@ export declare function each<TParam, TState, TReturn = any[]>(
   fun: (this: void, ...args: [...TReturn]) => unknown,
   ...iterParams: [...IterParams<TParam, TState, TReturn>],
 ): void;
+
+export declare const for_each: typeof each;
+
+export declare const foreach: typeof each;
