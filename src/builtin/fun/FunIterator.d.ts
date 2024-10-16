@@ -74,7 +74,7 @@ export declare interface FunIterator<TState, TReturn = unknown[]> extends LuaIte
    * Return an iterator on the subsequence of first `n` elements.
    * @param n A number of elements to take.
    * @returns An iterator on the subsequence of first `n` elements.
-   * @see {@link https://luafun.github.io/slicing.html#fun.take_n}
+   * @see {@link https://luafun.github.io/slicing.html#fun.take}
    */
   take(n: number): FunIterator<TState, TReturn>;
 
@@ -83,9 +83,92 @@ export declare interface FunIterator<TState, TReturn = unknown[]> extends LuaIte
    * @param predicate Function that accepts elements of iteration
    * and returns `true` if that elements should be included into result iterator.
    * @returns An iterator on the longest prefix elements that satisfy predicate.
-   * @see {@link https://luafun.github.io/slicing.html#fun.take_while}
+   * @see {@link https://luafun.github.io/slicing.html#fun.take}
    */
   take(predicate: (this: void, ...params: [...TReturn]) => boolean): FunIterator<TState, TReturn>;
+
+  /**
+   * Return an iterator after skipping first `n` elements.
+   * @param n A number of elements to take.
+   * @returns An iterator after skipping first `n` elements.
+   * @see {@link https://luafun.github.io/slicing.html#fun.drop_n}
+   */
+  drop_n(n: number): FunIterator<TState, TReturn>;
+
+  /**
+   * Returns an iterator after skipping the longest prefix of elements that satisfy predicate.
+   * @param predicate Function that accepts elements of iteration
+   * and returns `true` if that elements should be skipped.
+   * @returns An iterator after skipping the longest prefix of elements that satisfy predicate.
+   * @see {@link https://luafun.github.io/slicing.html#fun.drop_while}
+   */
+  drop_while(predicate: (this: void, ...params: [...TReturn]) => boolean): FunIterator<TState, TReturn>;
+
+  /**
+   * Return an iterator after skipping first `n` elements.
+   * @param n A number of elements to skip.
+   * @returns An iterator after skipping first `n` elements.
+   * @see {@link https://luafun.github.io/slicing.html#fun.drop}
+   */
+  drop(n: number): FunIterator<TState, TReturn>;
+
+  /**
+   * Returns an iterator after skipping the longest prefix of elements that satisfy predicate.
+   * @param predicate Function that accepts elements of iteration
+   * and returns `true` if that elements should be skipped.
+   * @returns An iterator after skipping the longest prefix of elements that satisfy predicate.
+   * @see {@link https://luafun.github.io/slicing.html#fun.drop}
+   */
+  drop(predicate: (this: void, ...params: [...TReturn]) => boolean): FunIterator<TState, TReturn>;
+
+  /**
+   * Return an iterator pair where the first operates on the subsequence of first `n` elements (possibly empty)
+   * of original iterator and second operates the remainder of original iterator.
+   * @param n A number of elements to span.
+   * @returns An iterator pair (first `n` elements and remainder).
+   * @see {@link https://luafun.github.io/slicing.html#fun.span}
+   */
+  span(n: number): LuaMultiReturn<[FunIterator<TState, TReturn>, FunIterator<TState, TReturn>]>;
+
+  /**
+   * Return an iterator pair where the first operates on the longest prefix (possibly empty) of original iterator
+   * of elements that satisfy predicate and second operates the remainder of original iterator.
+   * @param predicate Function that accepts an element of iteration and returns `true` if it satisfy the condition.
+   * @returns An iterator pair.
+   * @see {@link https://luafun.github.io/slicing.html#fun.span}
+   */
+  span(
+    predicate: (this: void, ...params: [...TReturn]) => boolean,
+  ): LuaMultiReturn<[FunIterator<TState, TReturn>, FunIterator<TState, TReturn>]>;
+
+  /**
+   * Return an iterator pair where the first operates on the subsequence of first `n` elements (possibly empty)
+   * of original iterator and second operates the remainder of original iterator.
+   * @param n A number of elements to span.
+   * @returns An iterator pair (first `n` elements and remainder).
+   * @see {@link https://luafun.github.io/slicing.html#fun.split}
+   */
+  split(n: number): LuaMultiReturn<[FunIterator<TState, TReturn>, FunIterator<TState, TReturn>]>;
+
+  /**
+   * Return an iterator pair where the first operates on the longest prefix (possibly empty) of original iterator
+   * of elements that satisfy predicate and second operates the remainder of original iterator.
+   * @param predicate Function that accepts an element of iteration and returns `true` if it satisfy the condition.
+   * @returns An iterator pair.
+   * @see {@link https://luafun.github.io/slicing.html#fun.split}
+   */
+  split(
+    predicate: (this: void, ...params: [...TReturn]) => boolean,
+  ): LuaMultiReturn<[FunIterator<TState, TReturn>, FunIterator<TState, TReturn>]>;
+
+  /**
+   * Return an iterator pair where the first operates on the subsequence of first `n` elements (possibly empty)
+   * of original iterator and second operates the remainder of original iterator.
+   * @param n A number of elements to span.
+   * @returns An iterator pair (first `n` elements and remainder).
+   * @see {@link https://luafun.github.io/slicing.html#fun.split_at}
+   */
+  split_at(n: number): LuaMultiReturn<[FunIterator<TState, TReturn>, FunIterator<TState, TReturn>]>;
 }
 
 type EachIterator<TReturn = any[]> = (fun: (this: void, ...args: [...TReturn]) => unknown) => void;
