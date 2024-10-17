@@ -169,6 +169,65 @@ export declare interface FunIterator<TState, TReturn = unknown[]> extends LuaIte
    * @see {@link https://luafun.github.io/slicing.html#fun.split_at}
    */
   split_at(n: number): LuaMultiReturn<[FunIterator<TState, TReturn>, FunIterator<TState, TReturn>]>;
+
+  /**
+   * The function returns the position of the first element in the given iterator which is equal (using `==`) to the query element,
+   * or `nil` if there is no such element.
+   * @param x A value to find.
+   * @returns The position of element or nil.
+   * @see {@link https://luafun.github.io/indexing.html#fun.index}
+   */
+  index(x: unknown): number?;
+
+  /**
+   * The function returns the position of the first element in the given iterator which is equal (using `==`) to the query element,
+   * or `nil` if there is no such element.
+   * @param x A value to find.
+   * @returns The position of element or nil.
+   * @see {@link https://luafun.github.io/indexing.html#fun.index_of}
+   */
+  index_of(x: unknown): number?;
+
+  /**
+   * The function returns the position of the first element in the given iterator which is equal (using `==`) to the query element,
+   * or `nil` if there is no such element.
+   * @param x A value to find.
+   * @returns The position of element or nil.
+   * @see {@link https://luafun.github.io/indexing.html#fun.elem_index}
+   */
+  elem_index(x: unknown): number?;
+
+  /**
+   * The function returns an iterator to positions of elements which equals to the query element.
+   * @param x A value to find.
+   * @return An iterator.
+   * @see {@link https://luafun.github.io/indexing.html#fun.indexes}
+   */
+  indexes(x: unknown): FunIterator<number, [number]>;
+
+  /**
+   * The function returns an iterator to positions of elements which equals to the query element.
+   * @param x A value to find.
+   * @return An iterator.
+   * @see {@link https://luafun.github.io/indexing.html#fun.indices}
+   */
+  indices(x: unknown): FunIterator<number, [number]>;
+
+  /**
+   * The function returns an iterator to positions of elements which equals to the query element.
+   * @param x A value to find.
+   * @return An iterator.
+   * @see {@link https://luafun.github.io/indexing.html#fun.elem_indexes}
+   */
+  elem_indexes(x: unknown): FunIterator<number, [number]>;
+
+  /**
+   * The function returns an iterator to positions of elements which equals to the query element.
+   * @param x A value to find.
+   * @return An iterator.
+   * @see {@link https://luafun.github.io/indexing.html#fun.elem_indices}
+   */
+  elem_indices(x: unknown): FunIterator<number, [number]>;
 }
 
 type EachIterator<TReturn = any[]> = (fun: (this: void, ...args: [...TReturn]) => unknown) => void;
