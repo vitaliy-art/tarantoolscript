@@ -228,6 +228,45 @@ export declare interface FunIterator<TState, TReturn = unknown[]> extends LuaIte
    * @see {@link https://luafun.github.io/indexing.html#fun.elem_indices}
    */
   elem_indices(x: unknown): FunIterator<number, [number]>;
+
+  /**
+   * Return a new iterator of those elements that satisfy the `predicate`.
+   * @param predicate An predicate to filter the iterator.
+   * @returns An iterator.
+   * @see {@link https://luafun.github.io/filtering.html#fun.filter}
+   */
+  filter(predicate: (this: void, ...params: [...TReturn]) => boolean): FunIterator<TState, TReturn>;
+
+  /**
+   * Return a new iterator of those elements that satisfy the `predicate`.
+   * @param predicate An predicate to filter the iterator.
+   * @returns An iterator.
+   * @see {@link https://luafun.github.io/filtering.html#fun.remove_if}
+   */
+  remove_if(predicate: (this: void, ...params: [...TReturn]) => boolean): FunIterator<TState, TReturn>;
+
+  /**
+   * If `regexp_or_predicate` is string then the parameter is used as a regular expression to build filtering predicate.
+   * Otherwise the function is just an alias for `filter()`.
+   * @param regexpOrPredicate String regular expression or predicate to filter the iterator.
+   * @returns An iterator.
+   * @see {@link https://luafun.github.io/filtering.html#fun.grep}
+   */
+  grep(regexpOrPredicate: GrepPredicateOrRegexp<TReturn>): FunIterator<TState, TReturn>;
+
+  /**
+   * Return two iterators where elements do and do not satisfy the `predicate`.
+   * @param predicate Function to filter the iterator.
+   * @returns An iterator pair.
+   * @see {@link https://luafun.github.io/filtering.html#fun.partition}
+   */
+  partition(
+    predicate: (this: void, ...params: [...TReturn]) => boolean,
+  ): LuaMultiReturn<[FunIterator<TState, TReturn>, FunIterator<TState, TReturn>]>;
 }
 
 type EachIterator<TReturn = any[]> = (fun: (this: void, ...args: [...TReturn]) => unknown) => void;
+
+type GrepPredicateOrRegexp<TReturn = any[]> =
+  TReturn extends string[] ? string | ((this: void, element: string) => boolean) :
+  (this: void, ...params: [...TReturn]) => boolean;
