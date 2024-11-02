@@ -1,4 +1,5 @@
-export declare interface FunIterator<TState, TReturn = unknown[]> extends LuaIterable<LuaMultiReturn<[TState, ...TReturn]>> {
+export declare interface FunIterator<TState, TReturn = unknown[]>
+  extends LuaIterable<LuaMultiReturn<[TState, ...TReturn]>> {
   /**
    * Execute the `fun` for each iteration value.
    * @see {@link https://luafun.github.io/basic.html#fun.each}
@@ -68,7 +69,9 @@ export declare interface FunIterator<TState, TReturn = unknown[]> extends LuaIte
    * @returns An iterator on the longest prefix elements that satisfy predicate.
    * @see {@link https://luafun.github.io/slicing.html#fun.take_while}
    */
-  take_while(predicate: (this: void, ...params: [...TReturn]) => boolean): FunIterator<TState, TReturn>;
+  take_while(
+    predicate: (this: void, ...params: [...TReturn]) => boolean
+  ): FunIterator<TState, TReturn>;
 
   /**
    * Return an iterator on the subsequence of first `n` elements.
@@ -85,7 +88,9 @@ export declare interface FunIterator<TState, TReturn = unknown[]> extends LuaIte
    * @returns An iterator on the longest prefix elements that satisfy predicate.
    * @see {@link https://luafun.github.io/slicing.html#fun.take}
    */
-  take(predicate: (this: void, ...params: [...TReturn]) => boolean): FunIterator<TState, TReturn>;
+  take(
+    predicate: (this: void, ...params: [...TReturn]) => boolean
+  ): FunIterator<TState, TReturn>;
 
   /**
    * Return an iterator after skipping first `n` elements.
@@ -102,7 +107,9 @@ export declare interface FunIterator<TState, TReturn = unknown[]> extends LuaIte
    * @returns An iterator after skipping the longest prefix of elements that satisfy predicate.
    * @see {@link https://luafun.github.io/slicing.html#fun.drop_while}
    */
-  drop_while(predicate: (this: void, ...params: [...TReturn]) => boolean): FunIterator<TState, TReturn>;
+  drop_while(
+    predicate: (this: void, ...params: [...TReturn]) => boolean
+  ): FunIterator<TState, TReturn>;
 
   /**
    * Return an iterator after skipping first `n` elements.
@@ -119,7 +126,9 @@ export declare interface FunIterator<TState, TReturn = unknown[]> extends LuaIte
    * @returns An iterator after skipping the longest prefix of elements that satisfy predicate.
    * @see {@link https://luafun.github.io/slicing.html#fun.drop}
    */
-  drop(predicate: (this: void, ...params: [...TReturn]) => boolean): FunIterator<TState, TReturn>;
+  drop(
+    predicate: (this: void, ...params: [...TReturn]) => boolean
+  ): FunIterator<TState, TReturn>;
 
   /**
    * Return an iterator pair where the first operates on the subsequence of first `n` elements (possibly empty)
@@ -128,7 +137,11 @@ export declare interface FunIterator<TState, TReturn = unknown[]> extends LuaIte
    * @returns An iterator pair (first `n` elements and remainder).
    * @see {@link https://luafun.github.io/slicing.html#fun.span}
    */
-  span(n: number): LuaMultiReturn<[FunIterator<TState, TReturn>, FunIterator<TState, TReturn>]>;
+  span(
+    n: number
+  ): LuaMultiReturn<
+    [FunIterator<TState, TReturn>, FunIterator<TState, TReturn>]
+  >;
 
   /**
    * Return an iterator pair where the first operates on the longest prefix (possibly empty) of original iterator
@@ -138,8 +151,10 @@ export declare interface FunIterator<TState, TReturn = unknown[]> extends LuaIte
    * @see {@link https://luafun.github.io/slicing.html#fun.span}
    */
   span(
-    predicate: (this: void, ...params: [...TReturn]) => boolean,
-  ): LuaMultiReturn<[FunIterator<TState, TReturn>, FunIterator<TState, TReturn>]>;
+    predicate: (this: void, ...params: [...TReturn]) => boolean
+  ): LuaMultiReturn<
+    [FunIterator<TState, TReturn>, FunIterator<TState, TReturn>]
+  >;
 
   /**
    * Return an iterator pair where the first operates on the subsequence of first `n` elements (possibly empty)
@@ -148,7 +163,11 @@ export declare interface FunIterator<TState, TReturn = unknown[]> extends LuaIte
    * @returns An iterator pair (first `n` elements and remainder).
    * @see {@link https://luafun.github.io/slicing.html#fun.split}
    */
-  split(n: number): LuaMultiReturn<[FunIterator<TState, TReturn>, FunIterator<TState, TReturn>]>;
+  split(
+    n: number
+  ): LuaMultiReturn<
+    [FunIterator<TState, TReturn>, FunIterator<TState, TReturn>]
+  >;
 
   /**
    * Return an iterator pair where the first operates on the longest prefix (possibly empty) of original iterator
@@ -158,8 +177,10 @@ export declare interface FunIterator<TState, TReturn = unknown[]> extends LuaIte
    * @see {@link https://luafun.github.io/slicing.html#fun.split}
    */
   split(
-    predicate: (this: void, ...params: [...TReturn]) => boolean,
-  ): LuaMultiReturn<[FunIterator<TState, TReturn>, FunIterator<TState, TReturn>]>;
+    predicate: (this: void, ...params: [...TReturn]) => boolean
+  ): LuaMultiReturn<
+    [FunIterator<TState, TReturn>, FunIterator<TState, TReturn>]
+  >;
 
   /**
    * Return an iterator pair where the first operates on the subsequence of first `n` elements (possibly empty)
@@ -168,7 +189,11 @@ export declare interface FunIterator<TState, TReturn = unknown[]> extends LuaIte
    * @returns An iterator pair (first `n` elements and remainder).
    * @see {@link https://luafun.github.io/slicing.html#fun.split_at}
    */
-  split_at(n: number): LuaMultiReturn<[FunIterator<TState, TReturn>, FunIterator<TState, TReturn>]>;
+  split_at(
+    n: number
+  ): LuaMultiReturn<
+    [FunIterator<TState, TReturn>, FunIterator<TState, TReturn>]
+  >;
 
   /**
    * The function returns the position of the first element in the given iterator which is equal (using `==`) to the query element,
@@ -235,7 +260,9 @@ export declare interface FunIterator<TState, TReturn = unknown[]> extends LuaIte
    * @returns An iterator.
    * @see {@link https://luafun.github.io/filtering.html#fun.filter}
    */
-  filter(predicate: (this: void, ...params: [...TReturn]) => boolean): FunIterator<TState, TReturn>;
+  filter(
+    predicate: (this: void, ...params: [...TReturn]) => boolean
+  ): FunIterator<TState, TReturn>;
 
   /**
    * Return a new iterator of those elements that satisfy the `predicate`.
@@ -243,7 +270,9 @@ export declare interface FunIterator<TState, TReturn = unknown[]> extends LuaIte
    * @returns An iterator.
    * @see {@link https://luafun.github.io/filtering.html#fun.remove_if}
    */
-  remove_if(predicate: (this: void, ...params: [...TReturn]) => boolean): FunIterator<TState, TReturn>;
+  remove_if(
+    predicate: (this: void, ...params: [...TReturn]) => boolean
+  ): FunIterator<TState, TReturn>;
 
   /**
    * If `regexp_or_predicate` is string then the parameter is used as a regular expression to build filtering predicate.
@@ -252,7 +281,9 @@ export declare interface FunIterator<TState, TReturn = unknown[]> extends LuaIte
    * @returns An iterator.
    * @see {@link https://luafun.github.io/filtering.html#fun.grep}
    */
-  grep(regexpOrPredicate: GrepPredicateOrRegexp<TReturn>): FunIterator<TState, TReturn>;
+  grep(
+    regexpOrPredicate: GrepPredicateOrRegexp<TReturn>
+  ): FunIterator<TState, TReturn>;
 
   /**
    * Return two iterators where elements do and do not satisfy the `predicate`.
@@ -261,12 +292,60 @@ export declare interface FunIterator<TState, TReturn = unknown[]> extends LuaIte
    * @see {@link https://luafun.github.io/filtering.html#fun.partition}
    */
   partition(
-    predicate: (this: void, ...params: [...TReturn]) => boolean,
-  ): LuaMultiReturn<[FunIterator<TState, TReturn>, FunIterator<TState, TReturn>]>;
+    predicate: (this: void, ...params: [...TReturn]) => boolean
+  ): LuaMultiReturn<
+    [FunIterator<TState, TReturn>, FunIterator<TState, TReturn>]
+  >;
+
+  /**
+   * The function reduces the iterator from left to right using the binary operator `accfun` and the initial value `initval`.
+   * @param accfun An accumulating function.
+   * @param initval An initial value that passed to `accfun` on the first iteration.
+   * @returns Reducing result.
+   * @see {@link https://luafun.github.io/reducing.html#fun.foldl}
+   */
+  foldl<R>(
+    accfun: (this: void, acc: R, ...args: [...TReturn]) => R,
+    initval: R
+  ): R;
+
+  /**
+   * The function reduces the iterator from left to right using the binary operator `accfun` and the initial value `initval`.
+   * @param accfun An accumulating function.
+   * @param initval An initial value that passed to `accfun` on the first iteration.
+   * @returns Reducing result.
+   * @see {@link https://luafun.github.io/reducing.html#fun.reduce}
+   */
+  reduce<R>(
+    accfun: (this: void, acc: R, ...args: [...TReturn]) => R,
+    initval: R
+  ): R;
+
+  /**
+   * Return a number of remaining elements in iterator.
+   * @see {@link https://luafun.github.io/reducing.html#fun.length}
+   */
+  length(): number;
+
+  /**
+   * The function reduces the iterator from left to right using `table.insert`.
+   * @returns A table (array) from iterated values.
+   * @see {@link https://luafun.github.io/reducing.html#fun.totable}
+   */
+  totable(): TReturn[];
+
+  /**
+   * The function reduces the iterator from left to right using `tab[val1] = val2` expression.
+   * @returns A new table (map) from iterated values.
+   * @see {@link https://luafun.github.io/reducing.html#fun.tomap}
+   */
+  tomap(): TReturn extends string | unknown[] ? [] : AnyTable;
 }
 
-type EachIterator<TReturn = any[]> = (fun: (this: void, ...args: [...TReturn]) => unknown) => void;
+type EachIterator<TReturn = any[]> = (
+  fun: (this: void, ...args: [...TReturn]) => unknown
+) => void;
 
-type GrepPredicateOrRegexp<TReturn = any[]> =
-  TReturn extends string[] ? string | ((this: void, element: string) => boolean) :
-  (this: void, ...params: [...TReturn]) => boolean;
+type GrepPredicateOrRegexp<TReturn = any[]> = TReturn extends string[]
+  ? string | ((this: void, element: string) => boolean)
+  : (this: void, ...params: [...TReturn]) => boolean;
