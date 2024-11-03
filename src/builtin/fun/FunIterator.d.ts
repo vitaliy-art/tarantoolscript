@@ -340,6 +340,52 @@ export declare interface FunIterator<TState, TReturn = unknown[]>
    * @see {@link https://luafun.github.io/reducing.html#fun.tomap}
    */
   tomap(): TReturn extends string | unknown[] ? [] : AnyTable;
+
+  /**
+   * Returns `true` if the iterator is a prefix of the `right`.
+   * @see {@link https://luafun.github.io/reducing.html#fun.is_prefix_of}
+   */
+  is_prefix_of(right: FunIterator): boolean;
+
+  /**
+   * Returns `true` when iterator is empty or finished.
+   * @see {@link https://luafun.github.io/reducing.html#fun.is_null}
+   */
+  is_null(): boolean;
+
+  /**
+   * Returns `true` if all return values of iterator satisfy the `predicate`.
+   * @see {@link https://luafun.github.io/reducing.html#fun.all}
+   */
+  all(predicate: (this: void, ...args: [...TReturn]) => boolean): boolean;
+
+  /**
+   * Returns `true` if all return values of iterator satisfy the `predicate`.
+   * @see {@link https://luafun.github.io/reducing.html#fun.every}
+   */
+  every(predicate: (this: void, ...args: [...TReturn]) => boolean): boolean;
+
+  /**
+   * Returns `true` if at least one return values of iterator satisfy the `predicate`.
+   * The iteration stops on the first such value.
+   * Therefore, infinite iterators that have at least one satisfying value might work.
+   * @see {@link https://luafun.github.io/reducing.html#fun.any}
+   */
+  any(predicate: (this: void, ...args: [...TReturn]) => boolean): boolean;
+
+  /**
+   * Returns `true` if at least one return values of iterator satisfy the `predicate`.
+   * The iteration stops on the first such value.
+   * Therefore, infinite iterators that have at least one satisfying value might work.
+   * @see {@link https://luafun.github.io/reducing.html#fun.some}
+   */
+  some(predicate: (this: void, ...args: [...TReturn]) => boolean): boolean;
+
+  /**
+   * Sum up all iteration values. For an empty iterators `0` is returned.
+   * @see {@link https://luafun.github.io/reducing.html#fun.sum}
+   */
+  sum(): TReturn extends number[] ? number : never;
 }
 
 type EachIterator<TReturn = any[]> = (
