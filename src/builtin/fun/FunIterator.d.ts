@@ -1,4 +1,4 @@
-export declare interface FunIterator<TState, TReturn = unknown[]>
+export declare interface FunIterator<TState, TReturn extends unknown[]>
   extends LuaIterable<LuaMultiReturn<[TState, ...TReturn]>> {
   /**
    * Execute the `fun` for each iteration value.
@@ -472,6 +472,32 @@ export declare interface FunIterator<TState, TReturn = unknown[]>
   maximum_by(
     cmp: (this: void, a: TFirstReturn, b: TFirstReturn) => TFirstReturn
   ): TReturn extends [infer TFirstReturn, ...unknown[]] ? TFirstReturn : never;
+
+  /**
+   * Return a new iterator by applying the `fun` to each element of iterator.
+   * The mapping is performed on the fly and no values are buffered.
+   * @param fun A function to apply.
+   * @returns A new iterator.
+   * @see {@link https://luafun.github.io/transformations.html#fun.map}
+   */
+  map<TResult>(
+    fun: (this: void, ...args: TReturn) => TResult
+  ): FunIterator<number, [TResult]>;
+
+  /**
+   * Return a new iterator by enumerating all elements of the iterator starting from `1`.
+   * The mapping is performed on the fly and no values are buffered.
+   * @returns A new iterator.
+   * @see {@link https://luafun.github.io/transformations.html#fun.enumerate}
+   */
+  enumerate(): FunIterator<TState, [number, ...TReturn]>;
+
+  /**
+   * Return a new iterator where the `x` value is interspersed between the elements of the source iterator.
+   * The `x` value can also be added as a last element of returning iterator if the source iterator contains the odd number of elements.
+   * @see {@link https://luafun.github.io/transformations.html#fun.intersperse}
+   */
+  intersperse(x: unknown): FunIterator<number, unknown[]>;
 }
 
 type EachIterator<TReturn = any[]> = (
