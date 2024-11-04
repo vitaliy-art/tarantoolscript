@@ -386,6 +386,92 @@ export declare interface FunIterator<TState, TReturn = unknown[]>
    * @see {@link https://luafun.github.io/reducing.html#fun.sum}
    */
   sum(): TReturn extends number[] ? number : never;
+
+  /**
+   * Multiply all iteration values. For an empty iterators `1` is returned.
+   * @see {@link https://luafun.github.io/reducing.html#fun.product}
+   */
+  product(): TReturn extends number[] ? number : never;
+
+  /**
+   * Return a minimum value from the iterator using `operator.min()` or `<` for numbers and other types respectively.
+   * The iterator must be non-null, otherwise an error is raised.
+   * @see {@link https://luafun.github.io/reducing.html#fun.min}
+   */
+  min(): TReturn extends [number, ...unknown[]]
+    ? number
+    : TReturn extends [string, ...unknown[]]
+    ? string
+    : never;
+
+  /**
+   * Return a minimum value from the iterator using `operator.min()` or `<` for numbers and other types respectively.
+   * The iterator must be non-null, otherwise an error is raised.
+   * @see {@link https://luafun.github.io/reducing.html#fun.minimum}
+   */
+  minimum(): TReturn extends [number, ...unknown[]]
+    ? number
+    : TReturn extends [string, ...unknown[]]
+    ? string
+    : never;
+
+  /**
+   * Return a minimum value from the iterator using the `cmp` as a `<` operator.
+   * The iterator must be non-null, otherwise an error is raised.
+   * @see {@link https://luafun.github.io/reducing.html#fun.min_by}
+   */
+  min_by(
+    cmp: (this: void, a: TFirstReturn, b: TFirstReturn) => TFirstReturn
+  ): TReturn extends [infer TFirstReturn, ...unknown[]] ? TFirstReturn : never;
+
+  /**
+   * Return a minimum value from the iterator using the `cmp` as a `<` operator.
+   * The iterator must be non-null, otherwise an error is raised.
+   * @see {@link https://luafun.github.io/reducing.html#fun.minimum_by}
+   */
+  minimum_by(
+    cmp: (this: void, a: TFirstReturn, b: TFirstReturn) => TFirstReturn
+  ): TReturn extends [infer TFirstReturn, ...unknown[]] ? TFirstReturn : never;
+
+  /**
+   * Return a maximum value from the iterator using `operator.max()` or `>` for numbers and other types respectively.
+   * The iterator must be non-null, otherwise an error is raised.
+   * @see {@link https://luafun.github.io/reducing.html#fun.max}
+   */
+  max(): TReturn extends [number, ...unknown[]]
+    ? number
+    : TReturn extends [string, ...unknown[]]
+    ? string
+    : never;
+
+  /**
+   * Return a maximum value from the iterator using `operator.max()` or `>` for numbers and other types respectively.
+   * The iterator must be non-null, otherwise an error is raised.
+   * @see {@link https://luafun.github.io/reducing.html#fun.maximum}
+   */
+  maximum(): TReturn extends [number, ...unknown[]]
+    ? number
+    : TReturn extends [string, ...unknown[]]
+    ? string
+    : never;
+
+  /**
+   * Return a maximum value from the iterator using the `cmp` as a `>` operator.
+   * The iterator must be non-null, otherwise an error is raised.
+   * @see {@link https://luafun.github.io/reducing.html#fun.max_by}
+   */
+  max_by(
+    cmp: (this: void, a: TFirstReturn, b: TFirstReturn) => TFirstReturn
+  ): TReturn extends [infer TFirstReturn, ...unknown[]] ? TFirstReturn : never;
+
+  /**
+   * Return a maximum value from the iterator using the `cmp` as a `>` operator.
+   * The iterator must be non-null, otherwise an error is raised.
+   * @see {@link https://luafun.github.io/reducing.html#fun.maximum_by}
+   */
+  maximum_by(
+    cmp: (this: void, a: TFirstReturn, b: TFirstReturn) => TFirstReturn
+  ): TReturn extends [infer TFirstReturn, ...unknown[]] ? TFirstReturn : never;
 }
 
 type EachIterator<TReturn = any[]> = (

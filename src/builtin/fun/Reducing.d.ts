@@ -244,6 +244,17 @@ export declare function any<T>(
 ): boolean;
 
 /**
+ * Return `true` if at least one return values of iterator satisfy the `predicate`.
+ * The iteration stops on the first such value.
+ * Therefore, infinite iterators that have at least one satisfying value might work.
+ * @see {@link https://luafun.github.io/reducing.html#fun.any}
+ */
+export declare function any<TState, TReturn = unknown[]>(
+  predicate: (this: void, ...args: [...TReturn]) => boolean,
+  iterator: FunIterator<TState, TReturn>
+): boolean;
+
+/**
  * Returns `true` if at least one key-value pair of map satisfy the `predicate`.
  * The iteration stops on the first such value.
  * @see {@link https://luafun.github.io/reducing.html#fun.any}
@@ -261,17 +272,6 @@ export declare function any(
 export declare function any(
   predicate: (this: void, symbol: string) => boolean,
   value: string
-): boolean;
-
-/**
- * Return `true` if at least one return values of iterator satisfy the `predicate`.
- * The iteration stops on the first such value.
- * Therefore, infinite iterators that have at least one satisfying value might work.
- * @see {@link https://luafun.github.io/reducing.html#fun.any}
- */
-export declare function any<TState, TReturn = unknown[]>(
-  predicate: (this: void, ...args: [...TReturn]) => boolean,
-  iterator: FunIterator<TState, TReturn>
 ): boolean;
 
 /**
@@ -307,4 +307,274 @@ export declare function sum<TState, TReturn extends number[]>(
  */
 export declare function sum<TParam, TState, TReturn extends number[]>(
   ...iterParams: [...IterParams<TParam, TState, TReturn>]
-): boolean;
+): number;
+
+/**
+ * Multiply all array values. For an empty arrays `1` is returned.
+ * @see {@link https://luafun.github.io/reducing.html#fun.product}
+ */
+export declare function product(value: number[]): number;
+
+/**
+ * Multiply all iteration values. For an empty iterator `1` is returned.
+ * @see {@link https://luafun.github.io/reducing.html#fun.product}
+ */
+export declare function product<TState, TReturn extends number[]>(
+  iterator: FunIterator<TState, TReturn>
+): number;
+
+/**
+ * Multiply all iteration values. For an empty iterator `1` is returned.
+ * @see {@link https://luafun.github.io/reducing.html#fun.product}
+ */
+export declare function product<TParam, TState, TReturn extends number[]>(
+  ...iterParams: [...IterParams<TParam, TState, TReturn>]
+): number;
+
+/**
+ * Return a minimum value from the array using `operator.min()`.
+ * The iterator must be non-null, otherwise error is raised.
+ * @see {@link https://luafun.github.io/reducing.html#fun.min}
+ */
+export declare function min(value: number[]): number;
+
+/**
+ * Return a minimum value from the array using `<`.
+ * The iterator must be non-null, otherwise error is raised.
+ * @see {@link https://luafun.github.io/reducing.html#fun.min}
+ */
+export declare function min(value: string[]): string;
+
+/**
+ * Return a minimum value from the iterator using `operator.min()`.
+ * The iterator must be non-null, otherwise error is raised.
+ * @see {@link https://luafun.github.io/reducing.html#fun.min}
+ */
+export declare function min<TState, TReturn extends [number, ...unknown[]]>(
+  iterator: FunIterator<TState, TReturn>
+): number;
+
+/**
+ * Return a minimum string key value from the map using `<`.
+ * The iterator must be non-null, otherwise error is raised.
+ * @see {@link https://luafun.github.io/reducing.html#fun.min}
+ */
+export declare function min(value: AnyTable): string;
+
+/**
+ * Return a minimum value from the iterator using `<`.
+ * The iterator must be non-null, otherwise error is raised.
+ * @see {@link https://luafun.github.io/reducing.html#fun.min}
+ */
+export declare function min<TState, TReturn extends [string, ...unknown[]]>(
+  iterator: FunIterator<TState, TReturn>
+): string;
+
+/**
+ * Return a minimum value from the iterator using `operator.min()`.
+ * The iterator must be non-null, otherwise error is raised.
+ * @see {@link https://luafun.github.io/reducing.html#fun.min}
+ */
+export declare function min<
+  TParam,
+  TState,
+  TReturn extends [number, ...unknown[]]
+>(...iterParams: [...IterParams<TParam, TState, TReturn>]): number;
+
+/**
+ * Return a minimum value from the iterator using `<`.
+ * The iterator must be non-null, otherwise error is raised.
+ * @see {@link https://luafun.github.io/reducing.html#fun.min}
+ */
+export declare function min<
+  TParam,
+  TState,
+  TReturn extends [string, ...unknown[]]
+>(...iterParams: [...IterParams<TParam, TState, TReturn>]): string;
+
+export declare const minimum: typeof min;
+
+/**
+ * Return a minimum value from the array using the `cmp` as a `<` operator.
+ * The iterator must be non-empty, otherwise an error is raised.
+ * @see {@link https://luafun.github.io/reducing.html#fun.min_by}
+ */
+export declare function min_by<T>(
+  cmp: (this: void, a: T, b: T) => T,
+  value: T[]
+): T;
+
+/**
+ * Return a minimum symbol from the string using the `cmp` as a `<` operator.
+ * The string must be non-empty, otherwise an error is raised.
+ * @see {@link https://luafun.github.io/reducing.html#fun.min_by}
+ */
+export declare function min_by(
+  cmp: (this: void, a: string, b: string) => string,
+  value: string
+): string;
+
+/**
+ * Return a minimum value from the iterator using the `cmp` as a `<` operator.
+ * The iterator must be non-null, otherwise an error is raised.
+ * @see {@link https://luafun.github.io/reducing.html#fun.min_by}
+ */
+export declare function min_by<
+  TState,
+  TFirstReturn,
+  TReturn extends [TFirstReturn, ...unknown[]]
+>(
+  cmp: (this: void, a: TFirstReturn, b: TFirstReturn) => TFirstReturn,
+  iterator: FunIterator<TState, TReturn>
+): TFirstReturn;
+
+/**
+ * Return a minimum  key value from the map using the `cmp` as a `<` operator.
+ * The map must be non-empty, otherwise an error is raised.
+ * @see {@link https://luafun.github.io/reducing.html#fun.min_by}
+ */
+export declare function min_by(
+  cmp: (this: void, a: string, b: string) => string,
+  value: AnyTable
+): string;
+
+/**
+ * Return a minimum value from the iterator using the `cmp` as a `<` operator.
+ * The iterator must be non-null, otherwise an error is raised.
+ * @see {@link https://luafun.github.io/reducing.html#fun.min_by}
+ */
+export declare function min_by<
+  TParam,
+  TState,
+  TFirstReturn,
+  TReturn extends [TFirstReturn, ...unknown[]]
+>(
+  cmp: (this: void, a: TFirstReturn, b: TFirstReturn) => TFirstReturn,
+  ...iterParams: [...IterParams<TParam, TState, TReturn>]
+): TFirstReturn;
+
+export declare const minimum_by: typeof min_by;
+
+/**
+ * Return a maximum value from the array using `operator.max()`.
+ * The iterator must be non-null, otherwise error is raised.
+ * @see {@link https://luafun.github.io/reducing.html#fun.max}
+ */
+export declare function max(value: number[]): number;
+
+/**
+ * Return a maximum value from the array using `>`.
+ * The iterator must be non-null, otherwise error is raised.
+ * @see {@link https://luafun.github.io/reducing.html#fun.max}
+ */
+export declare function max(value: string[]): string;
+
+/**
+ * Return a maximum value from the iterator using `operator.max()`.
+ * The iterator must be non-null, otherwise error is raised.
+ * @see {@link https://luafun.github.io/reducing.html#fun.max}
+ */
+export declare function max<TState, TReturn extends [number, ...unknown[]]>(
+  iterator: FunIterator<TState, TReturn>
+): number;
+
+/**
+ * Return a maximum string key value from the map using `>`.
+ * The iterator must be non-null, otherwise error is raised.
+ * @see {@link https://luafun.github.io/reducing.html#fun.max}
+ */
+export declare function max(value: AnyTable): string;
+
+/**
+ * Return a maximum value from the iterator using `>`.
+ * The iterator must be non-null, otherwise error is raised.
+ * @see {@link https://luafun.github.io/reducing.html#fun.max}
+ */
+export declare function max<TState, TReturn extends [string, ...unknown[]]>(
+  iterator: FunIterator<TState, TReturn>
+): string;
+
+/**
+ * Return a maximum value from the iterator using `operator.max()`.
+ * The iterator must be non-null, otherwise error is raised.
+ * @see {@link https://luafun.github.io/reducing.html#fun.max}
+ */
+export declare function max<
+  TParam,
+  TState,
+  TReturn extends [number, ...unknown[]]
+>(...iterParams: [...IterParams<TParam, TState, TReturn>]): number;
+
+/**
+ * Return a maximum value from the iterator using `>`.
+ * The iterator must be non-null, otherwise error is raised.
+ * @see {@link https://luafun.github.io/reducing.html#fun.max}
+ */
+export declare function max<
+  TParam,
+  TState,
+  TReturn extends [string, ...unknown[]]
+>(...iterParams: [...IterParams<TParam, TState, TReturn>]): string;
+
+export declare const maximum: typeof max;
+
+/**
+ * Return a maximum value from the array using the `cmp` as a `>` operator.
+ * The iterator must be non-empty, otherwise an error is raised.
+ * @see {@link https://luafun.github.io/reducing.html#fun.max_by}
+ */
+export declare function max_by<T>(
+  cmp: (this: void, a: T, b: T) => T,
+  value: T[]
+): T;
+
+/**
+ * Return a maximum symbol from the string using the `cmp` as a `>` operator.
+ * The string must be non-empty, otherwise an error is raised.
+ * @see {@link https://luafun.github.io/reducing.html#fun.max_by}
+ */
+export declare function max_by(
+  cmp: (this: void, a: string, b: string) => string,
+  value: string
+): string;
+
+/**
+ * Return a maximum value from the iterator using the `cmp` as a `>` operator.
+ * The iterator must be non-null, otherwise an error is raised.
+ * @see {@link https://luafun.github.io/reducing.html#fun.max_by}
+ */
+export declare function max_by<
+  TState,
+  TFirstReturn,
+  TReturn extends [TFirstReturn, ...unknown[]]
+>(
+  cmp: (this: void, a: TFirstReturn, b: TFirstReturn) => TFirstReturn,
+  iterator: FunIterator<TState, TReturn>
+): TFirstReturn;
+
+/**
+ * Return a maximum  key value from the map using the `cmp` as a `>` operator.
+ * The map must be non-empty, otherwise an error is raised.
+ * @see {@link https://luafun.github.io/reducing.html#fun.max_by}
+ */
+export declare function max_by(
+  cmp: (this: void, a: string, b: string) => string,
+  value: AnyTable
+): string;
+
+/**
+ * Return a maximum value from the iterator using the `cmp` as a `>` operator.
+ * The iterator must be non-null, otherwise an error is raised.
+ * @see {@link https://luafun.github.io/reducing.html#fun.max_by}
+ */
+export declare function max_by<
+  TParam,
+  TState,
+  TFirstReturn,
+  TReturn extends [TFirstReturn, ...unknown[]]
+>(
+  cmp: (this: void, a: TFirstReturn, b: TFirstReturn) => TFirstReturn,
+  ...iterParams: [...IterParams<TParam, TState, TReturn>]
+): TFirstReturn;
+
+export declare const maximum_by: typeof max_by;
