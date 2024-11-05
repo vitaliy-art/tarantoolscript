@@ -1,3 +1,4 @@
+export * from "./Compositions";
 export * from "./Basic";
 export * from "./Filtering";
 export * from "./Generators";

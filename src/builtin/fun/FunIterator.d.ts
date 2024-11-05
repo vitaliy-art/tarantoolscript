@@ -345,7 +345,7 @@ export declare interface FunIterator<TState, TReturn extends unknown[]>
    * Returns `true` if the iterator is a prefix of the `right`.
    * @see {@link https://luafun.github.io/reducing.html#fun.is_prefix_of}
    */
-  is_prefix_of(right: FunIterator): boolean;
+  is_prefix_of(right: FunIterator<unknown, unknown[]>): boolean;
 
   /**
    * Returns `true` when iterator is empty or finished.
@@ -498,6 +498,49 @@ export declare interface FunIterator<TState, TReturn extends unknown[]>
    * @see {@link https://luafun.github.io/transformations.html#fun.intersperse}
    */
   intersperse(x: unknown): FunIterator<number, unknown[]>;
+
+  /**
+   * Return a new iterator where i-th return value contains the i-th element from each of the iterators.
+   * The returned iterator is truncated in length to the length of the shortest iterator.
+   * For multi-return iterators only the first variable is used.
+   * @returns A new iterator.
+   * @see {@link https://luafun.github.io/compositions.html#fun.zip}
+   */
+  zip<TResultState, TResultReturn extends unknown[]>(
+    ...iterators: (
+      | string
+      | FunIterator<unknown, unknown[]>
+      | AnyTable
+      | unknown[]
+    )[]
+  ): FunIterator<TResultState, TResultReturn>;
+
+  /**
+   * Make a new iterator that returns elements from iterator until the end
+   * and then “restart” iteration using a saved clone of iterator.
+   * The returned iterator is constant space and no return values are buffered.
+   * Instead of that the function make a clone of the source iterator.
+   * Therefore, the source iterator must be pure functional to make an identical clone.
+   * Infinity iterators are supported, but are not recommended.
+   * @see {@link https://luafun.github.io/compositions.html#fun.cycle}
+   */
+  cycle(): FunIterator<TState, TReturn>;
+
+  /**
+   * Make an iterator that returns elements from the first iterator until it is exhausted,
+   * then proceeds to the next iterator, until all of the iterators are exhausted.
+   * Used for treating consecutive iterators as a single iterator. Infinity iterators are supported, but are not recommended.
+   * @returns A consecutive iterator from sources (left from right).
+   * @see {@link https://luafun.github.io/compositions.html#fun.chain}
+   */
+  chain<TResultState, TResultReturn extends unknown[]>(
+    ...iterators: (
+      | string
+      | FunIterator<unknown, unknown[]>
+      | AnyTable
+      | unknown[]
+    )[]
+  ): FunIterator<TResultState, TResultReturn>;
 }
 
 type EachIterator<TReturn = any[]> = (
