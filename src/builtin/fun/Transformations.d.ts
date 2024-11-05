@@ -136,7 +136,7 @@ export declare function enumerate<TParam, TState, TReturn extends unknown[]>(
  */
 export declare function intersperse(
   x: unknown,
-  value: unknown[] | string | FunIterator | AnyTable
+  value: unknown[] | string | FunIterator<unknown, unknown[]> | AnyTable
 ): FunIterator<number, unknown[]>;
 
 /**

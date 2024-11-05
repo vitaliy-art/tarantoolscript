@@ -1,6 +1,6 @@
 /** @noSelfInFile */
 
-import { FunIterator } from './FunIterator';
+import { FunIterator } from "./FunIterator";
 
 /**
  * Make `gen`, `param`, `state` iterator from the iterable object. The function is a generalized version of pairs() and ipairs().
@@ -16,7 +16,9 @@ export declare function iter<T>(value: Array<T>): FunIterator<number, [T]>;
  * @returns `gen`, `param`, `state` – iterator triplet.
  * @see {@link https://luafun.github.io/basic.html#fun.iter}
  */
-export declare function iter(value: AnyTable): FunIterator<string, [string, unknown]>;
+export declare function iter(
+  value: AnyTable
+): FunIterator<string, [string, unknown]>;
 
 /**
  * Make `gen`, `param`, `state` iterator from the iterable object. The function is a generalized version of pairs() and ipairs().
@@ -37,15 +39,19 @@ export declare function iter(value: string): FunIterator<number, [string]>;
  * @returns `gen`, `param`, `state` – iterator triplet.
  * @see {@link https://luafun.github.io/basic.html#fun.iter}
  */
-export declare function iter<TParam, TState, TReturn = unknown[]>(
-  ...iterParams: [...IterParams<TParam, TState, TReturn>],
+export declare function iter<TParam, TState, TReturn extends unknown[]>(
+  ...iterParams: [...IterParams<TParam, TState, TReturn>]
 ): FunIterator<TState, TReturn>;
 
-export type IterParams<TParam, TState, TReturn = unknown[]> = [
-  gen: (this: void, param: TParam, state: TState) => LuaMultiReturn<[TState, ...TReturn] | [undefined, undefined]>,
+export type IterParams<TParam, TState, TReturn extends unknown[]> = [
+  gen: (
+    this: void,
+    param: TParam,
+    state: TState
+  ) => LuaMultiReturn<[TState, ...TReturn] | [undefined, undefined]>,
   param: TParam,
-  state: TState,
-]
+  state: TState
+];
 
 /**
  * Execute the `fun` for each iteration value.
@@ -55,7 +61,7 @@ export type IterParams<TParam, TState, TReturn = unknown[]> = [
  */
 export declare function each<T>(
   fun: (this: void, param: T) => unknown,
-  value: Array<T>,
+  value: Array<T>
 ): void;
 
 /**
@@ -66,7 +72,7 @@ export declare function each<T>(
  */
 export declare function each(
   fun: (this: void, ...params: [string, unknown]) => unknown,
-  value: AnyTable,
+  value: AnyTable
 ): void;
 
 /**
@@ -77,7 +83,7 @@ export declare function each(
  */
 export declare function each(
   fun: (this: void, param: string) => unknown,
-  value: string,
+  value: string
 ): void;
 
 /**
@@ -91,9 +97,9 @@ export declare function each(
  * For example, the array index in the `ipairs` case.
  * @see {@link https://luafun.github.io/basic.html#fun.each}
  */
-export declare function each<TParam, TState, TReturn = unknown[]>(
+export declare function each<TParam, TState, TReturn extends unknown[]>(
   fun: (this: void, ...args: [...TReturn]) => unknown,
-  ...iterParams: [...IterParams<TParam, TState, TReturn>],
+  ...iterParams: [...IterParams<TParam, TState, TReturn>]
 ): void;
 
 export declare const for_each: typeof each;

@@ -169,8 +169,8 @@ export declare function is_prefix_of(left: string, right: string): boolean;
  * @see {@link https://luafun.github.io/reducing.html#fun.is_prefix_of}
  */
 export declare function is_prefix_of(
-  left: FunIterator,
-  right: FunIterator
+  left: FunIterator<unknown, unknown[]>,
+  right: FunIterator<unknown, unknown[]>
 ): boolean;
 
 /**
@@ -179,7 +179,7 @@ export declare function is_prefix_of(
  * @see {@link https://luafun.github.io/reducing.html#fun.is_null}
  */
 export declare function is_null(
-  value: string | unknown[] | AnyTable | FunIterator
+  value: string | unknown[] | FunIterator<unknown, unknown[]> | AnyTable
 ): boolean;
 
 /**
