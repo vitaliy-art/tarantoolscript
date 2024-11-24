@@ -80,10 +80,7 @@ export declare function each<T>(
  * @see {@link https://luafun.github.io/basic.html#fun.each}
  */
 export declare function each<TState, TReturn extends unknown[]>(
-  fun: (
-    this: void,
-    param: TReturn extends (infer TElement)[] ? TElement : never
-  ) => unknown,
+  fun: (this: void, ...params: TReturn) => unknown,
   value: FunIterator<TState, TReturn>
 ): void;
 
