@@ -11,6 +11,16 @@ import { FunIterator } from "./FunIterator";
 export declare function iter<T>(value: Array<T>): FunIterator<number, [T]>;
 
 /**
+ * Make iterator from the othe iterator. The function is a generalized version of pairs() and ipairs().
+ * @param value An iterator.
+ * @returns `gen`, `param`, `state` – iterator triplet.
+ * @see {@link https://luafun.github.io/basic.html#fun.iter}
+ */
+export declare function iter<TState, TReturn extends unknown[]>(
+  value: FunIterator<TState, TReturn>
+): FunIterator<TState, TReturn>;
+
+/**
  * Make `gen`, `param`, `state` iterator from the iterable object. The function is a generalized version of pairs() and ipairs().
  * @param value A map to iterate for.
  * @returns `gen`, `param`, `state` – iterator triplet.
@@ -62,6 +72,19 @@ export type IterParams<TParam, TState, TReturn extends unknown[]> = [
 export declare function each<T>(
   fun: (this: void, param: T) => unknown,
   value: Array<T>
+): void;
+
+/**
+ * Execute the `fun` for each iteration value.
+ * @param value An iterator.
+ * @see {@link https://luafun.github.io/basic.html#fun.each}
+ */
+export declare function each<TState, TReturn extends unknown[]>(
+  fun: (
+    this: void,
+    param: TReturn extends (infer TElement)[] ? TElement : never
+  ) => unknown,
+  value: FunIterator<TState, TReturn>
 ): void;
 
 /**
