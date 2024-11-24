@@ -1,7 +1,7 @@
 /** @noSelfInFile */
 
-import { IterParams } from './Basic';
-import { FunIterator } from './FunIterator';
+import { IterParams } from "./Basic";
+import { FunIterator } from "./FunIterator";
 
 /**
  * The function returns the position of the first element in the array which is equal (using `==`) to the query element,
@@ -12,6 +12,19 @@ import { FunIterator } from './FunIterator';
  * @see {@link https://luafun.github.io/indexing.html#fun.index}
  */
 export declare function index<T>(x: T, value: T[]): number?;
+
+/**
+ * The function returns the position of the first element in the given iterator which is equal (using `==`) to the query element,
+ * or `nil` if there is no such element.
+ * @param x A value to find.
+ * @param value An iterator.
+ * @returns The position of element or nil.
+ * @see {@link https://luafun.github.io/indexing.html#fun.index}
+ */
+export declare function index<TState, TReturn extends unknown[]>(
+  x: TReturn[0],
+  value: FunIterator<TState, TReturn>
+): number?;
 
 /**
  * The function returns the position of the first element in the map which key value is equal (using `==`) to the query element,
@@ -48,7 +61,7 @@ export declare function index(x: string, value: string): number?;
  */
 export declare function index<TParam, TState, TReturn = unknown[]>(
   x: unknown,
-  ...iterParams: [...IterParams<TParam, TState, TReturn>],
+  ...iterParams: [...IterParams<TParam, TState, TReturn>]
 ): number?;
 
 export declare const index_of: typeof index;
@@ -62,7 +75,10 @@ export declare const elem_index: typeof index;
  * @returns An iterator.
  * @see {@link https://luafun.github.io/indexing.html#fun.indexes}
  */
-export declare function indexes<T>(x: T, value: T[]): FunIterator<number, [number]>;
+export declare function indexes<T>(
+  x: T,
+  value: T[]
+): FunIterator<number, [number]>;
 
 /**
  * The function returns an iterator to position of one element which key equals to the query element.
@@ -71,7 +87,10 @@ export declare function indexes<T>(x: T, value: T[]): FunIterator<number, [numbe
  * @returns An iterator.
  * @see {@link https://luafun.github.io/indexing.html#fun.indexes}
  */
-export declare function indexes(x: unknown, value: AnyTable): FunIterator<number, [number]>;
+export declare function indexes(
+  x: unknown,
+  value: AnyTable
+): FunIterator<number, [number]>;
 
 /**
  * The function returns an iterator to positions of symbols which equals to the query symbol.
@@ -80,7 +99,10 @@ export declare function indexes(x: unknown, value: AnyTable): FunIterator<number
  * @returns An iterator.
  * @see {@link https://luafun.github.io/indexing.html#fun.indexes}
  */
-export declare function indexes(x: string, value: string): FunIterator<number, [number]>;
+export declare function indexes(
+  x: string,
+  value: string
+): FunIterator<number, [number]>;
 
 /**
  * The function returns an iterator to positions of elements which equals to the query element.
@@ -96,7 +118,7 @@ export declare function indexes(x: string, value: string): FunIterator<number, [
  */
 export declare function indexes<TParam, TState, TReturn = unknown[]>(
   x: unknown,
-  ...iterParams: [...IterParams<TParam, TState, TReturn>],
+  ...iterParams: [...IterParams<TParam, TState, TReturn>]
 ): FunIterator<number, [number]>;
 
 export declare const indices: typeof indexes;
