@@ -1,5 +1,7 @@
-export declare interface FunIterator<TState, TReturn extends unknown[]>
-  extends LuaIterable<LuaMultiReturn<[TState, ...TReturn]>> {
+export declare type FunIterator<
+  TState,
+  TReturn extends unknown[]
+> = LuaIterable<LuaMultiReturn<[TState, ...TReturn]>> & {
   /**
    * Execute the `fun` for each iteration value.
    * @see {@link https://luafun.github.io/basic.html#fun.each}
@@ -541,7 +543,7 @@ export declare interface FunIterator<TState, TReturn extends unknown[]>
       | unknown[]
     )[]
   ): FunIterator<TResultState, TResultReturn>;
-}
+};
 
 type EachIterator<TReturn = any[]> = (
   fun: (this: void, ...args: [...TReturn]) => unknown
