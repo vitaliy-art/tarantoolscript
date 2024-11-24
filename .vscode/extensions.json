@@ -1,5 +1,9 @@
 {
     "recommendations": [
-        "typescript-to-lua.vscode-typescript-to-lua"
+        "typescript-to-lua.vscode-typescript-to-lua",
+        "streetsidesoftware.code-spell-checker",
+        "editorconfig.editorconfig",
+        "dbaeumer.vscode-eslint",
+        "sumneko.lua"
     ]
 }
