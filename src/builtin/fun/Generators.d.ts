@@ -1,6 +1,6 @@
 /** @noSelfInFile */
 
-import { FunIterator } from './FunIterator';
+import { FunIterator } from "./FunIterator";
 
 /**
  * The iterator to create arithmetic progressions.
@@ -29,7 +29,10 @@ export declare function range(stop: number): FunIterator<number, [number]>;
  * @returns Iterator on arithmetic progression.
  * @see {@link https://luafun.github.io/generators.html#fun.range}
  */
-export declare function range(start: number, stop: number): FunIterator<number, [number]>;
+export declare function range(
+  start: number,
+  stop: number
+): FunIterator<number, [number]>;
 
 /**
  * The iterator to create arithmetic progressions.
@@ -45,7 +48,11 @@ export declare function range(start: number, stop: number): FunIterator<number, 
  * @returns Iterator on arithmetic progression.
  * @see {@link https://luafun.github.io/generators.html#fun.range}
  */
-export declare function range(start: number, stop: number, step: number): FunIterator<number, [number]>;
+export declare function range(
+  start: number,
+  stop: number,
+  step: number
+): FunIterator<number, [number]>;
 
 /**
  * The iterator returns `values` over and over again indefinitely.
@@ -54,7 +61,9 @@ export declare function range(start: number, stop: number, step: number): FunIte
  * @returns Values over and over again indefinitely.
  * @see {@link https://luafun.github.io/generators.html#fun.duplicate}
  */
-export declare function duplicate<TReturn = unknown[]>(...values: [...TReturn]): FunIterator<number, [...TReturn]>;
+export declare function duplicate<TReturn extends unknown[]>(
+  ...values: TReturn
+): FunIterator<number, TReturn>;
 
 export declare const xrepeat: typeof duplicate;
 
@@ -66,9 +75,9 @@ export declare const replicate: typeof duplicate;
  * @returns An iterator.
  * @see {@link https://luafun.github.io/generators.html#fun.tabulate}
  */
-export declare function tabulate<TReturn = unknown[]>(
-  fun: (this: void, n: number) => LuaMultiReturn<[...TReturn]>,
-): FunIterator<number, [...TReturn]>;
+export declare function tabulate<TReturn extends unknown[]>(
+  fun: (this: void, n: number) => LuaMultiReturn<TReturn>
+): FunIterator<number, TReturn>;
 
 /**
  * The iterator returns `0` indefinitely.
@@ -115,4 +124,7 @@ export declare function rands(n: number): FunIterator<number, [number]>;
  * @returns An iterator.
  * @see {@link https://luafun.github.io/generators.html#fun.rands}
  */
-export declare function rands(n: number, m: number): FunIterator<number, [number]>;
+export declare function rands(
+  n: number,
+  m: number
+): FunIterator<number, [number]>;

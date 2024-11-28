@@ -9,7 +9,22 @@ import { FunIterator } from "./FunIterator";
  * @returns An iterator.
  * @see {@link https://luafun.github.io/filtering.html#fun.filter}
  */
-export declare function filter<T>(predicate: (this: void, element: T) => boolean, value: T[]): FunIterator<number, [T]>;
+export declare function filter<T>(
+  predicate: (this: void, element: T) => boolean,
+  value: T[]
+): FunIterator<number, [T]>;
+
+/**
+ * Return a new iterator of those elements that satisfy the `predicate`.
+ * @param predicate An predicate to filter the iterator.
+ * @param value An iterator.
+ * @returns An iterator.
+ * @see {@link https://luafun.github.io/filtering.html#fun.filter}
+ */
+export declare function filter<TState, TReturn extends unknown[]>(
+  predicate: (this: void, ...args: TReturn) => boolean,
+  value: FunIterator<TState, TReturn>
+): FunIterator<TState, TReturn>;
 
 /**
  * Return a new iterator of those elements that satisfy the `predicate`.
@@ -20,7 +35,7 @@ export declare function filter<T>(predicate: (this: void, element: T) => boolean
  */
 export declare function filter(
   predicate: (this: void, key: string, value: any) => boolean,
-  value: AnyTable,
+  value: AnyTable
 ): FunIterator<string, [string, unknown]>;
 
 /**
@@ -32,7 +47,7 @@ export declare function filter(
  */
 export declare function filter(
   predicate: (this: void, element: string) => boolean,
-  value: string,
+  value: string
 ): FuncIterator<number, [string]>;
 
 /**
@@ -47,9 +62,9 @@ export declare function filter(
  * @returns An iterator.
  * @see {@link https://luafun.github.io/filtering.html#fun.filter}
  */
-export declare function filter<TParam, TState, TReturn = unknown[]>(
-  predicate: (this: void, ...params: [...TReturn]) => boolean,
-  ...iterParams: [...IterParams<TParam, TState, TReturn>],
+export declare function filter<TParam, TState, TReturn extends unknown[]>(
+  predicate: (this: void, ...params: TReturn) => boolean,
+  ...iterParams: [...IterParams<TParam, TState, TReturn>]
 ): FunIterator<TState, TReturn>;
 
 export declare const remove_if: typeof filter;
@@ -61,9 +76,12 @@ export declare const remove_if: typeof filter;
  * @returns An iterator.
  * @see {@link https://luafun.github.io/filtering.html#fun.grep}
  */
-declare function grepStrings(regexp: string, value: string[]): FunIterator<number, [string]>
+declare function grepStrings(
+  regexp: string,
+  value: string[]
+): FunIterator<number, [string]>;
 
-export declare const grep: typeof filter & typeof grepStrings
+export declare const grep: typeof filter & typeof grepStrings;
 
 /**
  * Return two iterators where elements do and do not satisfy the `predicate`.
@@ -74,8 +92,20 @@ export declare const grep: typeof filter & typeof grepStrings
  */
 export declare function partition<T>(
   predicate: (this: void, element: T) => boolean,
-  value: T[],
+  value: T[]
 ): LuaMultiReturn<[FunIterator<number, [T]>, FunIterator<number, [T]>]>;
+
+/**
+ * Return two iterators where elements do and do not satisfy the `predicate`.
+ * @param predicate Function to filter the iterator.
+ * @param value An iterator.
+ * @returns An iterator pair.
+ * @see {@link https://luafun.github.io/filtering.html#fun.partition}
+ */
+export declare function partition<TState, TReturn extends unknown[]>(
+  predicate: (this: void, ...args: TReturn) => boolean,
+  value: FunIterator<TState, TReturn>
+): LuaMultiReturn<[FunIterator<TState, TReturn>, FunIterator<TState, TReturn>]>;
 
 /**
  * Return two iterators where elements do and do not satisfy the `predicate`.
@@ -86,8 +116,13 @@ export declare function partition<T>(
  */
 export declare function partition(
   predicate: (this: void, key: string, value: any) => boolean,
-  value: AnyTable,
-): LuaMultiReturn<[FunIterator<string, [string, unknown]>, FunIterator<string, [string, unknown]>]>;
+  value: AnyTable
+): LuaMultiReturn<
+  [
+    FunIterator<string, [string, unknown]>,
+    FunIterator<string, [string, unknown]>
+  ]
+>;
 
 /**
  * Return two iterators where elements do and do not satisfy the `predicate`.
@@ -98,8 +133,10 @@ export declare function partition(
  */
 export declare function partition(
   predicate: (this: void, element: string) => boolean,
-  value: string,
-): LuaMultiReturn<[FuncIterator<number, [string]>, FuncIterator<number, [string]>]>;
+  value: string
+): LuaMultiReturn<
+  [FuncIterator<number, [string]>, FuncIterator<number, [string]>]
+>;
 
 /**
  * Return two iterators where elements do and do not satisfy the `predicate`.
@@ -113,7 +150,7 @@ export declare function partition(
  * @returns An iterator pair.
  * @see {@link https://luafun.github.io/filtering.html#fun.partition}
  */
-export declare function partition<TParam, TState, TReturn = unknown[]>(
-  predicate: (this: void, ...params: [...TReturn]) => boolean,
-  ...iterParams: [...IterParams<TParam, TState, TReturn>],
+export declare function partition<TParam, TState, TReturn extends unknown[]>(
+  predicate: (this: void, ...params: TReturn) => boolean,
+  ...iterParams: [...IterParams<TParam, TState, TReturn>]
 ): LuaMultiReturn<[FunIterator<TState, TReturn>, FunIterator<TState, TReturn>]>;

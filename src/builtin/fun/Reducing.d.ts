@@ -57,8 +57,8 @@ export declare function foldl<R>(
  * @returns Reducing result.
  * @see {@link https://luafun.github.io/reducing.html#fun.foldl}
  */
-export declare function foldl<TParam, TState, TReturn = unknown[], R>(
-  accfun: (this: void, acc: R, ...args: [...TReturn]) => R,
+export declare function foldl<TParam, TState, TReturn extends unknown[], R>(
+  accfun: (this: void, acc: R, ...args: TReturn) => R,
   initval: R,
   ...iterParams: [...IterParams<TParam, TState, TReturn>]
 ): R;
@@ -83,7 +83,7 @@ export declare function length(value: unknown[] | AnyTable | string): number;
  * @returns A number of remaining elements.
  * @see {@link https://luafun.github.io/reducing.html#fun.length}
  */
-export declare function length<TParam, TState, TReturn = unknown[]>(
+export declare function length<TParam, TState, TReturn extends unknown[]>(
   ...iterParams: [...IterParams<TParam, TState, TReturn>]
 ): number;
 
@@ -121,7 +121,7 @@ export declare function totable(value: string): string[];
  * @returns A table (array) from iterated values.
  * @see {@link https://luafun.github.io/reducing.html#fun.totable}
  */
-export declare function totable<TParam, TState, TReturn = unknown[]>(
+export declare function totable<TParam, TState, TReturn extends unknown[]>(
   ...iterParams: [...IterParams<TParam, TState, TReturn>]
 ): TReturn[];
 
@@ -142,7 +142,7 @@ export declare function tomap(value: string | unknown[] | AnyTable): [];
  * @returns A new table (map) from iterated values.
  * @see {@link https://luafun.github.io/reducing.html#fun.tomap}
  */
-export declare function tomap<TParam, TState, TReturn = unknown[]>(
+export declare function tomap<TParam, TState, TReturn extends unknown[]>(
   ...iterParams: [...IterParams<TParam, TState, TReturn>]
 ): AnyTable;
 
@@ -191,7 +191,7 @@ export declare function is_null(
  * @param state A some transient state of an iterator that is changed after each iteration.
  * @see {@link https://luafun.github.io/reducing.html#fun.is_null}
  */
-export declare function is_null<TParam, TState, TReturn = unknown[]>(
+export declare function is_null<TParam, TState, TReturn extends unknown[]>(
   ...iterParams: [...IterParams<TParam, TState, TReturn>]
 ): boolean;
 
@@ -226,8 +226,8 @@ export declare function all(
  * Returns `true` if all return values of iterator satisfy the `predicate`.
  * @see {@link https://luafun.github.io/reducing.html#fun.all}
  */
-export declare function all<TParam, TState, TReturn = unknown[]>(
-  predicate: (this: void, ...args: [...TReturn]) => boolean,
+export declare function all<TParam, TState, TReturn extends unknown[]>(
+  predicate: (this: void, ...args: TReturn) => boolean,
   ...iterParams: [...IterParams<TParam, TState, TReturn>]
 ): boolean;
 
@@ -249,8 +249,8 @@ export declare function any<T>(
  * Therefore, infinite iterators that have at least one satisfying value might work.
  * @see {@link https://luafun.github.io/reducing.html#fun.any}
  */
-export declare function any<TState, TReturn = unknown[]>(
-  predicate: (this: void, ...args: [...TReturn]) => boolean,
+export declare function any<TState, TReturn extends unknown[]>(
+  predicate: (this: void, ...args: TReturn) => boolean,
   iterator: FunIterator<TState, TReturn>
 ): boolean;
 
@@ -280,8 +280,8 @@ export declare function any(
  * Therefore, infinite iterators that have at least one satisfying value might work.
  * @see {@link https://luafun.github.io/reducing.html#fun.any}
  */
-export declare function any<TParam, TState, TReturn = unknown[]>(
-  predicate: (this: void, ...args: [...TReturn]) => boolean,
+export declare function any<TParam, TState, TReturn extends unknown[]>(
+  predicate: (this: void, ...args: TReturn) => boolean,
   ...iterParams: [...IterParams<TParam, TState, TReturn>]
 ): boolean;
 

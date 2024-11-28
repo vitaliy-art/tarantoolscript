@@ -23,7 +23,7 @@ export declare function nth<T>(n: number, value: T[]): T?;
 export declare function nth<TState, TReturn extends unknown[]>(
   n: number,
   value: FunIterator<TState, TReturn>
-): LuaMultiReturn<[...TReturn]>;
+): LuaMultiReturn<TReturn>;
 
 /**
  * Return the n-th key-value pair of map.
@@ -61,7 +61,7 @@ export declare function nth(n: number, value: string): string?;
 export declare function nth<TParam, TState, TReturn extends unknown[]>(
   n: number,
   ...iterParams: [...IterParams<TParam, TState, TReturn>]
-): LuaMultiReturn<[...TReturn]>;
+): LuaMultiReturn<TReturn>;
 
 /**
  * Extract the first element of an array.  If value is empty then an error is raised.
@@ -79,7 +79,7 @@ export declare function head<T>(value: T[]): T;
  */
 export declare function head<TState, TReturn extends unknown[]>(
   value: FunIterator<TState, TReturn>
-): LuaMultiReturn<[...TReturn]>;
+): LuaMultiReturn<TReturn>;
 
 /**
  * Extract the first key-value pair of map. If value is empty then an error is raised.
@@ -111,7 +111,7 @@ export declare function head(value: string): string;
  */
 export declare function head<TParam, TState, TReturn extends unknown[]>(
   ...iterParams: [...IterParams<TParam, TState, TReturn>]
-): LuaMultiReturn<[...TReturn]>;
+): LuaMultiReturn<TReturn>;
 
 export declare const car: typeof head;
 
@@ -167,7 +167,7 @@ export declare function tail(value: string): FunIterator<number, [string]>;
  * @returns `gen`, `param`, `state` without a first element.
  * @see {@link https://luafun.github.io/slicing.html#fun.tail}
  */
-export declare function tail<TParam, TState, TReturn = unknown[]>(
+export declare function tail<TParam, TState, TReturn extends unknown[]>(
   ...iterParams: [...IterParams<TParam, TState, TReturn>]
 ): FunIterator<TState, TReturn>;
 
@@ -233,7 +233,7 @@ export declare function take_n(
  * @returns An iterator on the subsequence of first `n` elements.
  * @see {@link https://luafun.github.io/slicing.html#fun.take_n}
  */
-export declare function take_n<TParam, TState, TReturn = unknown[]>(
+export declare function take_n<TParam, TState, TReturn extends unknown[]>(
   n: number,
   ...iterParams: [...IterParams<TParam, TState, TReturn>]
 ): FunIterator<TState, TReturn>;
@@ -303,7 +303,7 @@ export declare function take_while(
  * @returns An iterator on the longest prefix elements that satisfy predicate.
  * @see {@link https://luafun.github.io/slicing.html#fun.take_while}
  */
-export declare function take_while<TParam, TState, TReturn = unknown[]>(
+export declare function take_while<TParam, TState, TReturn extends unknown[]>(
   predicate: (this: void, ...params: TReturn) => boolean,
   ...iterParams: [...IterParams<TParam, TState, TReturn>]
 ): FunIterator<TState, TReturn>;
@@ -370,7 +370,7 @@ export declare function drop_n(
  * @returns An iterator after skipping first `n` elements.
  * @see {@link https://luafun.github.io/slicing.html#fun.drop_n}
  */
-export declare function drop_n<TParam, TState, TReturn = unknown[]>(
+export declare function drop_n<TParam, TState, TReturn extends unknown[]>(
   n: number,
   ...iterParams: [...IterParams<TParam, TState, TReturn>]
 ): FunIterator<TState, TReturn>;
@@ -440,7 +440,7 @@ export declare function drop_while(
  * @returns An iterator after skipping the longest prefix of elements that satisfy predicate.
  * @see {@link https://luafun.github.io/slicing.html#fun.drop_while}
  */
-export declare function drop_while<TParam, TState, TReturn = unknown[]>(
+export declare function drop_while<TParam, TState, TReturn extends unknown[]>(
   predicate: (this: void, ...params: TReturn) => boolean,
   ...iterParams: [...IterParams<TParam, TState, TReturn>]
 ): FunIterator<TState, TReturn>;
@@ -519,7 +519,7 @@ export declare function span(
  * @returns An iterator pair (first `n` elements and remainder).
  * @see {@link https://luafun.github.io/slicing.html#fun.span}
  */
-export declare function span<TParam, TState, TReturn = unknown[]>(
+export declare function span<TParam, TState, TReturn extends unknown[]>(
   n: number,
   ...iterParams: [...IterParams<TParam, TState, TReturn>]
 ): LuaMultiReturn<[FunIterator<TState, TReturn>, FunIterator<TState, TReturn>]>;
@@ -600,7 +600,7 @@ export declare function span(
  * @returns An iterator pair.
  * @see {@link https://luafun.github.io/slicing.html#fun.span}
  */
-export declare function span<TParam, TState, TReturn = unknown[]>(
+export declare function span<TParam, TState, TReturn extends unknown[]>(
   predicate: (this: void, ...params: TReturn) => boolean,
   ...iterParams: [...IterParams<TParam, TState, TReturn>]
 ): LuaMultiReturn<[FunIterator<TState, TReturn>, FunIterator<TState, TReturn>]>;
@@ -679,7 +679,7 @@ export declare function split_at(
  * @returns An iterator pair (first `n` elements and remainder).
  * @see {@link https://luafun.github.io/slicing.html#fun.split_at}
  */
-export declare function split_at<TParam, TState, TReturn = unknown[]>(
+export declare function split_at<TParam, TState, TReturn extends unknown[]>(
   n: number,
   ...iterParams: [...IterParams<TParam, TState, TReturn>]
 ): LuaMultiReturn<[FunIterator<TState, TReturn>, FunIterator<TState, TReturn>]>;

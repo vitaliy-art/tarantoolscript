@@ -28,20 +28,20 @@ export declare type FunIterator<
    * @returns The n-th element of iteration.
    * @see {@link https://luafun.github.io/slicing.html#fun.nth}
    */
-  nth(n: number): LuaMultiReturn<[...TReturn] | [undefined]>;
+  nth(n: number): LuaMultiReturn<TReturn | [undefined]>;
 
   /**
    * Extract the first element of iterator. If the iterator is empty then an error is raised.
    * @returns A first element of iterator.
    * @see {@link https://luafun.github.io/slicing.html#fun.head}
    */
-  head(): LuaMultiReturn<[...TReturn]>;
+  head(): LuaMultiReturn<TReturn>;
 
   /**
    * An alias for `head()`.
    * @see {@link https://luafun.github.io/slicing.html#fun.head}
    */
-  car(): LuaMultiReturn<[...TReturn]>;
+  car(): LuaMultiReturn<TReturn>;
 
   /**
    * Return a copy of iterator without its first element. If the iterator is empty then an empty iterator is returned.
@@ -72,7 +72,7 @@ export declare type FunIterator<
    * @see {@link https://luafun.github.io/slicing.html#fun.take_while}
    */
   take_while(
-    predicate: (this: void, ...params: [...TReturn]) => boolean
+    predicate: (this: void, ...params: TReturn) => boolean
   ): FunIterator<TState, TReturn>;
 
   /**
@@ -91,7 +91,7 @@ export declare type FunIterator<
    * @see {@link https://luafun.github.io/slicing.html#fun.take}
    */
   take(
-    predicate: (this: void, ...params: [...TReturn]) => boolean
+    predicate: (this: void, ...params: TReturn) => boolean
   ): FunIterator<TState, TReturn>;
 
   /**
@@ -110,7 +110,7 @@ export declare type FunIterator<
    * @see {@link https://luafun.github.io/slicing.html#fun.drop_while}
    */
   drop_while(
-    predicate: (this: void, ...params: [...TReturn]) => boolean
+    predicate: (this: void, ...params: TReturn) => boolean
   ): FunIterator<TState, TReturn>;
 
   /**
@@ -129,7 +129,7 @@ export declare type FunIterator<
    * @see {@link https://luafun.github.io/slicing.html#fun.drop}
    */
   drop(
-    predicate: (this: void, ...params: [...TReturn]) => boolean
+    predicate: (this: void, ...params: TReturn) => boolean
   ): FunIterator<TState, TReturn>;
 
   /**
@@ -153,7 +153,7 @@ export declare type FunIterator<
    * @see {@link https://luafun.github.io/slicing.html#fun.span}
    */
   span(
-    predicate: (this: void, ...params: [...TReturn]) => boolean
+    predicate: (this: void, ...params: TReturn) => boolean
   ): LuaMultiReturn<
     [FunIterator<TState, TReturn>, FunIterator<TState, TReturn>]
   >;
@@ -179,7 +179,7 @@ export declare type FunIterator<
    * @see {@link https://luafun.github.io/slicing.html#fun.split}
    */
   split(
-    predicate: (this: void, ...params: [...TReturn]) => boolean
+    predicate: (this: void, ...params: TReturn) => boolean
   ): LuaMultiReturn<
     [FunIterator<TState, TReturn>, FunIterator<TState, TReturn>]
   >;
@@ -263,7 +263,7 @@ export declare type FunIterator<
    * @see {@link https://luafun.github.io/filtering.html#fun.filter}
    */
   filter(
-    predicate: (this: void, ...params: [...TReturn]) => boolean
+    predicate: (this: void, ...params: TReturn) => boolean
   ): FunIterator<TState, TReturn>;
 
   /**
@@ -273,7 +273,7 @@ export declare type FunIterator<
    * @see {@link https://luafun.github.io/filtering.html#fun.remove_if}
    */
   remove_if(
-    predicate: (this: void, ...params: [...TReturn]) => boolean
+    predicate: (this: void, ...params: TReturn) => boolean
   ): FunIterator<TState, TReturn>;
 
   /**
@@ -294,7 +294,7 @@ export declare type FunIterator<
    * @see {@link https://luafun.github.io/filtering.html#fun.partition}
    */
   partition(
-    predicate: (this: void, ...params: [...TReturn]) => boolean
+    predicate: (this: void, ...params: TReturn) => boolean
   ): LuaMultiReturn<
     [FunIterator<TState, TReturn>, FunIterator<TState, TReturn>]
   >;
@@ -306,10 +306,7 @@ export declare type FunIterator<
    * @returns Reducing result.
    * @see {@link https://luafun.github.io/reducing.html#fun.foldl}
    */
-  foldl<R>(
-    accfun: (this: void, acc: R, ...args: [...TReturn]) => R,
-    initval: R
-  ): R;
+  foldl<R>(accfun: (this: void, acc: R, ...args: TReturn) => R, initval: R): R;
 
   /**
    * The function reduces the iterator from left to right using the binary operator `accfun` and the initial value `initval`.
@@ -318,10 +315,7 @@ export declare type FunIterator<
    * @returns Reducing result.
    * @see {@link https://luafun.github.io/reducing.html#fun.reduce}
    */
-  reduce<R>(
-    accfun: (this: void, acc: R, ...args: [...TReturn]) => R,
-    initval: R
-  ): R;
+  reduce<R>(accfun: (this: void, acc: R, ...args: TReturn) => R, initval: R): R;
 
   /**
    * Return a number of remaining elements in iterator.
@@ -359,13 +353,13 @@ export declare type FunIterator<
    * Returns `true` if all return values of iterator satisfy the `predicate`.
    * @see {@link https://luafun.github.io/reducing.html#fun.all}
    */
-  all(predicate: (this: void, ...args: [...TReturn]) => boolean): boolean;
+  all(predicate: (this: void, ...args: TReturn) => boolean): boolean;
 
   /**
    * Returns `true` if all return values of iterator satisfy the `predicate`.
    * @see {@link https://luafun.github.io/reducing.html#fun.every}
    */
-  every(predicate: (this: void, ...args: [...TReturn]) => boolean): boolean;
+  every(predicate: (this: void, ...args: TReturn) => boolean): boolean;
 
   /**
    * Returns `true` if at least one return values of iterator satisfy the `predicate`.
@@ -373,7 +367,7 @@ export declare type FunIterator<
    * Therefore, infinite iterators that have at least one satisfying value might work.
    * @see {@link https://luafun.github.io/reducing.html#fun.any}
    */
-  any(predicate: (this: void, ...args: [...TReturn]) => boolean): boolean;
+  any(predicate: (this: void, ...args: TReturn) => boolean): boolean;
 
   /**
    * Returns `true` if at least one return values of iterator satisfy the `predicate`.
@@ -381,7 +375,7 @@ export declare type FunIterator<
    * Therefore, infinite iterators that have at least one satisfying value might work.
    * @see {@link https://luafun.github.io/reducing.html#fun.some}
    */
-  some(predicate: (this: void, ...args: [...TReturn]) => boolean): boolean;
+  some(predicate: (this: void, ...args: TReturn) => boolean): boolean;
 
   /**
    * Sum up all iteration values. For an empty iterators `0` is returned.
@@ -545,10 +539,10 @@ export declare type FunIterator<
   ): FunIterator<TResultState, TResultReturn>;
 };
 
-type EachIterator<TReturn = any[]> = (
-  fun: (this: void, ...args: [...TReturn]) => unknown
+type EachIterator<TReturn extends unknown[]> = (
+  fun: (this: void, ...args: TReturn) => unknown
 ) => void;
 
-type GrepPredicateOrRegexp<TReturn = any[]> = TReturn extends string[]
+type GrepPredicateOrRegexp<TReturn extends unknown[]> = TReturn extends string[]
   ? string | ((this: void, element: string) => boolean)
-  : (this: void, ...params: [...TReturn]) => boolean;
+  : (this: void, ...params: TReturn) => boolean;

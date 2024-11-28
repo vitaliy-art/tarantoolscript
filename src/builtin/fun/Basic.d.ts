@@ -118,7 +118,7 @@ export declare function each(
  * @see {@link https://luafun.github.io/basic.html#fun.each}
  */
 export declare function each<TParam, TState, TReturn extends unknown[]>(
-  fun: (this: void, ...args: [...TReturn]) => unknown,
+  fun: (this: void, ...args: TReturn) => unknown,
   ...iterParams: [...IterParams<TParam, TState, TReturn>]
 ): void;
 

@@ -59,7 +59,7 @@ export declare function index(x: string, value: string): number?;
  * @returns The position of element or nil.
  * @see {@link https://luafun.github.io/indexing.html#fun.index}
  */
-export declare function index<TParam, TState, TReturn = unknown[]>(
+export declare function index<TParam, TState, TReturn extends unknown[]>(
   x: unknown,
   ...iterParams: [...IterParams<TParam, TState, TReturn>]
 ): number?;
@@ -116,7 +116,7 @@ export declare function indexes(
  * @returns An iterator.
  * @see {@link https://luafun.github.io/indexing.html#fun.indexes}
  */
-export declare function indexes<TParam, TState, TReturn = unknown[]>(
+export declare function indexes<TParam, TState, TReturn extends unknown[]>(
   x: unknown,
   ...iterParams: [...IterParams<TParam, TState, TReturn>]
 ): FunIterator<number, [number]>;
