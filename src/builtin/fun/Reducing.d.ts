@@ -18,6 +18,20 @@ export declare function foldl<T, R>(
 ): R;
 
 /**
+ * The function reduces the iterator from left to right using the binary operator `accfun` and the initial value `initval`.
+ * @param accfun An accumulating function.
+ * @param initval An initial value that passed to `accfun` on the first iteration.
+ * @param value An iterator.
+ * @returns Reducing result.
+ * @see {@link https://luafun.github.io/reducing.html#fun.foldl}
+ */
+export declare function foldl<TState, TReturn extends unknown[], R>(
+  accfun: (this: void, acc: R, ...params: TReturn) => R,
+  initval: R,
+  value: FunIterator<TState, TReturn>
+): R;
+
+/**
  * The function reduces the map from left to right using the binary operator `accfun` and the initial value `initval`.
  * @param accfun An accumulating function.
  * @param initval An initial value that passed to `accfun` on the first iteration.
