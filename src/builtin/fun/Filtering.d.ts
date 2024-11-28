@@ -33,10 +33,10 @@ export declare function filter<TState, TReturn extends unknown[]>(
  * @returns An iterator.
  * @see {@link https://luafun.github.io/filtering.html#fun.filter}
  */
-export declare function filter(
-  predicate: (this: void, key: string, value: any) => boolean,
-  value: AnyTable
-): FunIterator<string, [string, unknown]>;
+export declare function filter<TValue>(
+  predicate: (this: void, key: string, value: TValue) => boolean,
+  value: Record<string, TValue>
+): FunIterator<string, [string, TValue]>;
 
 /**
  * Return a new iterator of those elements that satisfy the `predicate`.
@@ -114,14 +114,11 @@ export declare function partition<TState, TReturn extends unknown[]>(
  * @returns An iterator pair.
  * @see {@link https://luafun.github.io/filtering.html#fun.partition}
  */
-export declare function partition(
-  predicate: (this: void, key: string, value: any) => boolean,
-  value: AnyTable
+export declare function partition<TValue>(
+  predicate: (this: void, key: string, value: TValue) => boolean,
+  value: Record<string, TValue>
 ): LuaMultiReturn<
-  [
-    FunIterator<string, [string, unknown]>,
-    FunIterator<string, [string, unknown]>
-  ]
+  [FunIterator<string, [string, TValue]>, FunIterator<string, [string, TValue]>]
 >;
 
 /**

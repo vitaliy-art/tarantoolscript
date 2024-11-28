@@ -50,9 +50,9 @@ export declare function map<TResult, TState, TReturn extends [...unknown[]]>(
  * @returns A new iterator.
  * @see {@link https://luafun.github.io/transformations.html#fun.map}
  */
-export declare function map<TResult>(
-  fun: (this: void, key: string, value: unknown) => TResult,
-  value: AnyTable
+export declare function map<TResult, TValue>(
+  fun: (this: void, key: string, value: TValue) => TResult,
+  value: Record<string, TValue>
 ): FunIterator<number, [TResult]>;
 
 /**
@@ -109,9 +109,9 @@ export declare function enumerate<TState, TReturn extends unknown[]>(
  * @returns A new iterator.
  * @see {@link https://luafun.github.io/transformations.html#fun.enumerate}
  */
-export declare function enumerate(
-  value: AnyTable
-): FunIterator<number, [number, string, unknown]>;
+export declare function enumerate<TValue>(
+  value: Record<string, TValue>
+): FunIterator<number, [number, string, TValue]>;
 
 /**
  * Return a new iterator by enumerating all elements of `gen, param, state` iterator starting from `1`.

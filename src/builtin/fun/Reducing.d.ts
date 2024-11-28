@@ -25,10 +25,10 @@ export declare function foldl<T, R>(
  * @returns Reducing result.
  * @see {@link https://luafun.github.io/reducing.html#fun.foldl}
  */
-export declare function foldl<R>(
-  accfun: (this: void, acc: R, key: string, value: unknown) => R,
+export declare function foldl<R, TValue>(
+  accfun: (this: void, acc: R, key: string, value: TValue) => R,
   initval: R,
-  value: AnyTable
+  value: Record<string, TValue>
 ): R;
 
 /**
@@ -208,9 +208,9 @@ export declare function all<T>(
  * Returns `true` if all key-value pairs of map satisfy the `predicate`.
  * @see {@link https://luafun.github.io/reducing.html#fun.all}
  */
-export declare function all(
-  predicate: (this: void, key: string, value: unknown) => boolean,
-  value: AnyTable
+export declare function all<TValue>(
+  predicate: (this: void, key: string, value: TValue) => boolean,
+  value: Record<string, TValue>
 ): boolean;
 
 /**
@@ -259,9 +259,9 @@ export declare function any<TState, TReturn extends unknown[]>(
  * The iteration stops on the first such value.
  * @see {@link https://luafun.github.io/reducing.html#fun.any}
  */
-export declare function any(
-  predicate: (this: void, key: string, value: unknown) => boolean,
-  value: AnyTable
+export declare function any<TValue>(
+  predicate: (this: void, key: string, value: TValue) => boolean,
+  value: Record<string, TValue>
 ): boolean;
 
 /**
@@ -359,7 +359,7 @@ export declare function min<TState, TReturn extends [number, ...unknown[]]>(
  * The iterator must be non-null, otherwise error is raised.
  * @see {@link https://luafun.github.io/reducing.html#fun.min}
  */
-export declare function min(value: AnyTable): string;
+export declare function min(value: Record<string, unknown>): string;
 
 /**
  * Return a minimum value from the iterator using `<`.
@@ -435,7 +435,7 @@ export declare function min_by<
  */
 export declare function min_by(
   cmp: (this: void, a: string, b: string) => string,
-  value: AnyTable
+  value: Record<string, unknown>
 ): string;
 
 /**
@@ -483,7 +483,7 @@ export declare function max<TState, TReturn extends [number, ...unknown[]]>(
  * The iterator must be non-null, otherwise error is raised.
  * @see {@link https://luafun.github.io/reducing.html#fun.max}
  */
-export declare function max(value: AnyTable): string;
+export declare function max(value: Record<string, unknown>): string;
 
 /**
  * Return a maximum value from the iterator using `>`.
@@ -559,7 +559,7 @@ export declare function max_by<
  */
 export declare function max_by(
   cmp: (this: void, a: string, b: string) => string,
-  value: AnyTable
+  value: Record<string, unknown>
 ): string;
 
 /**

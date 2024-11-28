@@ -26,9 +26,9 @@ export declare function iter<TState, TReturn extends unknown[]>(
  * @returns `gen`, `param`, `state` – iterator triplet.
  * @see {@link https://luafun.github.io/basic.html#fun.iter}
  */
-export declare function iter(
-  value: AnyTable
-): FunIterator<string, [string, unknown]>;
+export declare function iter<TValue>(
+  value: Record<string, TValue>
+): FunIterator<string, [string, TValue]>;
 
 /**
  * Make `gen`, `param`, `state` iterator from the iterable object. The function is a generalized version of pairs() and ipairs().
@@ -90,9 +90,9 @@ export declare function each<TState, TReturn extends unknown[]>(
  * @param value A map to iterate for.
  * @see {@link https://luafun.github.io/basic.html#fun.each}
  */
-export declare function each(
-  fun: (this: void, ...params: [string, unknown]) => unknown,
-  value: AnyTable
+export declare function each<TValue>(
+  fun: (this: void, key: string, value: TValue) => unknown,
+  value: Record<string, TValue>
 ): void;
 
 /**

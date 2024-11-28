@@ -32,10 +32,10 @@ export declare function nth<TState, TReturn extends unknown[]>(
  * @returns The n-th key-value pair of map.
  * @see {@link https://luafun.github.io/slicing.html#fun.nth}
  */
-export declare function nth(
+export declare function nth<TValue>(
   n: number,
-  value: AnyTable
-): LuaMultiReturn<[string, unknown] | [undefined]>;
+  value: Record<string, TValue>
+): LuaMultiReturn<[string, TValue] | [undefined]>;
 
 /**
  * Return the n-th symbol of string.
@@ -87,9 +87,9 @@ export declare function head<TState, TReturn extends unknown[]>(
  * @returns A first key-value pair of map.
  * @see {@link https://luafun.github.io/slicing.html#fun.head}
  */
-export declare function head(
-  value: AnyTable
-): LuaMultiReturn<[string, unknown]>;
+export declare function head<TValue>(
+  value: Record<string, TValue>
+): LuaMultiReturn<[string, TValue]>;
 
 /**
  * Extract the first symbol of string. If value is empty then an error is raised.
@@ -142,9 +142,9 @@ export declare function tail<TState, TReturn extends unknown[]>(
  * @returns `gen`, `param`, `state` iterator without a first element.
  * @see {@link https://luafun.github.io/slicing.html#fun.tail}
  */
-export declare function tail(
-  value: AnyTable
-): FunIterator<string, [string, unknown]>;
+export declare function tail<TValue>(
+  value: Record<string, TValue>
+): FunIterator<string, [string, TValue]>;
 
 /**
  * Return a copy of string without its first symbol.
@@ -204,10 +204,10 @@ export declare function take_n<TState, TReturn extends unknown[]>(
  * @returns An iterator on the subsequence of first `n` key-value paris.
  * @see {@link https://luafun.github.io/slicing.html#fun.take_n}
  */
-export declare function take_n(
+export declare function take_n<TValue>(
   n: number,
-  value: AnyTable
-): FunIterator<string, [string, unknown]>;
+  value: Record<string, TValue>
+): FunIterator<string, [string, TValue]>;
 
 /**
  * Return an iterator on the subsequence of first `n` symbols of string.
@@ -272,10 +272,10 @@ export declare function take_while<TState, TReturn extends unknown[]>(
  * @returns An iterator on the subsequence of first key-value pairs satisfying the condition.
  * @see {@link https://luafun.github.io/slicing.html#fun.take_while}
  */
-export declare function take_while(
-  predicate: (this: void, key: string, value: any) => boolean,
-  value: AnyTable
-): FunIterator<string, [string, unknown]>;
+export declare function take_while<TValue>(
+  predicate: (this: void, key: string, value: TValue) => boolean,
+  value: Record<string, TValue>
+): FunIterator<string, [string, TValue]>;
 
 /**
  * Returns an iterator on the subsequence of first symbols satisfying the condition.
@@ -341,10 +341,10 @@ export declare function drop_n<TState, TReturn extends unknown[]>(
  * @returns An iterator after skipping first `n` key-value paris.
  * @see {@link https://luafun.github.io/slicing.html#fun.drop_n}
  */
-export declare function drop_n(
+export declare function drop_n<TValue>(
   n: number,
-  value: AnyTable
-): FunIterator<string, [string, unknown]>;
+  value: Record<string, TValue>
+): FunIterator<string, [string, TValue]>;
 
 /**
  * Return an iterator after skipping first `n` symbols of string.
@@ -409,10 +409,10 @@ export declare function drop_while<TState, TReturn extends unknown[]>(
  * @returns An iterator after skipping the longest prefix of first key-value pairs satisfying the condition.
  * @see {@link https://luafun.github.io/slicing.html#fun.drop_while}
  */
-export declare function drop_while(
-  predicate: (this: void, key: string, value: any) => boolean,
-  value: AnyTable
-): FunIterator<string, [string, unknown]>;
+export declare function drop_while<TValue>(
+  predicate: (this: void, key: string, value: TValue) => boolean,
+  value: Record<string, TValue>
+): FunIterator<string, [string, TValue]>;
 
 /**
  * Returns an iterator after skipping the longest prefix of first symbols satisfying the condition.
@@ -481,14 +481,11 @@ export declare function span<TState, TReturn extends unknown[]>(
  * @returns An iterator pair (first `n` key-value pairs and remainder).
  * @see {@link https://luafun.github.io/slicing.html#fun.span}
  */
-export declare function span(
+export declare function span<TValue>(
   n: number,
-  value: AnyTable
+  value: Record<string, TValue>
 ): LuaMultiReturn<
-  [
-    FunIterator<string, [string, unknown]>,
-    FunIterator<string, [string, unknown]>
-  ]
+  [FunIterator<string, [string, TValue]>, FunIterator<string, [string, TValue]>]
 >;
 
 /**
@@ -561,14 +558,11 @@ export declare function span<TState, TReturn extends unknown[]>(
  * @returns An iterator pair.
  * @see {@link https://luafun.github.io/slicing.html#fun.span}
  */
-export declare function span(
-  predicate: (this: void, key: string, value: any) => boolean,
-  value: AnyTable
+export declare function span<TValue>(
+  predicate: (this: void, key: string, value: TValue) => boolean,
+  value: Record<string, TValue>
 ): LuaMultiReturn<
-  [
-    FunIterator<string, [string, unknown]>,
-    FunIterator<string, [string, unknown]>
-  ]
+  [FunIterator<string, [string, TValue]>, FunIterator<string, [string, TValue]>]
 >;
 
 /**
@@ -641,14 +635,11 @@ export declare function split_at<TState, TReturn extends unknown[]>(
  * @returns An iterator pair (first `n` key-value pairs and remainder).
  * @see {@link https://luafun.github.io/slicing.html#fun.split_at}
  */
-export declare function split_at(
+export declare function split_at<TValue>(
   n: number,
-  value: AnyTable
+  value: Record<string, TValue>
 ): LuaMultiReturn<
-  [
-    FunIterator<string, [string, unknown]>,
-    FunIterator<string, [string, unknown]>
-  ]
+  [FunIterator<string, [string, TValue]>, FunIterator<string, [string, TValue]>]
 >;
 
 /**

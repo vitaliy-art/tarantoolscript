@@ -68,9 +68,9 @@ export declare function cycle<TState, TReturn extends unknown[]>(
  * @returns A new iterator.
  * @see {@link https://luafun.github.io/compositions.html#fun.cycle}
  */
-export declare function cycle(
-  value: AnyTable
-): FunIterator<number, [string, unknown]>;
+export declare function cycle<TValue>(
+  value: Record<string, TValue>
+): FunIterator<number, [string, TValue]>;
 
 /**
  * Make a new iterator that returns elements from `{gen, param, state}` iterator until the end

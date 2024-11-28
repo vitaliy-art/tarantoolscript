@@ -34,7 +34,10 @@ export declare function index<TState, TReturn extends unknown[]>(
  * @returns The position of element or nil.
  * @see {@link https://luafun.github.io/indexing.html#fun.index}
  */
-export declare function index(x: string, value: AnyTable): number?;
+export declare function index(
+  x: string,
+  value: Record<string, unknown>
+): number?;
 
 /**
  * The function returns the position of the first symbol in the string which is equal (using `==`) to the query element,
@@ -87,9 +90,9 @@ export declare function indexes<T>(
  * @returns An iterator.
  * @see {@link https://luafun.github.io/indexing.html#fun.indexes}
  */
-export declare function indexes(
-  x: unknown,
-  value: AnyTable
+export declare function indexes<TValue>(
+  x: TValue,
+  value: Record<string, TValue>
 ): FunIterator<number, [number]>;
 
 /**
