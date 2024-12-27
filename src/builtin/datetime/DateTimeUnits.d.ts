@@ -1,3 +1,5 @@
+
+/** [Possible input time units for datetime.new()](https://www.tarantool.io/en/doc/latest/reference/reference_lua/datetime/#datetime-new-args) */
 export interface DateTimeUnits {
   /**
    * Fractional part of the last second.
@@ -25,6 +27,7 @@ export interface DateTimeUnits {
 
   /**
    * Seconds. Value range: 0 - 60.
+   * A leap second is supported, see a section [leap second](https://www.tarantool.io/en/doc/latest/reference/reference_lua/datetime/#leap-second).
    * @default 0
    */
   sec?: number;
@@ -42,7 +45,8 @@ export interface DateTimeUnits {
   hour?: number;
 
   /**
-   * Day number. Value range: 1 - 31. The special value `-1` generates the last day of a particular month.
+   * Day number. Value range: 1 - 31.
+   * The special value `-1` generates the last day of a particular month (see [example below](https://www.tarantool.io/en/doc/latest/reference/reference_lua/datetime/#datetime-new-example)).
    * @default 1
    */
   day?: number;
@@ -71,12 +75,14 @@ export interface DateTimeUnits {
 
   /**
    * Time zone offset from UTC, in minutes. If both `tzoffset` and `tz` are specified, `tz` has the preference and the `tzoffset` value is ignored.
+   * See a section [timezone](https://www.tarantool.io/en/doc/latest/reference/reference_lua/datetime/#timezone).
    * @default 0
    */
   tzoffset?: number;
 
   /**
    * Time zone name according to the tz database.
+   * See the [Time zones](https://www.tarantool.io/en/doc/latest/reference/reference_lua/datetime/#timezone) section.
    */
   tz?: string;
 }
