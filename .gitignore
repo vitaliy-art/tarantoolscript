@@ -205,5 +205,10 @@ dist
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,node,lua
 
+### JetBrains IDEs ###
+.idea
+
+### Other ###
+
 build
 .rocks
