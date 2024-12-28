@@ -23,7 +23,7 @@ export interface GaugeObject {
    * @param labelPairs Table containing label names as keys, label values as values.
    * Note that both label names and values in `label_pairs` are treated as strings.
    */
-  set(num: number, labelPairs: Record<string | number>): void;
+  set(num: number, labelPairs: Record<string, string>): void;
 
   /**
    * @returns Array of `observation` objects for a given gauge.
