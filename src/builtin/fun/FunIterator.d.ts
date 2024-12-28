@@ -416,7 +416,7 @@ export declare type FunIterator<
    * The iterator must be non-null, otherwise an error is raised.
    * @see {@link https://luafun.github.io/reducing.html#fun.min_by}
    */
-  min_by(
+  min_by<TFirstReturn>(
     cmp: (this: void, a: TFirstReturn, b: TFirstReturn) => TFirstReturn
   ): TReturn extends [infer TFirstReturn, ...unknown[]] ? TFirstReturn : never;
 
@@ -425,7 +425,7 @@ export declare type FunIterator<
    * The iterator must be non-null, otherwise an error is raised.
    * @see {@link https://luafun.github.io/reducing.html#fun.minimum_by}
    */
-  minimum_by(
+  minimum_by<TFirstReturn>(
     cmp: (this: void, a: TFirstReturn, b: TFirstReturn) => TFirstReturn
   ): TReturn extends [infer TFirstReturn, ...unknown[]] ? TFirstReturn : never;
 
@@ -456,7 +456,7 @@ export declare type FunIterator<
    * The iterator must be non-null, otherwise an error is raised.
    * @see {@link https://luafun.github.io/reducing.html#fun.max_by}
    */
-  max_by(
+  max_by<TFirstReturn>(
     cmp: (this: void, a: TFirstReturn, b: TFirstReturn) => TFirstReturn
   ): TReturn extends [infer TFirstReturn, ...unknown[]] ? TFirstReturn : never;
 
@@ -465,7 +465,7 @@ export declare type FunIterator<
    * The iterator must be non-null, otherwise an error is raised.
    * @see {@link https://luafun.github.io/reducing.html#fun.maximum_by}
    */
-  maximum_by(
+  maximum_by<TFirstReturn>(
     cmp: (this: void, a: TFirstReturn, b: TFirstReturn) => TFirstReturn
   ): TReturn extends [infer TFirstReturn, ...unknown[]] ? TFirstReturn : never;
 
