@@ -193,11 +193,26 @@ export interface NetBoxConnectionObject {
 }
 
 type InferSpaceFunctionType<TProp extends keyof SpaceObject> =
-  <TOpts extends NetBoxRequestOptions>(...params: [...Parameters<SpaceObject[TProp]>, requestOptions?: TOpts]) =>
+  <TOpts extends NetBoxRequestOptions>(
+    ...params: [
+      ...(SpaceObject[TProp] extends ((...args: any) => any)
+        ? Parameters<SpaceObject[TProp]>
+        : never
+      ),
+      requestOptions?: TOpts
+    ]) =>
     TOpts extends { buffer: BufferObject } ? void :
     TOpts extends { is_async: true } ? (
       TOpts extends { return_raw: true } ? NetBoxFuture<MsgPackObject> :
-      NetBoxFuture<ReturnType<SpaceObject[TProp]>>
+      NetBoxFuture<
+        SpaceObject[TProp] extends ((...args: any) => any)
+          ? ReturnType<SpaceObject[TProp]>
+          : never
+        >
     ) :
     TOpts extends { return_raw: true } ? MsgPackObject :
-    ReturnType<SpaceObject[TProp]>
+    ReturnType<
+      SpaceObject[TProp] extends ((...args: any) => any)
+        ? ReturnType<SpaceObject[TProp]>
+        : never
+    >
