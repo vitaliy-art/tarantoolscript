@@ -1,7 +1,8 @@
 import { TupleObject } from '../../builtin/box/tuple/TupleObject';
 import { TaskOptions } from './TaskOptions';
+import { TubeType } from './TubeType';
 
-export interface TubeObject<O = TaskOptions<T>> {
+export interface TubeObject<O = TaskOptions<TubeType>> {
   /**
    * Putting a task in a queue.
    * @param taskData The user-defined description of the task, usually a long string.
