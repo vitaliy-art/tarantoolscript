@@ -26,7 +26,7 @@ export declare function load(readable: CsvReadable, options?: CsvOptions): unkno
  * @returns String, which is written to `writable` if specified.
  */
 export declare function dump(csvTable: unknown[], options?: CsvOptions): string;
-export declare function dump(csvTable: unknown[], options?: CsvOptions, writable: CsvWritable): void;
+export declare function dump(csvTable: unknown[], options?: CsvOptions, writable?: CsvWritable): void;
 
 /**
  * Form a Lua iterator function for going through CSV records one field at a time.

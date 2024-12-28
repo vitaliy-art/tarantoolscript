@@ -9,7 +9,7 @@ export function is_test_name(this: void, s: string): boolean;
 /**
  * Main entrypoint to run test suite.
  */
-export function run(this: void, args?: LuaTable<string, unknown>, options: {
+export function run(this: void, args?: LuaTable<string, unknown>, options?: {
   /** Optional */
   verbosity?: int;
   /** Default $(def) */
