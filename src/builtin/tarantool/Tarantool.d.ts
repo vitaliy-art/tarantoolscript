@@ -3,14 +3,14 @@
 export declare const version: string;
 
 export declare namespace build {
-  export declare const target: string;
-  export declare const options: string;
-  export declare const linking: string;
-  export declare const mod_format: string;
-  export declare const flags: string;
-  export declare const compiler: string;
-  export declare const test_build: boolean;
-  export declare const asan: boolean;
+  export const target: string;
+  export const options: string;
+  export const linking: string;
+  export const mod_format: string;
+  export const flags: string;
+  export const compiler: string;
+  export const test_build: boolean;
+  export const asan: boolean;
 }
 
 export declare const package: string;

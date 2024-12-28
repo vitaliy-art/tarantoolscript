@@ -39,31 +39,31 @@ export declare namespace path {
    * @param pathName Path to directory or file.
    * @returns True if path-name refers to a directory or file that exists and is not a broken symbolic link; otherwise false.
    */
-  export declare function exists(pathName: string): boolean;
+  export function exists(pathName: string): boolean;
 
   /**
    * @param pathName Path to directory or file.
    * @returns True if path-name refers to a directory; otherwise false.
    */
-  export declare function is_dir(pathName: string): boolean;
+  export function is_dir(pathName: string): boolean;
 
   /**
    * @param pathName Path to directory or file.
    * @returns True if path-name refers to a file; otherwise false.
    */
-  export declare function is_file(pathName: string): boolean;
+  export function is_file(pathName: string): boolean;
 
   /**
    * @param pathName Path to directory of file.
    * @returns True if path-name refers to a symbolic link; otherwise false
    */
-  export declare function is_link(pathName: string): boolean;
+  export function is_link(pathName: string): boolean;
 
   /**
    * @param pathName Path to directory or file.
    * @returns True if path-name refers to a directory or file that exists or is a broken symbolic link; otherwise false.
    */
-  export declare function lexists(pathName: string): boolean;
+  export function lexists(pathName: string): boolean;
 }
 
 /**
@@ -319,49 +319,49 @@ export declare function sync(): boolean;
 export declare function open(pathName: string, flags?: number | string[], mode?: number | string[]): LuaMultiReturn<[FileHandleObject, undefined] | [false, string]>;
 
 export declare namespace c {
-  export declare namespace seek {
-    export declare const SEEK_SET: 0;
-    export declare const SEEK_DATA: 3;
-    export declare const SEEK_HOLE: 4;
-    export declare const SEEK_END: 2;
-    export declare const SEEK_CUR: 1;
+  export namespace seek {
+    export const SEEK_SET: 0;
+    export const SEEK_DATA: 3;
+    export const SEEK_HOLE: 4;
+    export const SEEK_END: 2;
+    export const SEEK_CUR: 1;
   }
 
-  export declare namespace mode {
-    export declare const S_IWGRP: 16;
-    export declare const S_IXGRP: 8;
-    export declare const S_IROTH: 4;
-    export declare const S_IXOTH: 1;
-    export declare const S_IRUSR: 256;
-    export declare const S_IXUSR: 64;
-    export declare const S_IRWXU: 448;
-    export declare const S_IRWXG: 56;
-    export declare const S_IWOTH: 2;
-    export declare const S_IRWXO: 7;
-    export declare const S_IWUSR: 128;
-    export declare const S_IRGRP: 32;
+  export namespace mode {
+    export const S_IWGRP: 16;
+    export const S_IXGRP: 8;
+    export const S_IROTH: 4;
+    export const S_IXOTH: 1;
+    export const S_IRUSR: 256;
+    export const S_IXUSR: 64;
+    export const S_IRWXU: 448;
+    export const S_IRWXG: 56;
+    export const S_IWOTH: 2;
+    export const S_IRWXO: 7;
+    export const S_IWUSR: 128;
+    export const S_IRGRP: 32;
   }
 
-  export declare namespace flag {
-    export declare const O_NONBLOCK: 2048;
-    export declare const O_RDONLY: 0;
-    export declare const O_DIRECTORY: 65536;
-    export declare const O_WRONLY: 1;
-    export declare const O_ASYNC: 8192;
-    export declare const O_DIRECT: 16384;
-    export declare const O_TMPFILE: 4259840;
-    export declare const O_EXCL: 128;
-    export declare const O_PATH: 2097152;
-    export declare const O_SYNC: 1052672;
-    export declare const O_NOCTTY: 256;
-    export declare const O_CLOEXEC: 524288;
-    export declare const O_TRUNC: 512;
-    export declare const O_NOFOLLOW: 131072;
-    export declare const O_RDWR: 2;
-    export declare const O_LARGEFILE: 0;
-    export declare const O_CREAT: 64;
-    export declare const O_APPEND: 1024;
-    export declare const O_NOATIME: 262144;
-    export declare const O_NDELAY: 2048;
+  export namespace flag {
+    export const O_NONBLOCK: 2048;
+    export const O_RDONLY: 0;
+    export const O_DIRECTORY: 65536;
+    export const O_WRONLY: 1;
+    export const O_ASYNC: 8192;
+    export const O_DIRECT: 16384;
+    export const O_TMPFILE: 4259840;
+    export const O_EXCL: 128;
+    export const O_PATH: 2097152;
+    export const O_SYNC: 1052672;
+    export const O_NOCTTY: 256;
+    export const O_CLOEXEC: 524288;
+    export const O_TRUNC: 512;
+    export const O_NOFOLLOW: 131072;
+    export const O_RDWR: 2;
+    export const O_LARGEFILE: 0;
+    export const O_CREAT: 64;
+    export const O_APPEND: 1024;
+    export const O_NOATIME: 262144;
+    export const O_NDELAY: 2048;
   }
 }
