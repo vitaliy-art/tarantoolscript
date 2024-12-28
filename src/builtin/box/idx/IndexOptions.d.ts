@@ -55,9 +55,6 @@ export interface IndexOptions {
    */
   distance?: 'euclid' | 'manhattan';
 
-  /** Create a generator for indexes using a sequence object. */
-  sequence?: string | number | boolean;
-
   /** Specify the identifier of the functional index function. */
   func?: string;
 
@@ -107,6 +104,9 @@ export interface IndexOptions {
    * Specify the ratio between the sizes of different levels in the `LSM` tree.
    */
   run_size_ratio?: number;
+
+  /** Create a generator for indexes using a sequence object. */
+  // sequence?: string | number | boolean;
 
   /**
    * The sequence becomes associated with the index, so that the next `insert()` will put the next generated number into the primary-key field,
