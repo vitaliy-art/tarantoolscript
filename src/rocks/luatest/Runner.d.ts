@@ -6,6 +6,7 @@ import { Group } from './Group';
  */
 export function is_test_name(this: void, s: string): boolean;
 
+export type int = number;
 /**
  * Main entrypoint to run test suite.
  */
@@ -13,7 +14,7 @@ export function run(this: void, args?: LuaTable<string, unknown>, options?: {
   /** Optional */
   verbosity?: int;
   /** Default $(def) */
-  fail_fast?: bool;
+  fail_fast?: boolean;
   /** Filename for JUnit report (optional) */
   output_file_name?: string;
   /** Times to repeat each test (optional) */

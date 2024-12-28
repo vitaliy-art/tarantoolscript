@@ -30,7 +30,7 @@ export interface HttpRequest {
   /**
    * Normalized request headers. A normalized header is in the lower case, all headers joined together into a single string.
    */
-  headers: LuaTable<string, stirng>;
+  headers: LuaTable<string, string>;
 
   /**
    * A Lua table with information about the remote peer (`like socket:peer()`).
