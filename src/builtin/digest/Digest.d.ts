@@ -154,8 +154,8 @@ export declare namespace crc32 {
    * @customName new
    */
   export function new_(): {
-      update(this, value: string): void;
-      result(this): number;
+      update(value: string): void;
+      result(): number;
   }
 }
 
@@ -182,7 +182,7 @@ export declare namespace murmur {
    * @customName new
    */
   export function new_(options?: { seed?: number }): {
-      update(this, value: string): void;
-      result(this): number;
+      update(value: string): void;
+      result(): number;
   }
 }
