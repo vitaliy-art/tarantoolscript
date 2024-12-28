@@ -1,7 +1,6 @@
-import { CData } from 'builtin/box';
 import { UuidByteOrder } from './UuidByteOrder';
 
-export interface UuidObject extends CData {
+export interface UuidObject {
   /**
    * @param byteOrder Byte order of the resulting UUID:
    * - `l` – little-endian,
