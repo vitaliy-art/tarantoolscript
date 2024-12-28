@@ -3,6 +3,7 @@ import { HTTPResponse } from './HTTPResponse';
 import { ServerObjectOptions } from './ServerObjectOptions';
 import { Server } from './ServerType';
 
+export * from './ServerType';
 /**
  * Build a listen URI based on the given server alias and extra path. The resulting URI: `<Server.vardir>/[<extra_path>/]<server_alias>.sock`.
  * Provide a unique alias or extra path to avoid collisions with other sockets. For now, only UNIX sockets are supported.

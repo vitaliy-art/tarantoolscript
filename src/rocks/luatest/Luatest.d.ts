@@ -2,8 +2,6 @@
 
 import { Group } from './Group';
 import * as Helpers from './Helpers';
-import { ReplicaSet } from './ReplicaSet';
-import { Server } from './Server';
 import * as replica_set from './ReplicaSet';
 import * as server from './Server';
 
