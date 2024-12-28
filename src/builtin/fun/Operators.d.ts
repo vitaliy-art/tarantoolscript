@@ -167,7 +167,7 @@ export declare function len(a: string): number;
  * Returns `# a`.
  * @see {@link https://luafun.github.io/operators.html#fun.operator.len}
  */
-export declare function len(a: unknown[] | AnyTable): number?;
+export declare function len(a: unknown[] | AnyTable): number | undefined;
 
 /**
  * Returns `# a`.
@@ -179,7 +179,7 @@ export declare function length(a: string): number;
  * Returns `# a`.
  * @see {@link https://luafun.github.io/operators.html#fun.operator.length}
  */
-export declare function length(a: unknown[] | AnyTable): number?;
+export declare function length(a: unknown[] | AnyTable): number | undefined;
 
 /**
  * Returns `a and b`.

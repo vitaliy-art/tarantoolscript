@@ -29,6 +29,6 @@ interface LimfifottlOptions extends BaseOptions {
 }
 
 export type TubeOptions<T extends TubeType> =
-  T extends 'limfifottl' ? LimfifottlOptions? :
-  T extends TubeType ? BaseOptions? :
+  T extends 'limfifottl' ? LimfifottlOptions | undefined :
+  T extends TubeType ? BaseOptions | undefined :
   never;

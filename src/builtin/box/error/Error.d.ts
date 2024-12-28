@@ -51,7 +51,7 @@ export interface Error {
   ['new']: ErrorCreator;
 
   /** Get the last raised error. */
-  last(): ErrorObject?;
+  last(): ErrorObject | undefined;
 
   /** Clear the errors. */
   clear(): void;

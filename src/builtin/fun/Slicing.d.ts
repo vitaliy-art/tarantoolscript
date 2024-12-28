@@ -10,7 +10,7 @@ import { FunIterator } from "./FunIterator";
  * @returns The n-th element of array.
  * @see {@link https://luafun.github.io/slicing.html#fun.nth}
  */
-export declare function nth<T>(n: number, value: T[]): T?;
+export declare function nth<T>(n: number, value: T[]): T | undefined;
 
 /**
  * This function returns the n-th element of original iterator.
@@ -44,7 +44,7 @@ export declare function nth<TValue>(
  * @returns The n-th symbol of string.
  * @see {@link https://luafun.github.io/slicing.html#fun.nth}
  */
-export declare function nth(n: number, value: string): string?;
+export declare function nth(n: number, value: string): string | undefined;
 
 /**
  * This function returns the n-th element of `gen`, `param`, `state` iterator.

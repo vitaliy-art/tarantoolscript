@@ -102,7 +102,7 @@ export function get_vclock(): LuaTable<string, unknown>;
  * - reset: Reset the result when `Tarantool %d+.%d+.%d+-.*%d+-g.*` pattern is found, which means that the server was restarted. Defaults to `true`.
  * - filename: Path to the server’s log file. Defaults to `box.cfg.log`.
  */
-export function grep_log(pattern: string, bytes_num?: number, opts?: { reset?: boolean, filename?: string }): string?;
+export function grep_log(pattern: string, bytes_num?: number, opts?: { reset?: boolean, filename?: string }): string | undefined;
 
 /**
  * Perform HTTP request.

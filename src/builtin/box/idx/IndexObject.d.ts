@@ -41,7 +41,7 @@ export interface IndexObject extends AnyTable {
    * @param key Values to be matched against the index key.
    * @returns The tuple whose index-key fields are equal to the passed key values.
    */
-  get(key: unknown): TupleObject?;
+  get(key: unknown): TupleObject | undefined;
 
   /**
    * Find the minimum value in the specified index.
@@ -50,7 +50,7 @@ export interface IndexObject extends AnyTable {
    * If the optional key value is supplied, returns the first key that is greater than or equal to key.
    * Starting with Tarantool `2.0.4`, `index_object:min(key)` returns nothing if key doesn’t match any value in the index.
    */
-  min(key?: unknown): TupleObject?;
+  min(key?: unknown): TupleObject | undefined;
 
   /**
    * Find the maximum value in the specified index.
@@ -59,7 +59,7 @@ export interface IndexObject extends AnyTable {
    * If the optional key value is supplied, returns the last key that is less than or equal to key.
    * Starting with Tarantool `2.0.4`, `index_object:max(key)` returns nothing if key doesn’t match any value in the index.
    */
-  max(key?: unknown): TupleObject?;
+  max(key?: unknown): TupleObject | undefined;
 
   /**
    * Find a random value in the specified index.
@@ -69,7 +69,7 @@ export interface IndexObject extends AnyTable {
    *
    * Note regarding storage engine: vinyl does not support `random()`.
    */
-  random(seed: number): TupleObject?;
+  random(seed: number): TupleObject | undefined;
 
   /**
    * Iterate over an index, counting the number of tuples which match the key-value.
@@ -87,7 +87,7 @@ export interface IndexObject extends AnyTable {
    * @param updates Update operations.
    * @returns The updated tuple or `nil` if the key is not found.
    */
-  update(key: unknown, updates: UpdateOperation[]): TupleObject?;
+  update(key: unknown, updates: UpdateOperation[]): TupleObject | undefined;
 
   /**
    * Delete a tuple identified by a key.
@@ -98,7 +98,7 @@ export interface IndexObject extends AnyTable {
    * @param key Values to be matched against the index key.
    * @returns The deleted tuple.
    */
-  delete(key: unknown): TupleObject?;
+  delete(key: unknown): TupleObject | undefined;
 
   /**
    * Alter an index. It is legal in some circumstances to change one or more of the index characteristics,

@@ -36,7 +36,7 @@ export interface ResponseObject {
    * Decode the response body to a Lua object based on the content type.
    * @returns A decoded body.
    */
-  decode(): AnyTable?;
+  decode(): AnyTable | undefined;
 
   url: string;
 }

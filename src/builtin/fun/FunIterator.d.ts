@@ -204,7 +204,7 @@ export declare type FunIterator<
    * @returns The position of element or nil.
    * @see {@link https://luafun.github.io/indexing.html#fun.index}
    */
-  index(x: TReturn[0]): number?;
+  index(x: TReturn[0]): number | undefined;
 
   /**
    * The function returns the position of the first element in the given iterator which is equal (using `==`) to the query element,
@@ -213,7 +213,7 @@ export declare type FunIterator<
    * @returns The position of element or nil.
    * @see {@link https://luafun.github.io/indexing.html#fun.index_of}
    */
-  index_of(x: unknown): number?;
+  index_of(x: unknown): number | undefined;
 
   /**
    * The function returns the position of the first element in the given iterator which is equal (using `==`) to the query element,
@@ -222,7 +222,7 @@ export declare type FunIterator<
    * @returns The position of element or nil.
    * @see {@link https://luafun.github.io/indexing.html#fun.elem_index}
    */
-  elem_index(x: unknown): number?;
+  elem_index(x: unknown): number | undefined;
 
   /**
    * The function returns an iterator to positions of elements which equals to the query element.

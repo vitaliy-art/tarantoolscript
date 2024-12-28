@@ -20,5 +20,5 @@ export function pid(): number;
 export function uptime(): number;
 
 export declare namespace debug {
-  export function getsources(moduleName: string): string?;
+  export function getsources(moduleName: string): string | undefined;
 }

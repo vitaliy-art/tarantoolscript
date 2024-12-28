@@ -8,7 +8,7 @@ export interface NetBoxFuture<T = unknown> {
    * Get the result of the request.
    * @returns The response or `nil` in case it’s not ready yet or there has been an error.
    */
-  result(): T?;
+  result(): T | undefined;
 
   /**
    * Wait until the result of the request is available and then get it,

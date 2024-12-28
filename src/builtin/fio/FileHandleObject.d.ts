@@ -85,7 +85,7 @@ export interface FileHandleObject {
    * - `SEEK_SET` = start of file.
    * @returns The new position if success.
    */
-  seek(position: number, offsetFrom?: 'SEEK_END' | 'SEEK_CUR' | 'SEEK_SET'): number?;
+  seek(position: number, offsetFrom?: 'SEEK_END' | 'SEEK_CUR' | 'SEEK_SET'): number | undefined;
 
   /**
    * Return statistics about an open file. This differs from fio.stat which return statistics about a closed file. For details type `man 2 stat`.

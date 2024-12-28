@@ -45,8 +45,8 @@ interface UtubettlTaskOptions extends UtubeTaskOptions, Omit<FifottlTaskOptions,
 
 export type TaskOptions<T extends TubeType> =
   T extends 'fifo' ? null :
-  T extends 'fifottl' ? FifottlTaskOptions? :
-  T extends 'limfifottl' ? LimfifottlTaskOptions? :
-  T extends 'utube' ? UtubeTaskOptions? :
-  T extends 'utubettl' ? UtubettlTaskOptions? :
+  T extends 'fifottl' ? FifottlTaskOptions | undefined :
+  T extends 'limfifottl' ? LimfifottlTaskOptions | undefined :
+  T extends 'utube' ? UtubeTaskOptions | undefined :
+  T extends 'utubettl' ? UtubettlTaskOptions | undefined :
   never

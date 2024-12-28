@@ -94,14 +94,14 @@ export interface TransactionsCommander {
    * @param oldTriggerFunction Existing trigger function which will be replaced by trigger-function.
    * @returns Nil or function pointer.
    */
-  on_commit(triggerFunction?: TransactionTriggerFunction, oldTriggerFunction?: TransactionTriggerFunction): TransactionTriggerFunction?;
+  on_commit(triggerFunction?: TransactionTriggerFunction, oldTriggerFunction?: TransactionTriggerFunction): TransactionTriggerFunction | undefined;
 
   /**
    * Define a trigger for execution when a transaction ends due to an event such as `box.rollback()`.
    *
    * The parameters and warnings are exactly the same as for `box.on_commit()`.
    */
-  on_rollback(triggerFunction?: TransactionTriggerFunction, oldTriggerFunction?: TransactionTriggerFunction): TransactionTriggerFunction?;
+  on_rollback(triggerFunction?: TransactionTriggerFunction, oldTriggerFunction?: TransactionTriggerFunction): TransactionTriggerFunction | undefined;
 
   /**
    * If a transaction is in progress (for example the user has called `box.begin() `and has not yet called either `box.commit()` or `box.rollback()`),

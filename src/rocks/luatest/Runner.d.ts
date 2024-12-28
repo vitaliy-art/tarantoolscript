@@ -39,7 +39,7 @@ export function run(this: void, args?: LuaTable<string, unknown>, options: {
 /**
  * Split `some.group.name.method` into `some.group.name` and method . Returns nil, input if input value does not have a dot.
  */
-export function split_test_method_name(this: void, someName: string): (LuaMultiReturn<[string, string]> | string)?;
+export function split_test_method_name(this: void, someName: string): (LuaMultiReturn<[string, string]> | string) | undefined;
 
 /**
  * Exrtact all test methods from group.

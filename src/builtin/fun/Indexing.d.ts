@@ -11,7 +11,7 @@ import { FunIterator } from "./FunIterator";
  * @returns The position of element or nil.
  * @see {@link https://luafun.github.io/indexing.html#fun.index}
  */
-export declare function index<T>(x: T, value: T[]): number?;
+export declare function index<T>(x: T, value: T[]): number | undefined;
 
 /**
  * The function returns the position of the first element in the given iterator which is equal (using `==`) to the query element,
@@ -24,7 +24,7 @@ export declare function index<T>(x: T, value: T[]): number?;
 export declare function index<TState, TReturn extends unknown[]>(
   x: TReturn[0],
   value: FunIterator<TState, TReturn>
-): number?;
+): number | undefined;
 
 /**
  * The function returns the position of the first element in the map which key value is equal (using `==`) to the query element,
@@ -37,7 +37,7 @@ export declare function index<TState, TReturn extends unknown[]>(
 export declare function index(
   x: string,
   value: Record<string, unknown>
-): number?;
+): number | undefined;
 
 /**
  * The function returns the position of the first symbol in the string which is equal (using `==`) to the query element,
@@ -47,7 +47,7 @@ export declare function index(
  * @returns The position of symbol or nil.
  * @see {@link https://luafun.github.io/indexing.html#fun.index}
  */
-export declare function index(x: string, value: string): number?;
+export declare function index(x: string, value: string): number | undefined;
 
 /**
  * The function returns the position of the first element in the given iterator which is equal (using `==`) to the query element,
@@ -65,7 +65,7 @@ export declare function index(x: string, value: string): number?;
 export declare function index<TParam, TState, TReturn extends unknown[]>(
   x: unknown,
   ...iterParams: [...IterParams<TParam, TState, TReturn>]
-): number?;
+): number | undefined;
 
 export declare const index_of: typeof index;
 
