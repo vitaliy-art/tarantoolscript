@@ -125,12 +125,12 @@ export function http_request(method: string, path: string, options?: {
 /**
  * Make directory for the server’s Unix socket. Invoked on the server’s start.
  */
-export function make_socketdir()
+export function make_socketdir(): void;
 
 /**
  * Make the server’s working directory. Invoked on the server’s start.
  */
-export function make_workdir();
+export function make_workdir(): void;
 
 /**
  * Build a server object.

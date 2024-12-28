@@ -25,7 +25,7 @@ export interface EventWatcher {
    * @param key Key name of the event.
    * @returns The value associated with `key`.
    */
-  watch_once(key: string)
+  watch_once(key: string): void;
 
   /**
    * Update the value of a particular key and notify all key watchers of the update.
