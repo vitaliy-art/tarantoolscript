@@ -1,6 +1,7 @@
 /** @noSelfInFile */
 
-import { FunIterator } from "./FunIterator";
+import { IterParams } from './Basic';
+import { FunIterator } from './FunIterator';
 
 /**
  * Return a new iterator of those elements that satisfy the `predicate`.

@@ -1,3 +1,4 @@
+import { CData } from '../box';
 import { BufferObject } from '../buffer';
 import { FioStat } from './FioStat';
 
