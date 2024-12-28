@@ -9,7 +9,7 @@ export interface IProtoKey {
   SYNC: number;
 
   /** `MP_UINT`	Version of the database schema */
-  SCHEMA_VERSION; number;
+  SCHEMA_VERSION: number;
 
   /** `MP_DOUBLE`	Time in seconds since the Unix epoch */
   TIMESTAMP: number;
