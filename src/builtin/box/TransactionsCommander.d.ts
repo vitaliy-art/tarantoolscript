@@ -134,4 +134,4 @@ export type TransactionTriggerFunction =
   | ((this: void) => void)
   | ((this: void, iterator: TransactionIterator) => void)
 
-export type TransactionIterator = (this: void) => LuaIterable<LuaMultiReturn<[number, TupleObject?, TupleObject?, number]>>;
+export type TransactionIterator = (this: void) => LuaIterable<LuaMultiReturn<[number, TupleObject | undefined, TupleObject | undefined, number]>>;
