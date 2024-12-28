@@ -1,7 +1,7 @@
 /** @noSelfInFile */
 
-import { IterParams } from "./Basic";
-import { FunIterator } from "./FunIterator";
+import { IterParams } from './Basic';
+import { FunIterator } from './FunIterator';
 
 /**
  * Return the n-th element of array.
@@ -288,7 +288,7 @@ export declare function take_while<TValue>(
 export declare function take_while(
   predicate: (this: void, element: string) => boolean,
   value: string
-): FuncIterator<number, [string]>;
+): FunIterator<number, [string]>;
 
 /**
  * Returns an iterator on the longest prefix of `gen`, `param`, `state` elements that satisfy predicate.
@@ -425,7 +425,7 @@ export declare function drop_while<TValue>(
 export declare function drop_while(
   predicate: (this: void, element: string) => boolean,
   value: string
-): FuncIterator<number, [string]>;
+): FunIterator<number, [string]>;
 
 /**
  * Returns an iterator after skipping the longest prefix of `gen`, `param`, `state` elements that satisfy predicate.
@@ -577,7 +577,7 @@ export declare function span(
   predicate: (this: void, element: string) => boolean,
   value: string
 ): LuaMultiReturn<
-  [FuncIterator<number, [string]>, FuncIterator<number, [string]>]
+  [FunIterator<number, [string]>, FunIterator<number, [string]>]
 >;
 
 /**
