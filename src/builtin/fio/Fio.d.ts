@@ -89,7 +89,7 @@ export declare function lstat(pathName: string): LuaMultiReturn<[FioStat, undefi
  * - (If no error) table of fields which describe the file’s block size, creation time, size, and other attributes.
  * - (If error) two return values: null, error message.
  */
-export declare function stat(pathName: string): LuaMultiReturn<[FioStat, undefined], [undefined, string]>;
+export declare function stat(pathName: string): LuaMultiReturn<[FioStat, undefined] | [undefined, string]>;
 
 /**
  * Create a directory. For details type man 2 mkdir.
@@ -99,7 +99,7 @@ export declare function stat(pathName: string): LuaMultiReturn<[FioStat, undefin
  * - (If no error) true.
  * - (If error) two return values: false, error message.
  */
-export declare function mkdir(pathName: string, mode?: number): LuaMultiReturn<[true, undefined], [false, string]>;
+export declare function mkdir(pathName: string, mode?: number): LuaMultiReturn<[true, undefined] | [false, string]>;
 
 /**
  * Delete a directory. For details type man 2 rmdir.
@@ -108,7 +108,7 @@ export declare function mkdir(pathName: string, mode?: number): LuaMultiReturn<[
  * - (If no error) true.
  * - (If error) two return values: false, error message.
  */
-export declare function rmdir(pathName: string): LuaMultiReturn<[true, undefined], | [false, string]>;
+export declare function rmdir(pathName: string): LuaMultiReturn<[true, undefined] | [false, string]>;
 
 /**
  * Change working directory. For details type `man 2 chdir`.
