@@ -56,7 +56,7 @@ export declare function yield(): void;
  * Return the status of the current fiber. If the `fiber_object` is passed, return the status of the specified fiber.
  * @param fiber The fiber object.
  */
-export declare function status(fiber?: FiberObject): 'dead' | 'suspended' | 'running';
+export declare function status(fiber?: FiberObject<unknown>): 'dead' | 'suspended' | 'running';
 
 /**
  * Return information about all fibers.

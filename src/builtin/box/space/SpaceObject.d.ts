@@ -72,7 +72,7 @@ export interface SpaceObject {
    *
    * @param key Primary-key field values, must be passed as a Lua table if key is multi-part.
    */
-  delete(key: unknown): TupleObject?;
+  delete(key: unknown): TupleObject | undefined;
 
   /** Drop a space. The method is performed in background and doesn’t block consequent requests. */
   drop(): void;
@@ -81,7 +81,7 @@ export interface SpaceObject {
    * Declare field names and types.
    * @param format A list of field names and types.
    */
-  format(format?: SpaceFieldFormat[] | [string, FieldType?][]): SpaceFieldFormat[]?;
+  format(format?: SpaceFieldFormat[] | [string, FieldType?][]): SpaceFieldFormat[] | undefined;
 
   /**
    * Convert a map to a tuple instance or to a table.
@@ -98,7 +98,7 @@ export interface SpaceObject {
    * @param key Value to be matched against the index key, which may be multi-part.
    * @returns The tuple whose index key matches key, or nil.
    */
-  get(key: unknown): TupleObject?;
+  get(key: unknown): TupleObject | undefined;
 
   /**
    * Insert a tuple into a space.
@@ -130,7 +130,7 @@ export interface SpaceObject {
    * @param old_trigger Existing trigger function which will be replaced by `trigger`.
    * @returns `nil` or function pointer
    */
-  on_replace(trigger?: TriggerFunction, old_trigger?: TriggerFunction): (TriggerFunction | TriggerFunction[])?;
+  on_replace(trigger?: TriggerFunction, old_trigger?: TriggerFunction): (TriggerFunction | TriggerFunction[]) | undefined;
 
   /**
    * Create a “replace trigger”.
@@ -156,7 +156,7 @@ export interface SpaceObject {
    * @param old_trigger Existing trigger function which will be replaced by `trigger`.
    * @returns `nil` or function pointer.
    */
-  before_replace(trigger?: TriggerFunction, old_trigger?: TriggerFunction): (TriggerFunction | TriggerFunction[])?;
+  before_replace(trigger?: TriggerFunction, old_trigger?: TriggerFunction): (TriggerFunction | TriggerFunction[]) | undefined;
 
   /**
    * Search for a tuple or a set of tuples in the given space, and allow iterating over one tuple at a time.
@@ -232,7 +232,7 @@ export interface SpaceObject {
    * @param updates Update operations.
    * @returns The updated tuple or `nil` if the key is not found.
    */
-  update(key: unknown, updates: UpdateOperation[] | [UpdateOperator, number | string, unknown][]): TupleObject?;
+  update(key: unknown, updates: UpdateOperation[] | [UpdateOperator, number | string, unknown][]): TupleObject | undefined;
 
   /**
    * Update or insert a tuple.

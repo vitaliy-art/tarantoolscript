@@ -24,7 +24,7 @@ export interface ChannelObject {
    * @returns If timeout is specified, and there is no message in the channel for the duration of the timeout, then the return value is `nil`.
    * If the channel is closed, then the return value is `nil`. Otherwise, the return value is the message placed on the channel by `channel:put()`.
    */
-  get(timeout?: number): unknown?;
+  get(timeout?: number): unknown | undefined;
 
   /**
    * Check whether the channel is empty (has no messages).

@@ -1,5 +1,5 @@
 /** @noSelfInFile */
 
-declare export function on(): void;
+export declare function on(): void;
 
-declare export function off(): void;
+export declare function off(): void;

@@ -204,7 +204,7 @@ export declare type FunIterator<
    * @returns The position of element or nil.
    * @see {@link https://luafun.github.io/indexing.html#fun.index}
    */
-  index(x: TReturn[0]): number?;
+  index(x: TReturn[0]): number | undefined;
 
   /**
    * The function returns the position of the first element in the given iterator which is equal (using `==`) to the query element,
@@ -213,7 +213,7 @@ export declare type FunIterator<
    * @returns The position of element or nil.
    * @see {@link https://luafun.github.io/indexing.html#fun.index_of}
    */
-  index_of(x: unknown): number?;
+  index_of(x: unknown): number | undefined;
 
   /**
    * The function returns the position of the first element in the given iterator which is equal (using `==`) to the query element,
@@ -222,7 +222,7 @@ export declare type FunIterator<
    * @returns The position of element or nil.
    * @see {@link https://luafun.github.io/indexing.html#fun.elem_index}
    */
-  elem_index(x: unknown): number?;
+  elem_index(x: unknown): number | undefined;
 
   /**
    * The function returns an iterator to positions of elements which equals to the query element.
@@ -416,7 +416,7 @@ export declare type FunIterator<
    * The iterator must be non-null, otherwise an error is raised.
    * @see {@link https://luafun.github.io/reducing.html#fun.min_by}
    */
-  min_by(
+  min_by<TFirstReturn>(
     cmp: (this: void, a: TFirstReturn, b: TFirstReturn) => TFirstReturn
   ): TReturn extends [infer TFirstReturn, ...unknown[]] ? TFirstReturn : never;
 
@@ -425,7 +425,7 @@ export declare type FunIterator<
    * The iterator must be non-null, otherwise an error is raised.
    * @see {@link https://luafun.github.io/reducing.html#fun.minimum_by}
    */
-  minimum_by(
+  minimum_by<TFirstReturn>(
     cmp: (this: void, a: TFirstReturn, b: TFirstReturn) => TFirstReturn
   ): TReturn extends [infer TFirstReturn, ...unknown[]] ? TFirstReturn : never;
 
@@ -456,7 +456,7 @@ export declare type FunIterator<
    * The iterator must be non-null, otherwise an error is raised.
    * @see {@link https://luafun.github.io/reducing.html#fun.max_by}
    */
-  max_by(
+  max_by<TFirstReturn>(
     cmp: (this: void, a: TFirstReturn, b: TFirstReturn) => TFirstReturn
   ): TReturn extends [infer TFirstReturn, ...unknown[]] ? TFirstReturn : never;
 
@@ -465,7 +465,7 @@ export declare type FunIterator<
    * The iterator must be non-null, otherwise an error is raised.
    * @see {@link https://luafun.github.io/reducing.html#fun.maximum_by}
    */
-  maximum_by(
+  maximum_by<TFirstReturn>(
     cmp: (this: void, a: TFirstReturn, b: TFirstReturn) => TFirstReturn
   ): TReturn extends [infer TFirstReturn, ...unknown[]] ? TFirstReturn : never;
 

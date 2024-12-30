@@ -144,7 +144,7 @@ export interface NetBoxConnectionObject {
   on_connect<TTrig extends (this: void, conn: NetBoxConnectionObject) => unknown>(
     triggerFunction?: TTrig,
     oldTriggerFunction?: TTrig,
-  ): (TTrig | TTrig[])?;
+  ): (TTrig | TTrig[]) | undefined;
 
   /**
    * Define a trigger for execution after a connection is closed.
@@ -160,7 +160,7 @@ export interface NetBoxConnectionObject {
   on_disconnect<TTrig extends (this: void, conn: NetBoxConnectionObject) => unknown>(
     triggerFunction?: TTrig,
     oldTriggerFunction?: TTrig,
-  ): (TTrig | TTrig[])?;
+  ): (TTrig | TTrig[]) | undefined;
 
   /**
    * Define a trigger for shutdown when a `box.shutdown` event is received.
@@ -174,7 +174,7 @@ export interface NetBoxConnectionObject {
   on_shutdown<TTrig extends (this: void, conn: NetBoxConnectionObject) => unknown>(
     triggerFunction?: TTrig,
     oldTriggerFunction?: TTrig,
-  ): (TTrig | TTrig[])?;
+  ): (TTrig | TTrig[]) | undefined;
 
   /**
    * Define a trigger executed when some operation has been performed on the remote server after schema has been updated.
@@ -189,15 +189,30 @@ export interface NetBoxConnectionObject {
   on_schema_reload<TTrig extends (this: void, conn: NetBoxConnectionObject) => unknown>(
     triggerFunction?: TTrig,
     oldTriggerFunction?: TTrig,
-  ): (TTrig | TTrig[])?;
+  ): (TTrig | TTrig[]) | undefined;
 }
 
 type InferSpaceFunctionType<TProp extends keyof SpaceObject> =
-  <TOpts extends NetBoxRequestOptions>(...params: [...Parameters<SpaceObject[TProp]>, requestOptions?: TOpts]) =>
+  <TOpts extends NetBoxRequestOptions>(
+    ...params: [
+      ...(SpaceObject[TProp] extends ((...args: any) => any)
+        ? Parameters<SpaceObject[TProp]>
+        : never
+      ),
+      requestOptions?: TOpts
+    ]) =>
     TOpts extends { buffer: BufferObject } ? void :
     TOpts extends { is_async: true } ? (
       TOpts extends { return_raw: true } ? NetBoxFuture<MsgPackObject> :
-      NetBoxFuture<ReturnType<SpaceObject[TProp]>>
+      NetBoxFuture<
+        SpaceObject[TProp] extends ((...args: any) => any)
+          ? ReturnType<SpaceObject[TProp]>
+          : never
+        >
     ) :
     TOpts extends { return_raw: true } ? MsgPackObject :
-    ReturnType<SpaceObject[TProp]>
+    ReturnType<
+      SpaceObject[TProp] extends ((...args: any) => any)
+        ? ReturnType<SpaceObject[TProp]>
+        : never
+    >

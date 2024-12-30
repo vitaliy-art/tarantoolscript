@@ -21,14 +21,14 @@ export interface Session {
    * The command is executed on the server instance, so the “local name” is the server instance’s host and port,
    * and the “peer name” is the client’s host and port.
    */
-  peer(id: number): string?;
+  peer(id: number): string | undefined;
 
   /**
    * This function is local for the request, i.e. not global for the session.
    * If the connection behind the session is multiplexed, this function can be safely used inside the request processor.
    * @returns The value of the `sync` integer constant used in the binary protocol. This value becomes invalid when the session is disconnected.
    */
-  sync(): number?;
+  sync(): number | undefined;
 
   /**
    * @returns The name of the current user.
@@ -110,7 +110,7 @@ export interface Session {
    * @param oldTriggerFunction Existing trigger function which will be replaced by trigger-function.
    * @returns Nil or function pointer.
    */
-  on_connect(triggerFunction?: EmptyParamsTrigger, oldTriggerFunction?: EmptyParamsTrigger): (EmptyParamsTrigger | EmptyParamsTrigger[])?;
+  on_connect(triggerFunction?: EmptyParamsTrigger, oldTriggerFunction?: EmptyParamsTrigger): (EmptyParamsTrigger | EmptyParamsTrigger[]) | undefined;
 
   /**
    * Define a trigger for execution after a client has disconnected. If the trigger function causes an error, the error is logged but otherwise is ignored.
@@ -126,7 +126,7 @@ export interface Session {
    * @param oldTriggerFunction Existing trigger function which will be replaced by trigger-function.
    * @returns Nil or function pointer.
    */
-  on_disconnect(triggerFunction?: EmptyParamsTrigger, oldTriggerFunction?: EmptyParamsTrigger): (EmptyParamsTrigger | EmptyParamsTrigger[])?;
+  on_disconnect(triggerFunction?: EmptyParamsTrigger, oldTriggerFunction?: EmptyParamsTrigger): (EmptyParamsTrigger | EmptyParamsTrigger[]) | undefined;
 
   /**
    * Define a trigger for execution during authentication.
@@ -150,7 +150,7 @@ export interface Session {
    * @param oldTriggerFunction Existing trigger function which will be replaced by trigger-function.
    * @returns Nil or function pointer.
    */
-  on_auth(triggerFunction?: OnAuthTrigger, oldTriggerFunction?: OnAuthTrigger): (OnAuthTrigger | OnAuthTrigger[])?;
+  on_auth(triggerFunction?: OnAuthTrigger, oldTriggerFunction?: OnAuthTrigger): (OnAuthTrigger | OnAuthTrigger[]) | undefined;
 
   /**
    * Define a trigger for reacting to user’s attempts to execute actions that are not within the user’s privileges.
@@ -162,7 +162,7 @@ export interface Session {
    * @param oldTriggerFunction Existing trigger function which will be replaced by trigger-function.
    * @returns Nil or function pointer.
    */
-  on_access_denied(triggerFunction?: OnAccessDeniedTrigger, oldTriggerFunction?: OnAccessDeniedTrigger): (OnAccessDeniedTrigger | OnAccessDeniedTrigger[])?;
+  on_access_denied(triggerFunction?: OnAccessDeniedTrigger, oldTriggerFunction?: OnAccessDeniedTrigger): (OnAccessDeniedTrigger | OnAccessDeniedTrigger[]) | undefined;
 
   /**
    * Generate an out-of-band message. By “out-of-band” we mean an extra message which supplements what is passed in a network via the usual channels.

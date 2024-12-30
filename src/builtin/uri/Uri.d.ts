@@ -60,7 +60,7 @@ export declare function unreserved(value: string): CData;
  *
  * Not documented yet.
  */
-export declare function values<TArgs = any[]>(...args: TArgs): [...TArgs];
+export declare function values<TArgs extends any[] = any[]>(...args: TArgs): [...TArgs];
 
 /**
  * Encoding options that use unreserved symbols defined in RFC 3986.

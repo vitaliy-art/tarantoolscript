@@ -1,7 +1,7 @@
 /** @noSelfInFile */
 
-import { IterParams } from "./Basic";
-import { FunIterator } from "./FunIterator";
+import { IterParams } from './Basic';
+import { FunIterator } from './FunIterator';
 
 /**
  * Return the n-th element of array.
@@ -10,7 +10,7 @@ import { FunIterator } from "./FunIterator";
  * @returns The n-th element of array.
  * @see {@link https://luafun.github.io/slicing.html#fun.nth}
  */
-export declare function nth<T>(n: number, value: T[]): T?;
+export declare function nth<T>(n: number, value: T[]): T | undefined;
 
 /**
  * This function returns the n-th element of original iterator.
@@ -44,7 +44,7 @@ export declare function nth<TValue>(
  * @returns The n-th symbol of string.
  * @see {@link https://luafun.github.io/slicing.html#fun.nth}
  */
-export declare function nth(n: number, value: string): string?;
+export declare function nth(n: number, value: string): string | undefined;
 
 /**
  * This function returns the n-th element of `gen`, `param`, `state` iterator.
@@ -288,7 +288,7 @@ export declare function take_while<TValue>(
 export declare function take_while(
   predicate: (this: void, element: string) => boolean,
   value: string
-): FuncIterator<number, [string]>;
+): FunIterator<number, [string]>;
 
 /**
  * Returns an iterator on the longest prefix of `gen`, `param`, `state` elements that satisfy predicate.
@@ -425,7 +425,7 @@ export declare function drop_while<TValue>(
 export declare function drop_while(
   predicate: (this: void, element: string) => boolean,
   value: string
-): FuncIterator<number, [string]>;
+): FunIterator<number, [string]>;
 
 /**
  * Returns an iterator after skipping the longest prefix of `gen`, `param`, `state` elements that satisfy predicate.
@@ -577,7 +577,7 @@ export declare function span(
   predicate: (this: void, element: string) => boolean,
   value: string
 ): LuaMultiReturn<
-  [FuncIterator<number, [string]>, FuncIterator<number, [string]>]
+  [FunIterator<number, [string]>, FunIterator<number, [string]>]
 >;
 
 /**

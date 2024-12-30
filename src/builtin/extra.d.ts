@@ -8,7 +8,7 @@
  * @param value
  * @noResolution
  */
-export type ToNumber64 = (value) => number;
+export type ToNumber64 = (value: string | number) => number;
 
 /**
  * Parse and execute an arbitrary chunk of Lua code.

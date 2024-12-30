@@ -130,8 +130,6 @@ export interface IndexObjectStat {
     applied: number;
   };
 
-  bytes: number;
-
   put: {
     rows: number;
     bytes: number;

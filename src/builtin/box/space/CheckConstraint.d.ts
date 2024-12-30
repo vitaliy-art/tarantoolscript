@@ -1,4 +1,4 @@
 export interface CheckConstraint {
-  drop();
-  enable(enable: boolean);
+  drop(): void;
+  enable(enable: boolean): void;
 }

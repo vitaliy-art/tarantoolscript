@@ -32,8 +32,8 @@ export type CollectorKind =
   | 'summary'
 
 type CollectorByKind<T = CollectorKind> =
-  T extends 'counter' ? CounterObject? :
-  T extends 'gauge' ? GaugeObject? :
-  T extends 'histogram' ? HistogramObject? :
-  T extends 'summary' ? SummaryObject? :
+  T extends 'counter' ? CounterObject | undefined :
+  T extends 'gauge' ? GaugeObject | undefined :
+  T extends 'histogram' ? HistogramObject | undefined :
+  T extends 'summary' ? SummaryObject | undefined :
   never

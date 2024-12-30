@@ -7,7 +7,7 @@ export interface FiberInfo {
   /**
    * Each fiber’s stack trace, showing where it originated and what functions were called.
    */
-  backtrace: { [key: 'C' | 'L']: string }[];
+  backtrace: { [key in 'C' | 'L']: string }[];
 
   memory: {
     /**

@@ -2,6 +2,7 @@ import { Server } from './Server';
 import { ServerObjectOptions } from './ServerObjectOptions';
 import { ReplicaSet } from './ReplicaSetType';
 
+export * from './ReplicaSetType';
 /**
  * Add the server object to the replica set. The added server object should be built via the `ReplicaSet:build_server` function.
  * @param server Server object to be added to the replica set.

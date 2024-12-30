@@ -1,6 +1,7 @@
 /** @noSelfInFile */
 
-import { FunIterator } from "./FunIterator";
+import { IterParams } from './Basic';
+import { FunIterator } from './FunIterator';
 
 /**
  * Return a new iterator of those elements that satisfy the `predicate`.
@@ -48,7 +49,7 @@ export declare function filter<TValue>(
 export declare function filter(
   predicate: (this: void, element: string) => boolean,
   value: string
-): FuncIterator<number, [string]>;
+): FunIterator<number, [string]>;
 
 /**
  * Return a new iterator of those elements that satisfy the `predicate`.
@@ -132,7 +133,7 @@ export declare function partition(
   predicate: (this: void, element: string) => boolean,
   value: string
 ): LuaMultiReturn<
-  [FuncIterator<number, [string]>, FuncIterator<number, [string]>]
+  [FunIterator<number, [string]>, FunIterator<number, [string]>]
 >;
 
 /**

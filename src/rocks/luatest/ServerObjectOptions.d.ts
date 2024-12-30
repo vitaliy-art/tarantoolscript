@@ -1,3 +1,5 @@
+import { ConfigBasic } from 'builtin/box/cfg';
+
 export interface ServerObjectOptions {
   /**
    * Executable path to run a server process with.Defaults to the internal `server_instance.lua` script.

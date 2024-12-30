@@ -55,9 +55,6 @@ export interface IndexOptions {
    */
   distance?: 'euclid' | 'manhattan';
 
-  /** Create a generator for indexes using a sequence object. */
-  sequence?: string | number | boolean;
-
   /** Specify the identifier of the functional index function. */
   func?: string;
 

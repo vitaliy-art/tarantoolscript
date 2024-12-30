@@ -3,6 +3,7 @@ import { HTTPResponse } from './HTTPResponse';
 import { ServerObjectOptions } from './ServerObjectOptions';
 import { Server } from './ServerType';
 
+export * from './ServerType';
 /**
  * Build a listen URI based on the given server alias and extra path. The resulting URI: `<Server.vardir>/[<extra_path>/]<server_alias>.sock`.
  * Provide a unique alias or extra path to avoid collisions with other sockets. For now, only UNIX sockets are supported.
@@ -102,7 +103,7 @@ export function get_vclock(): LuaTable<string, unknown>;
  * - reset: Reset the result when `Tarantool %d+.%d+.%d+-.*%d+-g.*` pattern is found, which means that the server was restarted. Defaults to `true`.
  * - filename: Path to the server’s log file. Defaults to `box.cfg.log`.
  */
-export function grep_log(pattern: string, bytes_num?: number, opts?: { reset?: boolean, filename?: string }): string?;
+export function grep_log(pattern: string, bytes_num?: number, opts?: { reset?: boolean, filename?: string }): string | undefined;
 
 /**
  * Perform HTTP request.
@@ -125,12 +126,12 @@ export function http_request(method: string, path: string, options?: {
 /**
  * Make directory for the server’s Unix socket. Invoked on the server’s start.
  */
-export function make_socketdir()
+export function make_socketdir(): void;
 
 /**
  * Make the server’s working directory. Invoked on the server’s start.
  */
-export function make_workdir();
+export function make_workdir(): void;
 
 /**
  * Build a server object.

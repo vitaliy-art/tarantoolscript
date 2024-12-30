@@ -1,7 +1,8 @@
 import { TupleObject } from '../../builtin/box/tuple/TupleObject';
 import { TaskOptions } from './TaskOptions';
+import { TubeType } from './TubeType';
 
-export interface TubeObject<O = TaskOptions<T>> {
+export interface TubeObject<O = TaskOptions<TubeType>> {
   /**
    * Putting a task in a queue.
    * @param taskData The user-defined description of the task, usually a long string.
@@ -15,7 +16,7 @@ export interface TubeObject<O = TaskOptions<T>> {
    * @param timeout If there is no such task, and timeout was specified, then the job waits until a task becomes ready or the timeout expires.
    * @returns The value of the taken tuple, or nil if none was found.
    */
-  take(timeout?: number): TupleObject?;
+  take(timeout?: number): TupleObject | undefined;
 
   /**
    * Increasing TTR and/or TTL for tasks. If queue does not support `ttr`, error will be thrown.
@@ -29,7 +30,7 @@ export interface TubeObject<O = TaskOptions<T>> {
    * Acknowledging the completion of a task.
    * @param taskId Task ID.
    */
-  ack(taskId: number): TupleObject?;
+  ack(taskId: number): TupleObject | undefined;
 
   /**
    * Put the task back in the queue.
@@ -78,5 +79,5 @@ export interface TubeObject<O = TaskOptions<T>> {
    */
   release_all(): void;
 
-  on_task_change(callback?: (this: void, task: TupleObject, statsData: string) => unknown): ((this: void, task: TupleObject, statsData: string) => unknown)?;
+  on_task_change(callback?: (this: void, task: TupleObject, statsData: string) => unknown): ((this: void, task: TupleObject, statsData: string) => unknown) | undefined;
 }

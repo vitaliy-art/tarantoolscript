@@ -21,6 +21,6 @@ export interface ConfigOptions extends
   ConfigReplication,
   ConfigNetworking,
   ConfigLogging,
-  ConfigFeedback, { }
+  ConfigFeedback { }
 
 export type Config = ConfigOptions & ConfigCallable
