@@ -1,11 +1,13 @@
+
+/** See result of [datetime_object:totable](https://www.tarantool.io/en/doc/latest/reference/reference_lua/datetime/#lua-function.datetime_object.totable) */
 export interface DateTimeTable {
   /**
-   * Nanosecods.
+   * Nanoseconds.
    */
   nsec: number;
 
   /**
-   * Seconds
+   * Seconds.
    */
   sec: number;
 
@@ -25,7 +27,7 @@ export interface DateTimeTable {
   day: number;
 
   /**
-   * Month number;
+   * Month number.
    */
   month: number;
 
@@ -45,6 +47,11 @@ export interface DateTimeTable {
   yday: number;
 
   /**
+   * Timestamp, in seconds.
+   */
+  timestamp: number;
+
+  /**
    * Is the DST(Daylight saving time) applicable for the date.
    */
   isdst: boolean;
@@ -53,4 +60,9 @@ export interface DateTimeTable {
    * Time zone offset from UTC.
    */
   tzoffset: number;
+
+  /**
+   * A time zone name according to the Time Zone Database. See the [Time zones](https://www.tarantool.io/en/doc/latest/reference/reference_lua/datetime/#timezone) section.
+   */
+  tz: string;
 }
