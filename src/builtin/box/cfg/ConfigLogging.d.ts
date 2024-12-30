@@ -56,11 +56,6 @@ export interface ConfigLogging {
   log_format?: 'plain' | 'json',
 
   /**
-   * Configure the specified log levels (`log_level`) for different modules.
-   */
-  log_modules?: { [key: string]: LogLevel };
-
-  /**
    * Since version 2.11.0. Configure the specified log levels (log_level) for different modules.
    *
    * You can specify a logging level for the following module types:
@@ -69,5 +64,5 @@ export interface ConfigLogging {
    * - The `tarantool` module that enables you to configure the logging level for Tarantool core messages.
    * Specifically, it configures the logging level for messages logged from non-Lua code, including C modules. Example: Set a log level for C modules.
    */
-  // log_modules?: object,
+  log_modules?: { [key: string]: LogLevel };
 }
