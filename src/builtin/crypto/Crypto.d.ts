@@ -48,8 +48,21 @@ declare interface CipherAlgorithm {
 }
 
 declare interface CipherMode {
-  encrypt(s: string, key: string, initializationVector: string): string;
-  decrypt(s: string, key: string, initializationVector: string): string;
+  encrypt: {
+    (this: void, s: string, key: string, initializationVector: string): string;
+    ['new'](key?: string): Incremental;
+  };
+  decrypt: {
+    (this: void, s: string, key: string, initializationVector: string): string;
+    ['new'](key?: string): Incremental;
+  };
+}
+
+declare interface Incremental {
+  init(s?: string, initialValue?: string): void;
+  update(s: string): void;
+  result(): string;
+  free(): void;
 }
 
 /**
@@ -59,57 +72,90 @@ export declare namespace digest {
   /**
    * dss (using DSS).
    */
-  export function dss(s: string): string;
+  export const dss: {
+    (this: void, s: string): string;
+    ['new'](key?: string, initialValue?: string): Incremental;
+  };
 
   /**
    * dss (using DSS-1).
    */
-  export function dss1(s: string): string;
+  export const dss1: {
+    (this: void, s: string): string;
+    ['new'](key?: string, initialValue?: string): Incremental;
+  };
 
   /**
    * md4 (with 128-bit binary strings using MD4).
    */
-  export function md4(s: string): string;
+  export const md4: {
+    (this: void, s: string): string;
+    ['new'](key?: string, initialValue?: string): Incremental;
+  };
 
   /**
    * md5 (with 128-bit binary strings using MD5).
    */
-  export function md5(s: string): string;
+  export const md5: {
+    (this: void, s: string): string;
+    ['new'](key?: string, initialValue?: string): Incremental;
+  };
 
   /**
    * mdc2 (using MDC2).
    */
-  export function mdc2(s: string): string;
+  export const mdc2: {
+    (this: void, s: string): string;
+    ['new'](key?: string, initialValue?: string): Incremental;
+  };
 
   /**
    * ripemd (with 160-bit binary strings using RIPEMD-160).
    */
-  export function ripemd160(s: string): string;
+  export const ripemd160: {
+    (this: void, s: string): string;
+    ['new'](key?: string, initialValue?: string): Incremental;
+  };
 
   /**
    * sha-1 (with 160-bit binary strings using SHA-1).
    */
-  export function sha1(s: string): string;
+  export const sha1: {
+    (this: void, s: string): string;
+    ['new'](key?: string, initialValue?: string): Incremental;
+  };
 
   /**
    * sha-224 (with 224-bit binary strings using SHA-2).
    */
-  export function sha224(s: string): string;
+  export const sha224: {
+    (this: void, s: string): string;
+    ['new'](key?: string, initialValue?: string): Incremental;
+  };
 
   /**
    * sha-256 (with 256-bit binary strings using SHA-2).
    */
-  export function sha256(s: string): string;
+  export const sha256: {
+    (this: void, s: string): string;
+    ['new'](key?: string, initialValue?: string): Incremental;
+  };
 
   /**
    * sha-384 (with 384-bit binary strings using SHA-2).
    */
-  export function sha384(s: string): string;
+  export const sha384: {
+    (this: void, s: string): string;
+    ['new'](key?: string, initialValue?: string): Incremental;
+  };
 
   /**
    * sha-512(with 512-bit binary strings using SHA-2)..
    */
-  export function sha512(s: string): string;
+  export const sha512: {
+    (this: void, s: string): string;
+    ['new'](key?: string, initialValue?: string): Incremental;
+  };
 }
 
 /**
@@ -119,80 +165,128 @@ export declare namespace hmac {
   /**
    * md4 (with 128-bit binary strings using MD4).
    */
-  export function md4(key: string, s: string): string;
+  export const md4: {
+    (this: void, key: string, s: string): string;
+    ['new'](key: string, initialValue?: string): Incremental;
+  };
 
   /**
    * md4 (with 128-bit binary strings using MD4).
    */
-  export function md4_hex(key: string, s: string): string;
+  export const md4_hex: {
+    (this: void, key: string, s: string): string;
+    ['new'](key: string, initialValue?: string): Incremental;
+  };
 
   /**
    * md5 (with 128-bit binary strings using MD5).
    */
-  export function md5(key: string, s: string): string;
+  export const md5: {
+    (this: void, key: string, s: string): string;
+    ['new'](key: string, initialValue?: string): Incremental;
+  };
 
   /**
    * md5 (with 128-bit binary strings using MD5).
    */
-  export function md5_hex(key: string, s: string): string;
+  export const md5_hex: {
+    (this: void, key: string, s: string): string;
+    ['new'](key: string, initialValue?: string): Incremental;
+  };
 
   /**
    * ripemd (with 160-bit binary strings using RIPEMD-160).
    */
-  export function ripemd160(key: string, s: string): string;
+  export const ripemd160: {
+    (this: void, key: string, s: string): string;
+    ['new'](key: string, initialValue?: string): Incremental;
+  };
 
   /**
    * ripemd (with 160-bit binary strings using RIPEMD-160).
    */
-  export function ripemd160_hex(key: string, s: string): string;
+  export const ripemd160_hex: {
+    (this: void, key: string, s: string): string;
+    ['new'](key: string, initialValue?: string): Incremental;
+  };
 
   /**
    * sha-1 (with 160-bit binary strings using SHA-1).
    */
-  export function sha1(key: string, s: string): string;
+  export const sha1: {
+    (this: void, key: string, s: string): string;
+    ['new'](key: string, initialValue?: string): Incremental;
+  };
 
   /**
    * sha-1 (with 160-bit binary strings using SHA-1).
    */
-  export function sha1_hex(key: string, s: string): string;
+  export const sha1_hex: {
+    (this: void, key: string, s: string): string;
+    ['new'](key: string, initialValue?: string): Incremental;
+  };
 
   /**
    * sha-224 (with 224-bit binary strings using SHA-2).
    */
-  export function sha224(key: string, s: string): string;
+  export const sha224: {
+    (this: void, key: string, s: string): string;
+    ['new'](key: string, initialValue?: string): Incremental;
+  };
 
   /**
    * sha-224 (with 224-bit binary strings using SHA-2).
    */
-  export function sha224_hex(key: string, s: string): string;
+  export const sha224_hex: {
+    (this: void, key: string, s: string): string;
+    ['new'](key: string, initialValue?: string): Incremental;
+  };
 
   /**
    * sha-256 (with 256-bit binary strings using SHA-2).
    */
-  export function sha256(key: string, s: string): string;
+  export const sha256: {
+    (this: void, key: string, s: string): string;
+    ['new'](key: string, initialValue?: string): Incremental;
+  };
 
   /**
    * sha-256 (with 256-bit binary strings using SHA-2).
    */
-  export function sha256_hex(key: string, s: string): string;
+  export const sha256_hex: {
+    (this: void, key: string, s: string): string;
+    ['new'](key: string, initialValue?: string): Incremental;
+  };
 
   /**
    * sha-384 (with 384-bit binary strings using SHA-2).
    */
-  export function sha384(key: string, s: string): string;
+  export const sha384: {
+    (this: void, key: string, s: string): string;
+    ['new'](key: string, initialValue?: string): Incremental;
+  };
 
   /**
    * sha-384 (with 384-bit binary strings using SHA-2).
    */
-  export function sha384_hex(key: string, s: string): string;
+  export const sha384_hex: {
+    (this: void, key: string, s: string): string;
+    ['new'](key: string, initialValue?: string): Incremental;
+  };
 
   /**
    * sha-512(with 512-bit binary strings using SHA-2).
    */
-  export function sha512(key: string, s: string): string;
+  export const sha512: {
+    (this: void, key: string, s: string): string;
+    ['new'](key: string, initialValue?: string): Incremental;
+  };
 
   /**
    * sha-512(with 512-bit binary strings using SHA-2).
    */
-  export function sha512_hex(key: string, s: string): string;
+  export const sha512_hex: {
+    (this: void, key: string, s: string): string;
+    ['new'](key: string, initialValue?: string): Incremental;
+  };
 }
