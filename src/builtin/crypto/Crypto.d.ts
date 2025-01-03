@@ -50,11 +50,11 @@ declare interface CipherAlgorithm {
 declare interface CipherMode {
   encrypt: {
     (this: void, s: string, key: string, initializationVector: string): string;
-    ['new'](key?: string): Incremental;
+    ['new'](this: void, key?: string): Incremental;
   };
   decrypt: {
     (this: void, s: string, key: string, initializationVector: string): string;
-    ['new'](key?: string): Incremental;
+    ['new'](this: void, key?: string): Incremental;
   };
 }
 
@@ -74,7 +74,7 @@ export declare namespace digest {
    */
   export const dss: {
     (this: void, s: string): string;
-    ['new'](key?: string, initialValue?: string): Incremental;
+    ['new'](this: void, key?: string, initialValue?: string): Incremental;
   };
 
   /**
@@ -82,7 +82,7 @@ export declare namespace digest {
    */
   export const dss1: {
     (this: void, s: string): string;
-    ['new'](key?: string, initialValue?: string): Incremental;
+    ['new'](this: void, key?: string, initialValue?: string): Incremental;
   };
 
   /**
@@ -90,7 +90,7 @@ export declare namespace digest {
    */
   export const md4: {
     (this: void, s: string): string;
-    ['new'](key?: string, initialValue?: string): Incremental;
+    ['new'](this: void, key?: string, initialValue?: string): Incremental;
   };
 
   /**
@@ -98,7 +98,7 @@ export declare namespace digest {
    */
   export const md5: {
     (this: void, s: string): string;
-    ['new'](key?: string, initialValue?: string): Incremental;
+    ['new'](this: void, key?: string, initialValue?: string): Incremental;
   };
 
   /**
@@ -106,7 +106,7 @@ export declare namespace digest {
    */
   export const mdc2: {
     (this: void, s: string): string;
-    ['new'](key?: string, initialValue?: string): Incremental;
+    ['new'](this: void, key?: string, initialValue?: string): Incremental;
   };
 
   /**
@@ -114,7 +114,7 @@ export declare namespace digest {
    */
   export const ripemd160: {
     (this: void, s: string): string;
-    ['new'](key?: string, initialValue?: string): Incremental;
+    ['new'](this: void, key?: string, initialValue?: string): Incremental;
   };
 
   /**
@@ -122,7 +122,7 @@ export declare namespace digest {
    */
   export const sha1: {
     (this: void, s: string): string;
-    ['new'](key?: string, initialValue?: string): Incremental;
+    ['new'](this: void, key?: string, initialValue?: string): Incremental;
   };
 
   /**
@@ -130,7 +130,7 @@ export declare namespace digest {
    */
   export const sha224: {
     (this: void, s: string): string;
-    ['new'](key?: string, initialValue?: string): Incremental;
+    ['new'](this: void, key?: string, initialValue?: string): Incremental;
   };
 
   /**
@@ -138,7 +138,7 @@ export declare namespace digest {
    */
   export const sha256: {
     (this: void, s: string): string;
-    ['new'](key?: string, initialValue?: string): Incremental;
+    ['new'](this: void, key?: string, initialValue?: string): Incremental;
   };
 
   /**
@@ -146,7 +146,7 @@ export declare namespace digest {
    */
   export const sha384: {
     (this: void, s: string): string;
-    ['new'](key?: string, initialValue?: string): Incremental;
+    ['new'](this: void, key?: string, initialValue?: string): Incremental;
   };
 
   /**
@@ -154,7 +154,7 @@ export declare namespace digest {
    */
   export const sha512: {
     (this: void, s: string): string;
-    ['new'](key?: string, initialValue?: string): Incremental;
+    ['new'](this: void, key?: string, initialValue?: string): Incremental;
   };
 }
 
@@ -167,7 +167,7 @@ export declare namespace hmac {
    */
   export const md4: {
     (this: void, key: string, s: string): string;
-    ['new'](key: string, initialValue?: string): Incremental;
+    ['new'](this: void, key: string, initialValue?: string): Incremental;
   };
 
   /**
@@ -175,7 +175,7 @@ export declare namespace hmac {
    */
   export const md4_hex: {
     (this: void, key: string, s: string): string;
-    ['new'](key: string, initialValue?: string): Incremental;
+    ['new'](this: void, key: string, initialValue?: string): Incremental;
   };
 
   /**
@@ -183,7 +183,7 @@ export declare namespace hmac {
    */
   export const md5: {
     (this: void, key: string, s: string): string;
-    ['new'](key: string, initialValue?: string): Incremental;
+    ['new'](this: void, key: string, initialValue?: string): Incremental;
   };
 
   /**
@@ -191,7 +191,7 @@ export declare namespace hmac {
    */
   export const md5_hex: {
     (this: void, key: string, s: string): string;
-    ['new'](key: string, initialValue?: string): Incremental;
+    ['new'](this: void, key: string, initialValue?: string): Incremental;
   };
 
   /**
@@ -199,7 +199,7 @@ export declare namespace hmac {
    */
   export const ripemd160: {
     (this: void, key: string, s: string): string;
-    ['new'](key: string, initialValue?: string): Incremental;
+    ['new'](this: void, key: string, initialValue?: string): Incremental;
   };
 
   /**
@@ -207,7 +207,7 @@ export declare namespace hmac {
    */
   export const ripemd160_hex: {
     (this: void, key: string, s: string): string;
-    ['new'](key: string, initialValue?: string): Incremental;
+    ['new'](this: void, key: string, initialValue?: string): Incremental;
   };
 
   /**
@@ -215,7 +215,7 @@ export declare namespace hmac {
    */
   export const sha1: {
     (this: void, key: string, s: string): string;
-    ['new'](key: string, initialValue?: string): Incremental;
+    ['new'](this: void, key: string, initialValue?: string): Incremental;
   };
 
   /**
@@ -223,7 +223,7 @@ export declare namespace hmac {
    */
   export const sha1_hex: {
     (this: void, key: string, s: string): string;
-    ['new'](key: string, initialValue?: string): Incremental;
+    ['new'](this: void, key: string, initialValue?: string): Incremental;
   };
 
   /**
@@ -231,7 +231,7 @@ export declare namespace hmac {
    */
   export const sha224: {
     (this: void, key: string, s: string): string;
-    ['new'](key: string, initialValue?: string): Incremental;
+    ['new'](this: void, key: string, initialValue?: string): Incremental;
   };
 
   /**
@@ -239,7 +239,7 @@ export declare namespace hmac {
    */
   export const sha224_hex: {
     (this: void, key: string, s: string): string;
-    ['new'](key: string, initialValue?: string): Incremental;
+    ['new'](this: void, key: string, initialValue?: string): Incremental;
   };
 
   /**
@@ -247,7 +247,7 @@ export declare namespace hmac {
    */
   export const sha256: {
     (this: void, key: string, s: string): string;
-    ['new'](key: string, initialValue?: string): Incremental;
+    ['new'](this: void, key: string, initialValue?: string): Incremental;
   };
 
   /**
@@ -255,7 +255,7 @@ export declare namespace hmac {
    */
   export const sha256_hex: {
     (this: void, key: string, s: string): string;
-    ['new'](key: string, initialValue?: string): Incremental;
+    ['new'](this: void, key: string, initialValue?: string): Incremental;
   };
 
   /**
@@ -263,7 +263,7 @@ export declare namespace hmac {
    */
   export const sha384: {
     (this: void, key: string, s: string): string;
-    ['new'](key: string, initialValue?: string): Incremental;
+    ['new'](this: void, key: string, initialValue?: string): Incremental;
   };
 
   /**
@@ -271,7 +271,7 @@ export declare namespace hmac {
    */
   export const sha384_hex: {
     (this: void, key: string, s: string): string;
-    ['new'](key: string, initialValue?: string): Incremental;
+    ['new'](this: void, key: string, initialValue?: string): Incremental;
   };
 
   /**
@@ -279,7 +279,7 @@ export declare namespace hmac {
    */
   export const sha512: {
     (this: void, key: string, s: string): string;
-    ['new'](key: string, initialValue?: string): Incremental;
+    ['new'](this: void, key: string, initialValue?: string): Incremental;
   };
 
   /**
@@ -287,6 +287,6 @@ export declare namespace hmac {
    */
   export const sha512_hex: {
     (this: void, key: string, s: string): string;
-    ['new'](key: string, initialValue?: string): Incremental;
+    ['new'](this: void, key: string, initialValue?: string): Incremental;
   };
 }
