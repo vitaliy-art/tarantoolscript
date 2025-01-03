@@ -15,7 +15,7 @@ export interface Client {
    * - `response_object`;
    * - `io_object` if `request_options.chunked` is set to `true`.
    */
-  request(method: HttpMethod, url: string, body?: string, opts?: RequestOptions & { chunked: true }): IoObject;
+  request(method: HttpMethod, url: string, body?: string, opts?: RequestOptions): ResponseObject;
 
   /**
    * Make an HTTP request and receive a response.
@@ -27,7 +27,7 @@ export interface Client {
    * - `response_object`;
    * - `io_object` if `request_options.chunked` is set to `true`.
    */
-  request(method: HttpMethod, url: string, body?: string, opts?: RequestOptions): ResponseObject;
+  request(method: HttpMethod, url: string, body?: string, opts?: RequestOptions & { chunked: true }): IoObject;
 
   /**
    * Make a `GET` request and receive a response.
@@ -58,7 +58,7 @@ export interface Client {
    * - `response_object`;
    * - `io_object` if `request_options.chunked` is set to `true`.
    */
-  post(url: string, body?: AnyTable, opts?: RequestOptions & { chunked: true }): IoObject;
+  post(url: string, body?: AnyTable, opts?: RequestOptions): ResponseObject;
 
   /**
    * Make a `POST` request and receive a response.
@@ -69,7 +69,7 @@ export interface Client {
    * - `response_object`;
    * - `io_object` if `request_options.chunked` is set to `true`.
    */
-  post(url: string, body?: AnyTable, opts?: RequestOptions): ResponseObject;
+  post(url: string, body?: AnyTable, opts?: RequestOptions & { chunked: true }): IoObject;
 
   /**
    * Make a `PUT` request and receive a response.
