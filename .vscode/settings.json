@@ -26,5 +26,5 @@
     "xlog"
   ],
   "Lua.diagnostics.globals": ["box"],
-  "editor.formatOnSave": false
+  "editor.formatOnSave": true
 }
