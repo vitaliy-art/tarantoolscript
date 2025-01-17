@@ -6,7 +6,6 @@
 /** @todo merger https://www.tarantool.io/en/doc/latest/reference/reference_lua/merger/ */
 /** @todo pickle https://www.tarantool.io/en/doc/latest/reference/reference_lua/pickle/ */
 /** @todo popen https://www.tarantool.io/en/doc/latest/reference/reference_lua/pickle/ */
-/** @todo socket https://www.tarantool.io/en/doc/latest/reference/reference_lua/socket/ */
 /** @todo swim https://www.tarantool.io/en/doc/latest/reference/reference_lua/swim/ */
 /** @todo tap https://www.tarantool.io/en/doc/latest/reference/reference_lua/tap/ */
 /** @todo debug https://www.tarantool.io/en/doc/latest/reference/reference_lua/debug_facilities/ */
