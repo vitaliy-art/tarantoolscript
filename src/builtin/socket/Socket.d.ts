@@ -1,6 +1,12 @@
 /** @noSelfInFile */
 
-import { DomainFamily, Protocol, SocketType } from './Constants';
+import {
+  AIFlag,
+  DomainFamily,
+  Protocol,
+  SendFlag,
+  SocketType,
+} from './Constants';
 import { SocketInfo } from './SocketInfo';
 import { SocketObject } from './SocketObject';
 import { SocketOptionList } from './SocketOptionList';
@@ -143,3 +149,11 @@ export declare function iowait(
   readOrWriteFlags: 'R' | 1 | 'W' | 2 | 'RW' | 3,
   timeout?: number,
 ): 'R' | 1 | 'W' | 2 | 'RW' | 3 | '';
+
+export declare const internal: {
+  SO_TYPE: { [key in SocketType]: number };
+  protocols: { [key in Protocol]: number };
+  SEND_FLAGS: { [key in SendFlag]: number };
+  DOMAIN: { [key in DomainFamily]: number };
+  AI_FLAGS: { [key in AIFlag]: number };
+};
