@@ -173,7 +173,7 @@ export interface SocketObject {
    * @returns error message.
    * @see https://www.tarantool.io/en/doc/latest/reference/reference_lua/socket/#lua-function.socket_object.error
    */
-  error(): string;
+  error(): string | undefined;
 
   /**
    * Retrieve information about the last error that occurred on a socket, if any.

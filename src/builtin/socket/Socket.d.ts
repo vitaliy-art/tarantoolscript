@@ -37,7 +37,9 @@ export declare function tcp_connect(
   host: string,
   port?: number,
   timeout?: number,
-): LuaMultiReturn<[SocketObject]> | LuaMultiReturn<[undefined, string]>;
+):
+  | LuaMultiReturn<[SocketObject, undefined]>
+  | LuaMultiReturn<[undefined, string]>;
 
 /**
  * Useful for finding information about a remote site so that the correct arguments for `sock:sysconnect()` can be passed.
@@ -65,6 +67,7 @@ export declare function getaddrinfo(
           protocol: string;
           port: number;
         },
+        undefined,
       ]
     >
   | LuaMultiReturn<[undefined, string]>;
@@ -93,6 +96,7 @@ export declare function getaddrinfo(
           protocol: string;
           port: number;
         },
+        undefined,
       ]
     >
   | LuaMultiReturn<[undefined, string]>;
@@ -111,12 +115,15 @@ export declare function tcp_server(
   port: number,
   handler:
     | {
-        prepare: (this: void, sock: SocketObject) => unknown;
-        handler: (this: void, sock: SocketObject, from: SocketInfo) => unknown;
+        prepare?: (this: void, sock: SocketObject) => unknown;
+        handler?: (this: void, sock: SocketObject, from: SocketInfo) => unknown;
+        name?: string;
       }
     | ((this: void, ...args: any[]) => unknown),
   timeout?: number,
-): LuaMultiReturn<[SocketObject]> | LuaMultiReturn<[undefined, string]>;
+):
+  | LuaMultiReturn<[SocketObject, undefined]>
+  | LuaMultiReturn<[undefined, string]>;
 
 /**
  * Bind a socket to the given host/port. This is equivalent to `socket_object:bind()`,
@@ -129,7 +136,7 @@ export declare function tcp_server(
 export declare function bind(
   host: string,
   port: number,
-): LuaMultiReturn<[LuaTable]> | LuaMultiReturn<[undefined, string]>;
+): LuaMultiReturn<[LuaTable, undefined]> | LuaMultiReturn<[undefined, string]>;
 
 /**
  * The `socket.iowait()` function is used to wait until read-or-write activity occurs for a file descriptor.
