@@ -1,6 +1,6 @@
 {
   "name": "tarantoolscript",
-  "version": "0.35.4",
+  "version": "0.36.0",
   "author": "Vitaliy Artemov olivera507224@yandex.ru",
   "description": "TypeScript definitions for Tarantool Lua API.",
   "repository": {
@@ -31,14 +31,14 @@
   ],
   "devDependencies": {
     "@eslint/eslintrc": "^3.2.0",
-    "@eslint/js": "^9.19.0",
-    "@typescript-eslint/eslint-plugin": "^8.21.0",
-    "@typescript-eslint/parser": "^8.21.0",
-    "eslint": "^9.19.0",
+    "@eslint/js": "^9.20.0",
+    "@typescript-eslint/eslint-plugin": "^8.24.0",
+    "@typescript-eslint/parser": "^8.24.0",
+    "eslint": "^9.20.1",
     "eslint-plugin-tsdoc": "^0.4.0",
     "globals": "^15.14.0",
     "typescript": "^5.7.2",
-    "typescript-to-lua": "^1.29.1"
+    "typescript-to-lua": "^1.30.1"
   },
   "types": "./src/index.d.ts",
   "dependencies": {
