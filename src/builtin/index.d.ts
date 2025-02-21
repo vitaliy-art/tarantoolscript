@@ -13,6 +13,7 @@
 export * from './box';
 export * from './buffer';
 export * from './checks';
+export * from './compat';
 export * from './csv';
 export * from './datetime';
 export * from './extra';
