@@ -328,7 +328,7 @@ export declare type FunIterator<
    * @returns A table (array) from iterated values.
    * @see {@link https://luafun.github.io/reducing.html#fun.totable}
    */
-  totable(): TReturn[];
+  totable(): TReturn extends [infer TFirst, ...unknown[]] ? TFirst[] : never;
 
   /**
    * The function reduces the iterator from left to right using `tab[val1] = val2` expression.
