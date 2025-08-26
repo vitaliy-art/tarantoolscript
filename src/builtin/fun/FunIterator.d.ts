@@ -328,14 +328,20 @@ export declare type FunIterator<
    * @returns A table (array) from iterated values.
    * @see {@link https://luafun.github.io/reducing.html#fun.totable}
    */
-  totable(): TReturn[];
+  totable(): TReturn extends [infer TFirst, ...unknown[]] ? TFirst[] : never;
 
   /**
    * The function reduces the iterator from left to right using `tab[val1] = val2` expression.
    * @returns A new table (map) from iterated values.
    * @see {@link https://luafun.github.io/reducing.html#fun.tomap}
    */
-  tomap(): TReturn extends string | unknown[] ? [] : AnyTable;
+  tomap(): TReturn extends string | [unknown]
+    ? []
+    : TReturn extends [infer TFirst, infer TSecond, ...unknown[]]
+    ? TFirst extends AnyNotNil
+      ? LuaTable<TFirst, TSecond>
+      : never
+    : never;
 
   /**
    * Returns `true` if the iterator is a prefix of the `right`.
