@@ -19,14 +19,22 @@ export interface HttpServerObject {
    * The handler can also be passed as a string of the form `filename#functionname`.
    * In that case, the handler body is taken from a file in the `{app_dir}/controllers directory`.
    */
-  route(options: HttpRouteOptions, handler: string | ((request: HttpRequest) => HttpResponse)): void;
+  route(
+    options: HttpRouteOptions,
+    handler: string | ((this: void, request: HttpRequest) => HttpResponse),
+  ): void;
 
   /**
    * Helpers are special functions that are available in all HTML templates. These functions must be defined when creating an `httpd` object.
    *
    * If `handler` is `undefined`, helper will be deleted.
    */
-  helper(name: string, handler: ((controller: unknown, ...args: unknown[]) => unknown) | undefined): void;
+  helper(
+    name: string,
+    handler:
+      | ((this: void, controller: unknown, ...args: unknown[]) => unknown)
+      | undefined,
+  ): void;
 
   /**
    * Is invoked before a request is routed to a handler. The first argument of the hook is the HTTP request to be handled.
@@ -34,7 +42,11 @@ export interface HttpServerObject {
    *
    * This hook could be used to log a request, or modify request headers.
    */
-  before_dispatch?: (httpd: HttpServerObject, request: HttpRequest) => unknown;
+  before_dispatch?: (
+    this: void,
+    httpd: HttpServerObject,
+    request: HttpRequest,
+  ) => unknown;
 
   /**
    * Is invoked after a handler for a route is executed.
@@ -43,5 +55,9 @@ export interface HttpServerObject {
    *
    * This hook can be used to modify the response. The return value of the hook is ignored.
    */
-  after_dispatch?: (request: HttpRequest, response: HttpResponse) => unknown;
+  after_dispatch?: (
+    this: void,
+    request: HttpRequest,
+    response: HttpResponse,
+  ) => unknown;
 }
