@@ -115,6 +115,6 @@
     "tstlVerbose": true,
     "noResolvePaths": [
       "luatest"
-    ],
+    ]
   }
 }
