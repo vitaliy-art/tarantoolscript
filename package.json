@@ -37,7 +37,7 @@
     "eslint": "^10.2.0",
     "eslint-plugin-tsdoc": "^0.5.2",
     "globals": "^17.4.0",
-    "typescript": "^5.9.3",
+    "typescript": "^6.0.3",
     "typescript-to-lua": "^1.34.0"
   },
   "types": "./src/index.d.ts",
