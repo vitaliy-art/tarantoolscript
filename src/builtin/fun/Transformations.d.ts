@@ -1,7 +1,7 @@
 /** @noSelfInFile */
 
-import { IterParams } from "./Basic";
-import { FunIterator } from "./FunIterator";
+import { IterParams } from './Basic';
+import { FunIterator } from './FunIterator';
 
 /**
  * Return a new iterator by applying the `fun` to each element of array.

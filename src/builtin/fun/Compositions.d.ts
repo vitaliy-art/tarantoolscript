@@ -1,7 +1,7 @@
 /** @noSelfInFile */
 
-import { IterParams } from "./Basic";
-import { FunIterator } from "./FunIterator";
+import { IterParams } from './Basic';
+import { FunIterator } from './FunIterator';
 
 /**
  * Return a new iterator where i-th return value contains the i-th element from each of the iterators.

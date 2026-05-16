@@ -1,1 +1,1 @@
-export * from "./builtin/fun/Fun";
+export * from './builtin/fun/Fun';

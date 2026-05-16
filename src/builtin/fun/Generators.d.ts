@@ -1,6 +1,6 @@
 /** @noSelfInFile */
 
-import { FunIterator } from "./FunIterator";
+import { FunIterator } from './FunIterator';
 
 /**
  * The iterator to create arithmetic progressions.

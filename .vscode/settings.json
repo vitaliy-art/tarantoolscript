@@ -25,6 +25,9 @@
     "xfail",
     "xlog"
   ],
-  "Lua.diagnostics.globals": ["box"],
-  "editor.formatOnSave": true
+  "Lua.diagnostics.globals": [
+    "box"
+  ],
+  "editor.formatOnSave": true,
+  "js/ts.tsdk.path": "node_modules\\typescript\\lib"
 }

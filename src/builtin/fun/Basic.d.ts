@@ -1,6 +1,6 @@
 /** @noSelfInFile */
 
-import { FunIterator } from "./FunIterator";
+import { FunIterator } from './FunIterator';
 
 /**
  * Make `gen`, `param`, `state` iterator from the iterable object. The function is a generalized version of pairs() and ipairs().

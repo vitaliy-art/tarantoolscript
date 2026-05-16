@@ -1,7 +1,7 @@
 /** @noSelfInFile */
 
-import { IterParams } from "./Basic";
-import { FunIterator } from "./FunIterator";
+import { IterParams } from './Basic';
+import { FunIterator } from './FunIterator';
 
 /**
  * The function reduces the array from left to right using the binary operator `accfun` and the initial value `initval`.

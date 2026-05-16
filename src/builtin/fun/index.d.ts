@@ -1,1 +1,1 @@
-export * from "./FunIterator";
+export * from './FunIterator';

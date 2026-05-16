@@ -1,7 +1,7 @@
 /** @noSelfInFile */
 
-import { IterParams } from "./Basic";
-import { FunIterator } from "./FunIterator";
+import { IterParams } from './Basic';
+import { FunIterator } from './FunIterator';
 
 /**
  * The function returns the position of the first element in the array which is equal (using `==`) to the query element,
