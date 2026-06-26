@@ -35,6 +35,7 @@
     "@typescript-eslint/eslint-plugin": "^8.59.3",
     "@typescript-eslint/parser": "^8.59.3",
     "eslint": "^10.4.0",
+    "eslint-formatter-unix": "^9.0.1",
     "eslint-plugin-tsdoc": "^0.5.2",
     "globals": "^17.6.0",
     "typescript": "^6.0.2",
